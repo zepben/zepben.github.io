@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{67:function(e){e.exports=JSON.parse('{"version":"current","label":"Next","isLast":true,"docsSidebars":{"sidebar":[{"type":"link","label":"Guide","href":"/evolve/docs/smart-load-database-creator/"}]},"permalinkToSidebar":{"/evolve/docs/smart-load-database-creator/":"sidebar"}}')}}]);
