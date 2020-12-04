@@ -1,0 +1,28 @@
+name: Deploy Evolve docs
+
+on: 
+  repository_dispatch:
+    types: [deploy-docs]
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download doc site and put in the appropriate directory
+        run: |
+          curl -v -L -u "zepben-ci:${CI_GITHUB_TOKEN}" -o docs.zip ${{ github.event.client_payload.download_url }}
+          rm -rf ./evolve/docs/${{ github.event.client_payload.product_key }}
+          mkdir ./evolve/docs/${{ github.event.client_payload.product_key }}
+          unzip docs.zip -d ./evolve/docs/${{ github.event.client_payload.product_key }}
+          git add ./evolve/docs/${{ github.event.client_payload.product_key }}/*
+          staged_files=$(git diff --staged --name-only "${docs_path}*")
+          if [[ ! -z "$staged_files" ]]; then
+          git config user.email "ci.github@zepben.com"
+          git config user.name "Github CI"
+          git commit -m "Updated site for ${{ github.event.client_payload.product_key }}"
+          git push origin master
+          fi
+        shell: bash
+        env:
+          CI_GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
