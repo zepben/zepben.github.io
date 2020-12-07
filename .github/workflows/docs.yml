@@ -9,9 +9,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download doc site and put in the appropriate directory
+      - name: Download doc site from GitHub
+        if: contains(github.event.client_payload.download_url, 'github.com')
         run: |
           curl -v -L -u "zepben-ci:${CI_GITHUB_TOKEN}" -o docs.zip ${{ github.event.client_payload.download_url }}
+        shell: bash
+        env:
+          CI_GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
+
+      - name: Download doc site from Bitbucket
+        if: contains(github.event.client_payload.download_url, 'bitbucket.org')
+        run: |
+          curl -v -L -u "${CI_BB_USERNAME}:${CI_BB_TOKEN}" -o docs.zip ${{ github.event.client_payload.download_url }}
+        shell: bash
+        env:
+          CI_BB_USERNAME: ${{ secrets.CI_BB_USERNAME }}
+          CI_BB_TOKEN: ${{ secrets.CI_BB_TOKEN }}
+
+      - name: Replace docs site with the downloaded one
+        run: |
           rm -rf ./evolve/docs/${{ github.event.client_payload.product_key }}
           mkdir ./evolve/docs/${{ github.event.client_payload.product_key }}
           unzip docs.zip -d ./evolve/docs/${{ github.event.client_payload.product_key }}
@@ -24,5 +40,3 @@ jobs:
           git push origin master
           fi
         shell: bash
-        env:
-          CI_GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
