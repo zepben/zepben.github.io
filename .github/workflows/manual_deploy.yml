@@ -1,0 +1,22 @@
+name: Manual Deploy Evolve docs
+
+on: 
+  workflow_dispatch:
+    inputs:
+      product-key:
+        description: 'Directory name of the product under evolve/docs/'
+        required: true
+      download-url:
+        description: 'Download URL'
+        required: true
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy documentation
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
+          repository: ${{ secrets.DOCS_REPO }}
+          event-type: ${{ secrets.DOCS_REPO_EVOLVE_WORKFLOW }}
+          client-payload: '{"product_key": "${{ github.event.inputs.product-key }}", "download_url": "${{ github.event.inputs.download-url }}"}'

@@ -2,7 +2,7 @@ name: Deploy Evolve docs
 
 on: 
   repository_dispatch:
-    types: [deploy-docs]
+    types: [deploy-evolve-docs]
 
 jobs:
   deploy-docs:
