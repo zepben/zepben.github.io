@@ -136,7 +136,7 @@ geoJsonPointGeometry:
       enum:
         - Point
     coordinates:
-      $ref: '#/geoJsonCoord'
+      $ref: '../v1-schemas.yaml#/geoJsonCoord'
 geoJsonNodeProperties:
   type: object
   required:
@@ -176,7 +176,7 @@ geoJsonLineStringGeometry:
       enum:
         - LineString
     coordinates:
-      $ref: '#/geoJsonCoordArray'
+      $ref: '../v1-schemas.yaml#/geoJsonCoordArray'
 geoJsonConductorProperties:
   type: object
   required:

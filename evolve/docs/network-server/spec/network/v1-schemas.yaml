@@ -749,3 +749,31 @@ loop:
       $ref: '../v1-network-schemas.yaml#/stringArray'
     circuitMRIDs:
       $ref: '../v1-network-schemas.yaml#/stringArray'
+applicationInfo:
+  type: object
+  required:
+    - title
+    - version
+  properties:
+    title:
+      type: string
+    version:
+      type: string
+dataSourceArray:
+  type: array
+  items:
+    $ref: '#/dataSource'
+dataSource:
+  type: object
+  required:
+    - source
+    - version
+    - timestamp
+  properties:
+    source:
+      type: string
+    version:
+      type: string
+    timestamp:
+      type: string
+      format: date-time
