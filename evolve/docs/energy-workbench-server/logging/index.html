@@ -7,17 +7,21 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-81287323-1","auto"),ga("send","pageview")</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-<link rel="search" type="application/opensearchdescription+xml" title="Energy Workbench Server" href="/evolve/docs/energy-workbench-server/opensearch.xml"><title data-react-helmet="true">Logging | Energy Workbench Server</title><meta data-react-helmet="true" name="docsearch:version" content="current,latest"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Logging | Energy Workbench Server"><meta data-react-helmet="true" name="description" content="Logging in the server and each tool is handled by Logback - an open source Java logging library."><meta data-react-helmet="true" property="og:description" content="Logging in the server and each tool is handled by Logback - an open source Java logging library."><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/evolve/docs/energy-workbench-server/logging"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/energy-workbench-server/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://IU0L20J0JX-dsn.algolia.net" crossorigin="true"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/evolve/docs/energy-workbench-server/logging"><link rel="stylesheet" href="/evolve/docs/energy-workbench-server/styles.c980b5ec.css">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/styles.fbfce1a2.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/runtime~main.f2a6e330.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/main.9ecd14df.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/2.8751972a.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/3.6d5a72b6.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/32.2027831f.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/35.1e50d9d9.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/f976f453.cd5fe21c.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/17896441.c584883f.js" as="script">
-<link rel="preload" href="/evolve/docs/energy-workbench-server/3008ef82.d6e2824a.js" as="script">
+<link rel="search" type="application/opensearchdescription+xml" title="Energy Workbench Server" href="/evolve/docs/energy-workbench-server/opensearch.xml"><title data-react-helmet="true">Logging | Energy Workbench Server</title><meta data-react-helmet="true" name="docsearch:version" content="current,latest"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" property="og:title" content="Logging | Energy Workbench Server"><meta data-react-helmet="true" name="description" content="Logging in the server and each tool is handled by Logback - an open source Java logging library."><meta data-react-helmet="true" property="og:description" content="Logging in the server and each tool is handled by Logback - an open source Java logging library."><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/evolve/docs/energy-workbench-server/logging"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/energy-workbench-server/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="true"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/evolve/docs/energy-workbench-server/logging"><link rel="stylesheet" href="/evolve/docs/energy-workbench-server/styles.7c4dc5f0.css">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/styles.37eb017f.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/runtime~main.f2590169.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/main.467190fb.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/2.f5ca9b8d.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/3.95a0a909.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/16409a2e.7a8dd0af.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/1be78505.6e076e21.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/1f391b9e.6665d95a.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/2dfd0a79.bd13e1ad.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/35.93634f20.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/34.f619889f.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/f976f453.341f2cbb.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/17896441.06bbce7a.js" as="script">
+<link rel="preload" href="/evolve/docs/energy-workbench-server/3008ef82.2d331df0.js" as="script">
 </head>
 <body>
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -34,16 +38,20 @@ The default configuration that the EWB server and tools use is as follows:</p><d
 the directory that the jar was launched from). To specify a specific logs directory, you can add a Java system property
 argument when launching the jar.</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-undefined codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token plain">java -DlogsPath=/path/to/logs/dir/ -jar ...</span></div></div></div></div></div><p>The <code>ewb_server.sh</code> script, and running the data tools via the <code>ewb_daily.sh</code> script make use of this argument passing
 in the <code>EWB_LOGS_DIR</code> variable from <code>ewb.conf</code>.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="custom-logback-config"></a>Custom Logback Config<a aria-hidden="true" tabindex="-1" class="hash-link" href="#custom-logback-config" title="Direct link to heading">#</a></h3><p>To make use of your own custom Logback configuration, a Java system property needs to be set when invoking any of the jars.
-For example:</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-undefined codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token plain">java -Dlogback.configurationFile=&lt;path to logback XML file&gt; -jar ...</span></div></div></div></div></div><p>Logback provides extensive configuration options all documented on their <a href="http://logback.qos.ch/manual/index.html" target="_blank" rel="noopener noreferrer">website</a>.</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/evolve/docs/energy-workbench-server/results-cache"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« Results Cache</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/evolve/docs/energy-workbench-server/keep-level-spec"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Keep Level Specification »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#logs-directory" class="table-of-contents__link">Logs Directory</a></li><li><a href="#custom-logback-config" class="table-of-contents__link">Custom Logback Config</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="text--center"><div>Copyright © 2020 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
-<script src="/evolve/docs/energy-workbench-server/styles.fbfce1a2.js"></script>
-<script src="/evolve/docs/energy-workbench-server/runtime~main.f2a6e330.js"></script>
-<script src="/evolve/docs/energy-workbench-server/main.9ecd14df.js"></script>
-<script src="/evolve/docs/energy-workbench-server/2.8751972a.js"></script>
-<script src="/evolve/docs/energy-workbench-server/3.6d5a72b6.js"></script>
-<script src="/evolve/docs/energy-workbench-server/32.2027831f.js"></script>
-<script src="/evolve/docs/energy-workbench-server/35.1e50d9d9.js"></script>
-<script src="/evolve/docs/energy-workbench-server/f976f453.cd5fe21c.js"></script>
-<script src="/evolve/docs/energy-workbench-server/17896441.c584883f.js"></script>
-<script src="/evolve/docs/energy-workbench-server/3008ef82.d6e2824a.js"></script>
+For example:</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-undefined codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token plain">java -Dlogback.configurationFile=&lt;path to logback XML file&gt; -jar ...</span></div></div></div></div></div><p>Logback provides extensive configuration options all documented on their <a href="http://logback.qos.ch/manual/index.html" target="_blank" rel="noopener noreferrer">website</a>.</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/evolve/docs/energy-workbench-server/results-cache"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« Results Cache</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/evolve/docs/energy-workbench-server/keep-level-spec"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Keep Level Specification »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#logs-directory" class="table-of-contents__link">Logs Directory</a></li><li><a href="#custom-logback-config" class="table-of-contents__link">Custom Logback Config</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="text--center"><div>Copyright © 2021 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
+<script src="/evolve/docs/energy-workbench-server/styles.37eb017f.js"></script>
+<script src="/evolve/docs/energy-workbench-server/runtime~main.f2590169.js"></script>
+<script src="/evolve/docs/energy-workbench-server/main.467190fb.js"></script>
+<script src="/evolve/docs/energy-workbench-server/2.f5ca9b8d.js"></script>
+<script src="/evolve/docs/energy-workbench-server/3.95a0a909.js"></script>
+<script src="/evolve/docs/energy-workbench-server/16409a2e.7a8dd0af.js"></script>
+<script src="/evolve/docs/energy-workbench-server/1be78505.6e076e21.js"></script>
+<script src="/evolve/docs/energy-workbench-server/1f391b9e.6665d95a.js"></script>
+<script src="/evolve/docs/energy-workbench-server/2dfd0a79.bd13e1ad.js"></script>
+<script src="/evolve/docs/energy-workbench-server/35.93634f20.js"></script>
+<script src="/evolve/docs/energy-workbench-server/34.f619889f.js"></script>
+<script src="/evolve/docs/energy-workbench-server/f976f453.341f2cbb.js"></script>
+<script src="/evolve/docs/energy-workbench-server/17896441.06bbce7a.js"></script>
+<script src="/evolve/docs/energy-workbench-server/3008ef82.2d331df0.js"></script>
 </body>
 </html>
