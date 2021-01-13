@@ -1,0 +1,15 @@
+get:
+  tags:
+    - Patch v1
+  summary: Retrieve any load manipulations detected by the patch engine.
+  description: >-
+    Used to retrieve a list of all load manipulations detected by the patch engine that should be considered when applying load to the patched network.
+
+
+    If the values array for a particular manipulation has multiple values they should be considered readings from evenly spaced intervals across a standard 24 hour day.
+  operationId: loadManipulations
+  parameters:
+    - $ref: '../v1-patch-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-load-manipulations.yaml'
