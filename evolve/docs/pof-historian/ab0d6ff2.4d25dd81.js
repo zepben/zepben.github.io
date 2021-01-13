@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{67:function(e){e.exports=JSON.parse('{"version":"1.3.3","label":"1.3.3","isLast":true,"docsSidebars":{"version-1.3.3/sidebar":[{"type":"link","label":"Overview","href":"/evolve/docs/pof-historian/"}]},"permalinkToSidebar":{"/evolve/docs/pof-historian/":"version-1.3.3/sidebar"}}')}}]);
