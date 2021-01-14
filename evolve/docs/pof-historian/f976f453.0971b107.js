@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{83:function(e){e.exports=JSON.parse('{"pluginId":"default","version":"current","label":"Next","isLast":false,"docsSidebars":{"sidebar":[{"type":"link","label":"Overview","href":"/evolve/docs/pof-historian/next/"}]},"permalinkToSidebar":{"/evolve/docs/pof-historian/next/":"sidebar"}}')}}]);
