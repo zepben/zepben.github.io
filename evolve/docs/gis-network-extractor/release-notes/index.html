@@ -8,16 +8,16 @@
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-81287323-1","auto"),ga("send","pageview")</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 <link rel="search" type="application/opensearchdescription+xml" title="GIS Network Extractor" href="/evolve/docs/gis-network-extractor/opensearch.xml"><title data-react-helmet="true">GIS Network Extractor</title><meta data-react-helmet="true" property="og:title" content="GIS Network Extractor"><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/gis-network-extractor/evolve/docs/gis-network-extractor/release-notes"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/gis-network-extractor/img/favicon.ico"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/gis-network-extractor/evolve/docs/gis-network-extractor/release-notes"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="true"><link rel="stylesheet" href="/evolve/docs/gis-network-extractor/styles.1edb5451.css">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/styles.a99b5dfc.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/runtime~main.7678b36b.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/main.1fd62869.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/common.8c98ac80.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/2.4f70d36e.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/1be78505.528f2309.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/1f391b9e.bee023a8.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/9e2094ca.215510b9.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/20.7e7ea378.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/14609be1.aeaac491.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/styles.f9e374f2.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/runtime~main.fc008fe2.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/main.597ca662.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/common.f4e921e5.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/2.f229fddb.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/1be78505.c0fa00cb.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/1f391b9e.c763abad.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/b744841b.84b22333.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/20.2b00e1cc.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/eb925b25.a81db039.js" as="script">
 </head>
 <body>
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -27,15 +27,15 @@ the first connector of a multi segment line.</li></ul><h5><a aria-hidden="true" 
 a key of <code>cableTypes</code>. See notes for more details.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="new-features-17"></a>New Features<a aria-hidden="true" tabindex="-1" class="hash-link" href="#new-features-17" title="Direct link to heading">#</a></h5><ul><li>Conductor paths are now processed.</li><li>Added support for processing LV files.</li><li>Added support for processing sub-transmission files.</li><li>Operational restrictions can now be extracted via a connection to PowerOn Fusion. Please refer to the
 documentation for details.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="enhancements-17"></a>Enhancements<a aria-hidden="true" tabindex="-1" class="hash-link" href="#enhancements-17" title="Direct link to heading">#</a></h5><ul><li>None.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="fixes-17"></a>Fixes<a aria-hidden="true" tabindex="-1" class="hash-link" href="#fixes-17" title="Direct link to heading">#</a></h5><ul><li>Voltages are now spread correctly to nodes.</li><li>Now only collapsing junctions when stitching conductors.</li><li>Populating feeder names from the <code>hvFeeder</code> field rather than the filename, fixing the names of feeders
 when there is a date/time in the filename.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="notes-17"></a>Notes<a aria-hidden="true" tabindex="-1" class="hash-link" href="#notes-17" title="Direct link to heading">#</a></h5><ul><li>Cables types configration needs to be updated in the following manor:</li></ul><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div tabindex="0" class="prism-code language-undefined codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token plain">{</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    &quot;cableTypes&quot;: &lt;OLD_CONFIG_CONTENTS&gt;</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">}</span></div></div></div></div></div><hr><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="v110-1"></a>v1.1.0<a aria-hidden="true" tabindex="-1" class="hash-link" href="#v110-1" title="Direct link to heading">#</a></h3><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="breaking-changes-18"></a>Breaking Changes<a aria-hidden="true" tabindex="-1" class="hash-link" href="#breaking-changes-18" title="Direct link to heading">#</a></h5><ul><li>Now exporting to v10.0 of the network database.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="new-features-18"></a>New Features<a aria-hidden="true" tabindex="-1" class="hash-link" href="#new-features-18" title="Direct link to heading">#</a></h5><ul><li>None.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="enhancements-18"></a>Enhancements<a aria-hidden="true" tabindex="-1" class="hash-link" href="#enhancements-18" title="Direct link to heading">#</a></h5><ul><li>Removed node to node fake connections.</li><li>Moved feeder start point to the first node.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="fixes-18"></a>Fixes<a aria-hidden="true" tabindex="-1" class="hash-link" href="#fixes-18" title="Direct link to heading">#</a></h5><ul><li>Removed trailing &quot;,1&quot; from all single segment conductors.</li></ul><h5><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_2cZh" id="notes-18"></a>Notes<a aria-hidden="true" tabindex="-1" class="hash-link" href="#notes-18" title="Direct link to heading">#</a></h5><ul><li>None.</li></ul></div></main></div><footer class="footer footer--dark"><div class="container"><div class="text--center"><div>Copyright © 2021 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
-<script src="/evolve/docs/gis-network-extractor/styles.a99b5dfc.js"></script>
-<script src="/evolve/docs/gis-network-extractor/runtime~main.7678b36b.js"></script>
-<script src="/evolve/docs/gis-network-extractor/main.1fd62869.js"></script>
-<script src="/evolve/docs/gis-network-extractor/common.8c98ac80.js"></script>
-<script src="/evolve/docs/gis-network-extractor/2.4f70d36e.js"></script>
-<script src="/evolve/docs/gis-network-extractor/1be78505.528f2309.js"></script>
-<script src="/evolve/docs/gis-network-extractor/1f391b9e.bee023a8.js"></script>
-<script src="/evolve/docs/gis-network-extractor/9e2094ca.215510b9.js"></script>
-<script src="/evolve/docs/gis-network-extractor/20.7e7ea378.js"></script>
-<script src="/evolve/docs/gis-network-extractor/14609be1.aeaac491.js"></script>
+<script src="/evolve/docs/gis-network-extractor/styles.f9e374f2.js"></script>
+<script src="/evolve/docs/gis-network-extractor/runtime~main.fc008fe2.js"></script>
+<script src="/evolve/docs/gis-network-extractor/main.597ca662.js"></script>
+<script src="/evolve/docs/gis-network-extractor/common.f4e921e5.js"></script>
+<script src="/evolve/docs/gis-network-extractor/2.f229fddb.js"></script>
+<script src="/evolve/docs/gis-network-extractor/1be78505.c0fa00cb.js"></script>
+<script src="/evolve/docs/gis-network-extractor/1f391b9e.c763abad.js"></script>
+<script src="/evolve/docs/gis-network-extractor/b744841b.84b22333.js"></script>
+<script src="/evolve/docs/gis-network-extractor/20.2b00e1cc.js"></script>
+<script src="/evolve/docs/gis-network-extractor/eb925b25.a81db039.js"></script>
 </body>
 </html>
