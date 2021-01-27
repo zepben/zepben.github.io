@@ -9,16 +9,16 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-81287323-1","auto"),ga("send","pageview")</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-<link rel="search" type="application/opensearchdescription+xml" title="GIS Network Extractor" href="/evolve/docs/gis-network-extractor/opensearch.xml"><title data-react-helmet="true">Overview | GIS Network Extractor</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="current"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-react-helmet="true" name="docsearch:project" content="gis-network-extractor"><meta data-react-helmet="true" property="og:title" content="Overview | GIS Network Extractor"><meta data-react-helmet="true" name="description" content="The GIS Network Extractor builds an Energy Workbench network model from GIS json files in conjunction with other data sources."><meta data-react-helmet="true" property="og:description" content="The GIS Network Extractor builds an Energy Workbench network model from GIS json files in conjunction with other data sources."><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/gis-network-extractor/evolve/docs/gis-network-extractor/next/"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/gis-network-extractor/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/gis-network-extractor/evolve/docs/gis-network-extractor/next/"><link rel="stylesheet" href="/evolve/docs/gis-network-extractor/styles.25ea64a3.css">
+<link rel="search" type="application/opensearchdescription+xml" title="GIS Network Extractor" href="/evolve/docs/gis-network-extractor/opensearch.xml"><title data-react-helmet="true">Overview | GIS Network Extractor</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="current"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-react-helmet="true" name="docsearch:project" content="gis-network-extractor"><meta data-react-helmet="true" property="og:title" content="Overview | GIS Network Extractor"><meta data-react-helmet="true" name="description" content="The GIS Network Extractor builds an Energy Workbench network model from GIS json files in conjunction with other data sources."><meta data-react-helmet="true" property="og:description" content="The GIS Network Extractor builds an Energy Workbench network model from GIS json files in conjunction with other data sources."><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/gis-network-extractor/evolve/docs/gis-network-extractor/next/"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/gis-network-extractor/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/gis-network-extractor/evolve/docs/gis-network-extractor/next/"><link rel="stylesheet" href="/evolve/docs/gis-network-extractor/styles.706a899c.css">
 <link rel="preload" href="/evolve/docs/gis-network-extractor/styles.f9a0f528.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/runtime~main.567f6bd2.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/main.42eab50d.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/common.7c370b75.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/16.d0ce9c44.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/runtime~main.68b9e7e5.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/main.ad6ed764.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/common.578eb0f7.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/16.64538947.js" as="script">
 <link rel="preload" href="/evolve/docs/gis-network-extractor/21.c297baec.js" as="script">
 <link rel="preload" href="/evolve/docs/gis-network-extractor/f976f453.661c72ae.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/17896441.a7d14639.js" as="script">
-<link rel="preload" href="/evolve/docs/gis-network-extractor/1c3425f3.2ce89cf3.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/17896441.122e5e51.js" as="script">
+<link rel="preload" href="/evolve/docs/gis-network-extractor/1c3425f3.03ba835e.js" as="script">
 </head>
 <body>
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -26,13 +26,13 @@
 As EWB deals with LV data, it also uses an LV mapping file to map meters and supply points to transformers in the
 network model.</p><p><img alt="Architecture" src="/evolve/docs/gis-network-extractor/assets/images/gis_network_extractor_dataflow_diagram-e5528a19cacfac9a31b8e0e233b528e4.png"></p><p>This tool will read the <em><strong>GIS JSON Network Data</strong></em> as well as multiple other sources of auxiliary information and converts it to an <em><strong>EWB Network</strong></em>.</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/evolve/docs/gis-network-extractor/next/input-files"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Input Files »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_2xL- thin-scrollbar"></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
 <script src="/evolve/docs/gis-network-extractor/styles.f9a0f528.js"></script>
-<script src="/evolve/docs/gis-network-extractor/runtime~main.567f6bd2.js"></script>
-<script src="/evolve/docs/gis-network-extractor/main.42eab50d.js"></script>
-<script src="/evolve/docs/gis-network-extractor/common.7c370b75.js"></script>
-<script src="/evolve/docs/gis-network-extractor/16.d0ce9c44.js"></script>
+<script src="/evolve/docs/gis-network-extractor/runtime~main.68b9e7e5.js"></script>
+<script src="/evolve/docs/gis-network-extractor/main.ad6ed764.js"></script>
+<script src="/evolve/docs/gis-network-extractor/common.578eb0f7.js"></script>
+<script src="/evolve/docs/gis-network-extractor/16.64538947.js"></script>
 <script src="/evolve/docs/gis-network-extractor/21.c297baec.js"></script>
 <script src="/evolve/docs/gis-network-extractor/f976f453.661c72ae.js"></script>
-<script src="/evolve/docs/gis-network-extractor/17896441.a7d14639.js"></script>
-<script src="/evolve/docs/gis-network-extractor/1c3425f3.2ce89cf3.js"></script>
+<script src="/evolve/docs/gis-network-extractor/17896441.122e5e51.js"></script>
+<script src="/evolve/docs/gis-network-extractor/1c3425f3.03ba835e.js"></script>
 </body>
 </html>
