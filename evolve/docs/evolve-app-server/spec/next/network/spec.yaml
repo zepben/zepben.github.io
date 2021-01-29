@@ -1,0 +1,117 @@
+openapi: 3.0.0
+servers:
+  - url: /network
+info:
+  title: EAS Network API
+  version: next
+paths:
+  /hierarchy:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve the network hierarchy.
+      description: >-
+        Used to retrieve the network hierarchy of feeders, zones, regions and businesses via EWB.
+        For the response spec, consult the energy workbench documentation for the version of EWB you are using.
+      operationId: hierarchy
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+
+  /feeder-assets/region/{regionId}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve the assets that belong to a feeder.
+      description: >-
+        Used to retrieve all the assets that belong to a feeder via EWB.
+        For the response spec, consult the energy workbench documentation for the version of EWB you are using.
+      operationId: feederAssets
+      parameters:
+        - name: regionId
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+
+  /assets/{assetId}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve data for the asset with the specified id.
+      description: >-
+        Used to request data for an asset via the asset's id via EWB.
+         For the response spec, consult the energy workbench documentation for the version of EWB you are using.
+      operationId: assetById
+      parameters:
+        - name: assetId
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+
+  /find/{search}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve assets that match criteria.
+      description: >-
+        Used to retrieve all assets that match the search string via EWB.
+        For the response spec, consult the energy workbench documentation for the version of EWB you are using.
+      operationId: findAssets
+      parameters:
+        - name: search
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+
+  /assets/by-location/{locationId}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve data for assets by a specified location.
+      description: >-
+        Used to request data for assets via the id of a Location, via EWB.
+        For the response spec, consult the energy workbench documentation for the version of EWB you are using.
+      operationId: assetsByLocation
+      parameters:
+        - name: locationId
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+
+  /trace/upstream/asset/{assetId}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Used to retrieve a list of assets connected immediately upstream from the specified asset.
+      description: >-
+        Used to retrieve a list of assets connected immediately upstream from the specified asset that match a provided
+        asset type. If an asset type is not specified, the response will contain the assets that are directly connected
+        to the specified asset upstream.
+        For the response spec, consult the energy workbench documentation for the version of EWB you are using.
+      operationId: upstreamAssetTrace
+      parameters:
+        - name: assetId
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.

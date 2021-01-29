@@ -1,0 +1,61 @@
+openapi: 3.0.0
+servers:
+  - url: /map
+info:
+  title: EAS Map API
+  version: next
+paths:
+  /tile/{z}/{x}/{y}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve the geographic entries for the specified Mapbox tile from EWB
+      description: >-
+        Used to retrieve the geographic entries for all assets in the specified Mapbox tile. The z parameter controls
+        the zoom level. The response is formatted as a Mapbox vector tile.
+      operationId: mvtMapTile
+      parameters:
+        - name: z
+          in: path
+          schema:
+            type: int
+        - name: x
+          in: path
+          schema:
+            type: int
+        - name: y
+          in: path
+          schema:
+            type: int
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+          content:
+            'application/vnd.mapbox-vector-tile':
+              schema:
+                type: string
+                format: binary
+  /symbol/{...}:
+    get:
+      tags:
+        - EWB Passthrough Requests
+      summary: Retrieve a vector symbol for displaying an element on the map
+      description: >-
+        Used to retrieve a symbol, in SVG format, which can be used by the network-map client component for rendering
+        equipment on the map.
+      operationId: mapSymbol
+      parameters:
+        - name: ...
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: For the response spec, consult the energy workbench documentation for the version of EWB you are
+            using.
+          content:
+            'image/svg':
+              schema:
+                type: string
+                format: binary
