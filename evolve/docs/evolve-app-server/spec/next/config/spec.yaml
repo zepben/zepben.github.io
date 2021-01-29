@@ -1,0 +1,25 @@
+openapi: 3.0.0
+servers:
+  - url: /config
+info:
+  title: EAS Config API
+  version: next
+paths:
+  /auth:
+    get:
+      tags:
+        - Auth Config
+      summary: Retrieve the auth config
+      description: >-
+        Used to retrieve auth related config for use by clients
+      operationId: authConfig
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  configType:
+                    type: string

@@ -1,0 +1,48 @@
+openapi: 3.0.0
+servers:
+  - url: /user
+info:
+  title: EAS User API
+  version: next
+paths:
+  /createUser:
+    get:
+      tags:
+        - User Routes
+      summary: Creates a user in the configured database and returns its ID
+      description: >-
+        This will be deprecated when proper admin controls are implemented.
+      operationId: createUser
+      parameters:
+        - name: username
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            'text/plain':
+              schema:
+                type: string
+
+  /queryUser:
+    get:
+      tags:
+        - User Routes
+      summary: Queries a user in the configured database by ID and returns the username
+      description: >-
+        This will be deprecated when proper admin controls are implemented.
+      operationId: queryUser
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: int
+      responses:
+        '200':
+          description: OK
+          content:
+            'text/plain':
+              schema:
+                type: string
