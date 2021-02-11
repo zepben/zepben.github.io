@@ -9,16 +9,16 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-81287323-1","auto"),ga("send","pageview")</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-<link rel="search" type="application/opensearchdescription+xml" title="Evolve SDK (JVM)" href="/evolve/docs/jvm-sdk/opensearch.xml"><title data-react-helmet="true">Tracing | Evolve SDK (JVM)</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="0.5.0"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-0.5.0"><meta data-react-helmet="true" name="docsearch:project" content="jvm-sdk"><meta data-react-helmet="true" property="og:title" content="Tracing | Evolve SDK (JVM)"><meta data-react-helmet="true" name="description" content="Once you have a connected network model you can start following the connectivity to do some interesting analyses, from"><meta data-react-helmet="true" property="og:description" content="Once you have a connected network model you can start following the connectivity to do some interesting analyses, from"><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.5.0/sdk-tracing"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/jvm-sdk/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.5.0/sdk-tracing"><link rel="stylesheet" href="/evolve/docs/jvm-sdk/styles.8014a7c2.css">
-<link rel="preload" href="/evolve/docs/jvm-sdk/styles.58ab74ae.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/runtime~main.e38740f4.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/main.c722dcfd.js" as="script">
+<link rel="search" type="application/opensearchdescription+xml" title="Evolve SDK (JVM)" href="/evolve/docs/jvm-sdk/opensearch.xml"><title data-react-helmet="true">Tracing | Evolve SDK (JVM)</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="0.5.0"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-0.5.0"><meta data-react-helmet="true" name="docsearch:project" content="jvm-sdk"><meta data-react-helmet="true" property="og:title" content="Tracing | Evolve SDK (JVM)"><meta data-react-helmet="true" name="description" content="Once you have a connected network model you can start following the connectivity to do some interesting analyses, from"><meta data-react-helmet="true" property="og:description" content="Once you have a connected network model you can start following the connectivity to do some interesting analyses, from"><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.5.0/sdk-tracing"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/jvm-sdk/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.5.0/sdk-tracing"><link rel="stylesheet" href="/evolve/docs/jvm-sdk/styles.90d2d509.css">
+<link rel="preload" href="/evolve/docs/jvm-sdk/styles.d3465843.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/runtime~main.72dd5fdc.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/main.69a79202.js" as="script">
 <link rel="preload" href="/evolve/docs/jvm-sdk/1.397f5f71.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/2.2b4a345c.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/30.6d9f6e45.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/0030fd86.9d91dc6f.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/17896441.1bb32361.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/4ca0bd57.165af0d2.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/2.71de150b.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/30.180d93c4.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/3277440d.b877ec84.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/17896441.bc12b4bc.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/a99d51b1.b02e6591.js" as="script">
 </head>
 <body>
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -126,14 +126,14 @@ equipment flagged as not normally in service. </li><li><code>Tracing.currentPhas
 equipment flagged as not currently in service. </li></ul><h4 id="downstream--upstream-traces">Downstream / Upstream traces</h4><p>There are traces configured to find all upstream or downstream equipment from any piece of equipment that is on a feeder:</p><ul><li><code>Tracing.normalDownstreamTrace()</code> will trace downstream of the start equipment based on the normal state of the network.</li><li><code>Tracing.currentDownstreamTrace()</code> will trace downstream of the start equipment based on the current state of the network.</li><li><code>Tracing.normalUpstreamTrace()</code> will trace upstream of the start equipment based on the normal state of the network.</li><li><code>Tracing.currentUpstreamTrace()</code> will trace upstream of the start equipment based on the current state of the network.</li></ul><h4 id="other-traces">Other traces</h4><p>There are other useful but less common traces available. See the
 <a href="https://github.com/zepben/evolve-sdk-jvm/blob/main/src/main/java/com/zepben/cimbend/network/tracing/Tracing.java">code</a>
 for all the available traces.</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/evolve/docs/jvm-sdk/0.5.0/sdk-services"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« CIM Services</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/evolve/docs/jvm-sdk/0.5.0/sdk-persistence"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Persisting Models »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_2xL- thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#basic-connectivity" class="table-of-contents__link">Basic Connectivity</a></li><li><a href="#tracing" class="table-of-contents__link">Tracing</a><ul><li><a href="#basic-traversal" class="table-of-contents__link">Basic Traversal</a></li><li><a href="#useful-traces" class="table-of-contents__link">Useful traces</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
-<script src="/evolve/docs/jvm-sdk/styles.58ab74ae.js"></script>
-<script src="/evolve/docs/jvm-sdk/runtime~main.e38740f4.js"></script>
-<script src="/evolve/docs/jvm-sdk/main.c722dcfd.js"></script>
+<script src="/evolve/docs/jvm-sdk/styles.d3465843.js"></script>
+<script src="/evolve/docs/jvm-sdk/runtime~main.72dd5fdc.js"></script>
+<script src="/evolve/docs/jvm-sdk/main.69a79202.js"></script>
 <script src="/evolve/docs/jvm-sdk/1.397f5f71.js"></script>
-<script src="/evolve/docs/jvm-sdk/2.2b4a345c.js"></script>
-<script src="/evolve/docs/jvm-sdk/30.6d9f6e45.js"></script>
-<script src="/evolve/docs/jvm-sdk/0030fd86.9d91dc6f.js"></script>
-<script src="/evolve/docs/jvm-sdk/17896441.1bb32361.js"></script>
-<script src="/evolve/docs/jvm-sdk/4ca0bd57.165af0d2.js"></script>
+<script src="/evolve/docs/jvm-sdk/2.71de150b.js"></script>
+<script src="/evolve/docs/jvm-sdk/30.180d93c4.js"></script>
+<script src="/evolve/docs/jvm-sdk/3277440d.b877ec84.js"></script>
+<script src="/evolve/docs/jvm-sdk/17896441.bc12b4bc.js"></script>
+<script src="/evolve/docs/jvm-sdk/a99d51b1.b02e6591.js"></script>
 </body>
 </html>

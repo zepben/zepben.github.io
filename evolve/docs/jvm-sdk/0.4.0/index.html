@@ -9,16 +9,16 @@
 <link rel="preconnect" href="https://www.google-analytics.com">
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-81287323-1","auto"),ga("send","pageview")</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-<link rel="search" type="application/opensearchdescription+xml" title="Evolve SDK (JVM)" href="/evolve/docs/jvm-sdk/opensearch.xml"><title data-react-helmet="true">Data Model | Evolve SDK (JVM)</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="0.4.0"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-0.4.0"><meta data-react-helmet="true" name="docsearch:project" content="jvm-sdk"><meta data-react-helmet="true" property="og:title" content="Data Model | Evolve SDK (JVM)"><meta data-react-helmet="true" name="description" content="The Evolve SDK provides the building blocks you need to interface with the rest of the platform. It can also be used to"><meta data-react-helmet="true" property="og:description" content="The Evolve SDK provides the building blocks you need to interface with the rest of the platform. It can also be used to"><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.4.0/"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/jvm-sdk/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.4.0/"><link rel="stylesheet" href="/evolve/docs/jvm-sdk/styles.8014a7c2.css">
-<link rel="preload" href="/evolve/docs/jvm-sdk/styles.58ab74ae.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/runtime~main.e38740f4.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/main.c722dcfd.js" as="script">
+<link rel="search" type="application/opensearchdescription+xml" title="Evolve SDK (JVM)" href="/evolve/docs/jvm-sdk/opensearch.xml"><title data-react-helmet="true">Data Model | Evolve SDK (JVM)</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="0.4.0"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-0.4.0"><meta data-react-helmet="true" name="docsearch:project" content="jvm-sdk"><meta data-react-helmet="true" property="og:title" content="Data Model | Evolve SDK (JVM)"><meta data-react-helmet="true" name="description" content="The Evolve SDK provides the building blocks you need to interface with the rest of the platform. It can also be used to"><meta data-react-helmet="true" property="og:description" content="The Evolve SDK provides the building blocks you need to interface with the rest of the platform. It can also be used to"><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.4.0/"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/jvm-sdk/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.4.0/"><link rel="stylesheet" href="/evolve/docs/jvm-sdk/styles.90d2d509.css">
+<link rel="preload" href="/evolve/docs/jvm-sdk/styles.d3465843.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/runtime~main.72dd5fdc.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/main.69a79202.js" as="script">
 <link rel="preload" href="/evolve/docs/jvm-sdk/1.397f5f71.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/2.2b4a345c.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/30.6d9f6e45.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/db82a1c0.1bb200b4.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/17896441.1bb32361.js" as="script">
-<link rel="preload" href="/evolve/docs/jvm-sdk/3176b2fd.f6cfd5a2.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/2.71de150b.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/30.180d93c4.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/44a55e65.c10b3a36.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/17896441.bc12b4bc.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/572cd098.d5bda956.js" as="script">
 </head>
 <body>
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -159,7 +159,7 @@ switch.setOpen(false)
 property on the terminal should be considered as the terminal&#x27;s &#x27;nominal&#x27; phases. The vast majority of the time, this will
 be the actual active phases at that terminal. However, due to the dynamic nature of the network, it&#x27;s possible that when
 tracing connecitvity that the active phase at the terminal is different. The phase can be tracked using the <code>tracedPhases</code>
-property on the terminal. </p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</h5></div><div class="admonition-content"><p>There are a number of helpful functions for tracing phases based on connectivity. See <a href="sdk/tracing.mdx">tracing</a> for more details.</p></div></div><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">// Example of setting nominal phases on a terminal
+property on the terminal. </p><div class="admonition admonition-tip alert alert--success"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</h5></div><div class="admonition-content"><p>There are a number of helpful functions for tracing phases based on connectivity. See <a href="./sdk-tracing">tracing</a> for more details.</p></div></div><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">// Example of setting nominal phases on a terminal
 Terminal terminal = new Terminal();
 terminal.setPhases(PhaseCode.ABC);
 </code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">// Example of setting nominal phases on a terminal
@@ -180,7 +180,7 @@ tracing along the equipment. The starting point can be defined by setting a
 <a href="(https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/Feeder/)">Feeder&#x27;s</a> <code>normalHeadTerminal</code>. This means if you
 have a correctly connected model, setting the feeder equipment container on any equipment can be calculated dynamically.
 This has the benefit of making sure that an equipment&#x27;s feeder is always correct (because it has been set by checking
-connectivity). A function to do this is provided as part of the <a href="sdk/tracing.mdx#useful-traces">tracing</a> package. </p><h3 id="example">Example</h3><p>The following example shows how you can build a network hierarchy and assign equipment to their appropriate equipment
+connectivity). A function to do this is provided as part of the <a href="./sdk-tracing#useful-traces">tracing</a> package.</p><h3 id="example">Example</h3><p>The following example shows how you can build a network hierarchy and assign equipment to their appropriate equipment
 containers.</p><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">GeographicalRegion region = new GeographicalRegion();
 SubGeographicalRegion subRegion = new SubGeographicalRegion();
 subRegion.setGeographicalRegion(region);
@@ -219,14 +219,14 @@ val feederCb = Breaker().apply {
     feeder.addEquipment(this)
 }
 </code></pre></div></div></div><hr></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/evolve/docs/jvm-sdk/0.4.0/sdk-services"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">CIM Services »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_2xL- thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#cim-model" class="table-of-contents__link">CIM Model</a></li><li><a href="#getting-started-with-the-model" class="table-of-contents__link">Getting Started With The Model</a></li><li><a href="#creating-connectivity" class="table-of-contents__link">Creating Connectivity</a></li><li><a href="#normal-and-current-states" class="table-of-contents__link">Normal and Current states</a></li><li><a href="#phases" class="table-of-contents__link">Phases</a></li><li><a href="#grouping-equipment" class="table-of-contents__link">Grouping equipment</a><ul><li><a href="#network-hierarchy" class="table-of-contents__link">Network Hierarchy</a></li><li><a href="#feeders" class="table-of-contents__link">Feeders</a></li><li><a href="#example" class="table-of-contents__link">Example</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
-<script src="/evolve/docs/jvm-sdk/styles.58ab74ae.js"></script>
-<script src="/evolve/docs/jvm-sdk/runtime~main.e38740f4.js"></script>
-<script src="/evolve/docs/jvm-sdk/main.c722dcfd.js"></script>
+<script src="/evolve/docs/jvm-sdk/styles.d3465843.js"></script>
+<script src="/evolve/docs/jvm-sdk/runtime~main.72dd5fdc.js"></script>
+<script src="/evolve/docs/jvm-sdk/main.69a79202.js"></script>
 <script src="/evolve/docs/jvm-sdk/1.397f5f71.js"></script>
-<script src="/evolve/docs/jvm-sdk/2.2b4a345c.js"></script>
-<script src="/evolve/docs/jvm-sdk/30.6d9f6e45.js"></script>
-<script src="/evolve/docs/jvm-sdk/db82a1c0.1bb200b4.js"></script>
-<script src="/evolve/docs/jvm-sdk/17896441.1bb32361.js"></script>
-<script src="/evolve/docs/jvm-sdk/3176b2fd.f6cfd5a2.js"></script>
+<script src="/evolve/docs/jvm-sdk/2.71de150b.js"></script>
+<script src="/evolve/docs/jvm-sdk/30.180d93c4.js"></script>
+<script src="/evolve/docs/jvm-sdk/44a55e65.c10b3a36.js"></script>
+<script src="/evolve/docs/jvm-sdk/17896441.bc12b4bc.js"></script>
+<script src="/evolve/docs/jvm-sdk/572cd098.d5bda956.js"></script>
 </body>
 </html>
