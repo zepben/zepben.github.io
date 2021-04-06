@@ -1,0 +1,11 @@
+get:
+  tags:
+    - Energy Analysis v1
+  summary: Retrieve the transformer load summary.
+  description: >-
+    Used to retrieve a summary of the loading of all transformers on their five
+    maximum demand days.
+  operationId: transformerSummary
+  responses:
+    '200':
+      $ref: 'v1-response-summary.yaml'

@@ -1,0 +1,16 @@
+get:
+  tags:
+    - Energy Profiles v1
+  summary: Retrieve cached results.
+  description: >-
+    This will return any results that have been cached against the provided key.
+  operationId: readCachedResults
+  parameters:
+    - $ref: 'v1-parameters.yaml#/cacheKeyParam'
+  responses:
+    '200':
+      $ref: 'v1-response-cached.yaml'
+    '400':
+      $ref: '../../v1-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-response-not-found.yaml'
