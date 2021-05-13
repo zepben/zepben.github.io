@@ -1,0 +1,59 @@
+swagger: "2.0"
+info:
+  description: "Request customer details from the CDM"
+  version: "1.0.0"
+  title: "Customer Details"
+tags:
+- name: "customers"
+  description: "Request customer details"
+schemes:
+- "https"
+- "http"
+paths:
+  /customers:
+    post:
+      tags:
+      - "customers"
+      summary: "Operation to retrieve customer details for a list of NMIs."
+      description: ""
+      operationId: "customersDetails"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "CustomerList"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            nmis:
+              type: "array"
+              items:
+                type: "string"
+              example: [ "60001234111", "60005432333", "60007891234"]
+      responses:
+        "200":
+          description: "Success"
+        "400":
+          description: "Invalid request"
+  /customerDetails:
+    post:
+      tags:
+        - "customers"
+      summary: "Operation to retrieve customer details for a single customer."
+      operationId: "customerDetails"
+      parameters:
+        - in: "query"
+          name: "nmi"
+          required: true
+          description: "NMI of the customer whose details are being requested"
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "Success"
+        "400":
+          description: "Invalid request"
