@@ -77,7 +77,7 @@ definitions:
         - "METER_LSC"
       reasonCode:
         type: "string"
-        description: "Cause for outage cancellation"
+        description: "Reason for outage/interruption or cancellation of outage/interruption"
       outageId:
         type: "string"
         description: ""
