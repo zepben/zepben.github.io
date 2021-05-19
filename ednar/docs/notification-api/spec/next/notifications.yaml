@@ -202,6 +202,8 @@ definitions:
                 description: "Length of 11 digits for NMI, 15 characters for ICP"
               sendTime:
                 type: "string"
+                description: "Scheduled time of the notification for the NMI"
+                pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
               processed:
                 type: "boolean"
             description: "One NMI object will be returned for each notification that is scheduled/sent."
@@ -225,6 +227,7 @@ definitions:
           lastSendPostTime:
             type: "string"
             pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+            description: "Internal for CPPAL, currently not handled by EDNAR"
   fault1:
     type: "object"
     properties:
