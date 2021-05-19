@@ -52,7 +52,9 @@ definitions:
     properties:
       type:
         type: "string"
-        description: "Type of outage request"
+        description: "Type of outage request (new notification, cancellation, updated request etc.).
+        Full details of what these codes mean will be included below as they are confirmed: <br><br>
+        - PLANNED_C = Cancellation of existing outage"
         enum:
         - "PLANNED_N"
         - "PLANNED_C"
@@ -77,7 +79,7 @@ definitions:
         - "METER_LSC"
       reasonCode:
         type: "string"
-        description: "Reason for outage/interruption or cancellation of outage/interruption"
+        description: "Reason for outage/interruption, cancellation of outage/interruption or update of outage/interruption"
       outageId:
         type: "string"
         description: ""
@@ -110,7 +112,7 @@ definitions:
         type: "array"
         items:
           type: "string"
-        description: "List of affected National Meter Identifiers (NMIs). NMI length is 11 digits. Known as Installation Control Points (ICP) in New Zealand."
+        description: "List of affected National Meter Identifiers (NMIs) or Installation Control Points (ICPs). NMI length is 11 digits, ICP length is 15 characters."
         example: [ "60001234111" ,"60001244222", "60001235111" ]
       plannedOutageReference:
         type: "object"
@@ -197,7 +199,7 @@ definitions:
             properties:
               nmi:
                 type: "string"
-                description: "Length of 11 digits"
+                description: "Length of 11 digits for NMI, 15 characters for ICP"
               sendTime:
                 type: "string"
               processed:
