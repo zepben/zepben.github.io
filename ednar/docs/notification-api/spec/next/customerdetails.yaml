@@ -1,0 +1,394 @@
+swagger: "2.0"
+info:
+  title: "Customer Details"
+  version: "1.0.0"
+paths:
+  /customers:
+    get:
+      operationId: "Get Customer Details by NMI/ICP"
+      parameters:
+        - in: "query"
+          name: "nmi"
+          required: true
+          type: "integer"
+      responses:
+        "200":
+          description: ""
+          x-amf-mediaType: "application/json"
+          schema:
+            $ref: "#/definitions/CustomerDetail"
+  /customers/list:
+    post:
+      operationId: "Retrieve a list of customer based on a list of NMIs/ICPs"
+      parameters:
+        - in: "body"
+          x-amf-mediaType: "application/json"
+          name: "generated"
+          schema:
+            $ref: "#/definitions/NMIS"
+      responses:
+        "200":
+          description: ""
+          x-amf-mediaType: "application/json"
+          schema:
+            $ref: "#/definitions/CustomerList"
+definitions:
+  CustomerDetail:
+    x-amf-examples:
+      output:
+        value:
+          nmi: 6430342245,
+          meterNumber: 0
+          moveInDate: "11/03/2021"
+          lifeSupportFlag: true
+          distributor: "powercor"
+          customerType: "Residential"
+          serviceAddress:
+            unitNumber: "2B"
+            streetNumber: "18"
+            streetName: "High Street"
+            suburb: "Richmond"
+            postcode: 3023
+          contact: [
+          {
+            id: "salesforce-id-0001",
+            type: "RP",
+            firstName: "Steve",
+            lastName: "Smith",
+            postalAddress:
+              {
+                unitNumber: "2B",
+                streetNumber: "18",
+                streetName: "High Street",
+                suburb: "Richmond",
+                postcode: 3023
+              },
+            preferredPhone: "mobile2",
+            preferredEmail: "email",
+            method: [
+            {
+              type: "Phone",
+              description: "mobile",
+              value: "0434000000"
+            },
+            {
+              type: "Phone",
+              description: "mobile2",
+              value: "0434000009"
+            },
+            {
+              type: "Phone",
+              description: "home",
+              value: "03 9876 7363"
+            },
+            {
+              type: "Email",
+              description: "email",
+              value: "steve@gmail.com"
+            },
+            {
+              type: "Email",
+              description: "email1",
+              value: "steve1@gmail.com"
+            }
+            ]
+          },
+          {
+            id: "salesforce-id-0002",
+            type: "LSC",
+            firstName: "David",
+            lastName: "Smith",
+            postalAddress: {
+              unitNumber: "2B",
+              streetNumber: "18",
+              streetName: "High Street",
+              suburb: "Richmond",
+              postcode: 3023
+            },
+            lifeSupportCarerAddress: {
+              unitNumber: "1",
+              streetNumber: "10",
+              streetName: "High Street",
+              suburb: "Richmond",
+              postcode: 3023
+            },
+            method: [
+            {
+              type: "Phone",
+              description: "mobile",
+              value: "0434000001"
+            },
+            {
+              type: "Phone",
+              description: "home",
+              value: "03 9876 7364"
+            },
+            {
+              type: "Email",
+              description: "email",
+              value: "david@gmail.com"
+            }
+            ]
+          }
+          ]
+    type: "object"
+    additionalProperties: true
+    required:
+      - "nmi"
+      - "meterNumber"
+      - "moveInDate"
+      - "lifeSupportFlag"
+      - "distributor"
+      - "customerType"
+      - "serviceAddress"
+      - "contact"
+    properties: {
+      nmi: {
+        type: "integer"
+      },
+      meterNumber: {
+        type: "integer"
+      },
+      moveInDate: {
+        type: "string"
+      },
+      lifeSupportFlag: {
+        type: "boolean"
+      },
+      distributor: {
+        type: "string"
+      },
+      "customerType": {
+        "type": "string"
+      },
+      "serviceAddress": {
+        "$ref": "#/definitions/type"
+      },
+      "contact": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "$ref": "#/definitions/type_1"
+        }
+      }
+    }
+  "NMIS":
+    "x-amf-examples":
+      "input":
+        "nmis": [
+        {
+          "nmi": 6430342245
+        },
+        {
+          "nmi": 6430341122
+        }
+        ]
+    type: "object"
+    additionalProperties: true
+    required:
+      - "nmis"
+    "properties": {
+      "nmis": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/type_2"
+        }
+      }
+    }
+  "CustomerList":
+    "x-amf-examples":
+      "output": {
+        "nmis": [
+        {
+          "nmi": 6430342245,
+          "interestedPartiesFlag": true,
+          "lifeSupportFlag": true,
+          "distributor": "Powercor",
+          "serviceAddress": {
+            "unitNumber": "2B",
+            "streetNumber": "18",
+            "streetName": "High Street",
+            "suburb": "Richmond",
+            "postcode": 3023
+          },
+          "contact": [
+          {
+            "id": "salesforce-id-5678",
+            "type": "RP",
+            "firstName": "Steve",
+            "lastName": "Smith"
+          }
+          ]
+        },
+        {
+          "nmi": 6430341122,
+          "interestedPartiesFlag": false,
+          "lifeSupportFlag": true,
+          "distributor": "Powercor",
+          "serviceAddress": {
+            "unitNumber": "1A",
+            "streetNumber": "16",
+            "streetName": "High Street",
+            "suburb": "Richmond",
+            "postcode": 3023
+          },
+          "contact": [
+          {
+            "id": "salesforce-id-1234",
+            "type": "RP",
+            "firstName": "Steve",
+            "lastName": "Smith"
+          }
+          ]
+        }
+        ]
+      }
+    type: "object"
+    "additionalProperties": true,
+    "required":
+      - "nmis"
+    "properties": {
+      "nmis": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "nmi",
+            "interestedPartiesFlag",
+            "lifeSupportFlag",
+            "distributor",
+            "serviceAddress",
+            "contact"
+          ],
+          "properties": {
+            "nmi": {
+              "type": "integer"
+            },
+            "interestedPartiesFlag": {
+              "type": "boolean"
+            },
+            "lifeSupportFlag": {
+              "type": "boolean"
+            },
+            "distributor": {
+              "type": "string"
+            },
+            "serviceAddress": {
+              "$ref": "#/definitions/type"
+            },
+            "contact": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/type_1"
+              }
+            }
+          }
+        }
+      }
+    }
+  "type":
+    type: "object"
+    additionalProperties: true
+    "required":
+      - "unitNumber"
+      - "streetNumber"
+      - "streetName"
+      - "suburb"
+      - "postcode"
+    "properties": {
+      "unitNumber": {
+        "type": "string"
+      },
+      "streetNumber": {
+        "type": "string"
+      },
+      "streetName": {
+        "type": "string"
+      },
+      "suburb": {
+        "type": "string"
+      },
+      "postcode": {
+        "type": "integer"
+      }
+    }
+  "type_1":
+    type: "object"
+    "additionalProperties": true
+    "required":
+      - "id"
+      - "type"
+      - "firstName"
+      - "lastName"
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "type": {
+        "enum": [
+          "RP",
+          "LSC"
+        ],
+        "type": "string"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "postalAddress": {
+        "$ref": "#/definitions/type"
+      },
+      "lifeSupportCarerAddress": {
+        "$ref": "#/definitions/type"
+      },
+      "preferredPhone": {
+        "type": "string"
+      },
+      "preferredEmail": {
+        "type": "string"
+      },
+      "method": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "type",
+            "description",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "Phone",
+                "Email"
+              ],
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  "type_2": {
+    "type": "object",
+    "additionalProperties": true,
+    "required": [
+      "nmi"
+    ],
+    "properties": {
+      "nmi": {
+        "type": "integer"
+      }
+    }
+  }
+

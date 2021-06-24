@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Notification events from EDNAR to CDM. Please note that this API is currently in development. "
+  description: "Customer Notification events API.  "
   version: "1.0.0"
   title: "Notification Events"
 tags:
@@ -22,19 +22,19 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - in: "header"
+        name: "company"
+        type: "string"
+        description: ""
       - in: "body"
         name: "body"
         description: "NotifyOutageRequest"
         required: true
         schema:
           $ref: "#/definitions/NotifyOutageRequest"
-      - in: "header"
-        name: "company"
-        type: "string"
-        description: ""
       responses:
         "200":
-          description: "Success. If the event is a cancellation, the response body will be empty."
+          description: "Success. If the event is a cancellation, the response body will be empty. <br>The response body is **not** used to update customer notification tasks in EDNAR, and as such no fields are mandatory."
           schema:
             $ref: "#/definitions/NotifyOutageResponse"
         "400":
@@ -54,29 +54,11 @@ definitions:
         type: "string"
         description: "Type of outage request (new notification, cancellation, updated request etc.).
         Full details of what these codes mean will be included below as they are confirmed: <br><br>
-        - PLANNED_C = Cancellation of existing outage"
+        - PLANNED_N = New or updated outage notification
+        - PLANNED_C = Cancellation of existing outage notification"
         enum:
         - "PLANNED_N"
         - "PLANNED_C"
-        - "PLANNED_V"
-        - "PLANNED_U"
-        - "PLANNED_O"
-        - "PLANNED_R"
-        - "PLANNED_REM"
-        - "UNPLANNED_O"
-        - "UNPLANNED_R"
-        - "UNPLANNED_U"
-        - "COR_N"
-        - "COR_C"
-        - "COR_V"
-        - "MAYBE_N"
-        - "MAYBE_V"
-        - "NAP_N"
-        - "BROADCAST"
-        - "METER_N"
-        - "METER_REM"
-        - "METER_APP"
-        - "METER_LSC"
       reasonCode:
         type: "string"
         description: "Reason for outage/interruption, cancellation of outage/interruption or update of outage/interruption"
@@ -151,25 +133,6 @@ definitions:
             enum:
               - "PLANNED_N"
               - "PLANNED_C"
-              - "PLANNED_V"
-              - "PLANNED_U"
-              - "PLANNED_O"
-              - "PLANNED_R"
-              - "PLANNED_REM"
-              - "UNPLANNED_O"
-              - "UNPLANNED_R"
-              - "UNPLANNED_U"
-              - "COR_N"
-              - "COR_C"
-              - "COR_V"
-              - "MAYBE_N"
-              - "MAYBE_V"
-              - "NAP_N"
-              - "BROADCAST"
-              - "METER_N"
-              - "METER_REM"
-              - "METER_APP"
-              - "METER_LSC"
           reasonCode:
             type: "string"
           outageId:

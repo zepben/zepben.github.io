@@ -1,0 +1,56 @@
+{
+  "http": {
+    "port": 9010,
+    "webroot": "./web-client",
+    "https": "pem",
+    "certPath": "/path/to/the/cert.pem",
+    "keyPath": "/path/to/the/key.pem",
+    "logRequests": true,
+    "csrfSecret": "secret",
+    "csrfExpirySeconds": 600
+  },
+
+  "database": {
+    "driver": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+    "url": "jdbc:sqlserver://localhost:1433;user=ednar;password=password",
+    "user": "ednar",
+    "pass": "password"
+  },
+
+  "auth": {
+    "mock": true,
+    "expirySeconds": 3600
+  },
+
+  "smtp": {
+    "host": "smtp.myhost.invalid",
+    "port": 25,
+    "user": "username",
+    "pass": "password"
+  },
+
+  "dms": {
+    "url": "http://pof-server/enmac/SOAP",
+    "listenerPort": "12321",
+    "listenerPath": ""
+  },
+
+  "ewb": {
+    "port": 9000,
+    "host": "my-ewb-server",
+    "basePath": "/ewb"
+  },
+
+  "pon": {
+    "mock": true
+  },
+
+  "cdm": {
+    "mock": true
+  },
+
+  "reports": {
+    "narReportPdfUrl": "http://report-server/report",
+    "narHandCardPdfUrl": "http://report-server/hand-card"
+  }
+}
