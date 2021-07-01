@@ -2,9 +2,15 @@ swagger: "2.0"
 info:
   title: "Customer Details"
   version: "1.0.0"
+  description: "Request customer details from CRM for display in EDNAR."
+tags:
+  - name: "customerDetails"
+    description: "Customer detail requests by NMI"
 paths:
   /customers:
     get:
+      tags:
+        - "customerDetails"
       operationId: "Get Customer Details by NMI/ICP"
       parameters:
         - in: "query"
@@ -19,13 +25,17 @@ paths:
             $ref: "#/definitions/CustomerDetail"
   /customers/list:
     post:
+      tags:
+        - "customerDetails"
       operationId: "Retrieve a list of customer based on a list of NMIs/ICPs"
       parameters:
         - in: "body"
           x-amf-mediaType: "application/json"
-          name: "generated"
+          name: "nmis"
+          required:
+            - "nmis"
           schema:
-            $ref: "#/definitions/NMIS"
+            $ref: "#/definitions/NMIs"
       responses:
         "200":
           description: ""
@@ -158,102 +168,102 @@ definitions:
       distributor: {
         type: "string"
       },
-      "customerType": {
-        "type": "string"
+      customerType: {
+        type: "string"
       },
-      "serviceAddress": {
-        "$ref": "#/definitions/type"
+      serviceAddress: {
+        $ref: "#/definitions/address"
       },
-      "contact": {
-        "type": "array",
-        "minItems": 1,
-        "items": {
-          "$ref": "#/definitions/type_1"
+      contact: {
+        type: "array",
+        minItems: 1,
+        items: {
+          $ref: "#/definitions/contact"
         }
       }
     }
-  "NMIS":
-    "x-amf-examples":
-      "input":
-        "nmis": [
+  NMIs:
+    x-amf-examples:
+      input:
+        nmis: [
         {
-          "nmi": 6430342245
+          nmi: 6430342245
         },
         {
-          "nmi": 6430341122
+          nmi: 6430341122
         }
         ]
     type: "object"
     additionalProperties: true
     required:
       - "nmis"
-    "properties": {
-      "nmis": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/type_2"
+    properties: {
+      nmis: {
+        type: "array",
+        items: {
+          $ref: "#/definitions/nmi"
         }
       }
     }
-  "CustomerList":
-    "x-amf-examples":
-      "output": {
-        "nmis": [
+  CustomerList:
+    x-amf-examples:
+      output: {
+        nmis: [
         {
-          "nmi": 6430342245,
-          "interestedPartiesFlag": true,
-          "lifeSupportFlag": true,
-          "distributor": "Powercor",
-          "serviceAddress": {
-            "unitNumber": "2B",
-            "streetNumber": "18",
-            "streetName": "High Street",
-            "suburb": "Richmond",
-            "postcode": 3023
+          nmi: 6430342245,
+          interestedPartiesFlag: true,
+          lifeSupportFlag: true,
+          distributor: "Powercor",
+          serviceAddress: {
+            unitNumber: "2B",
+            streetNumber: "18",
+            streetName: "High Street",
+            suburb: "Richmond",
+            postcode: 3023
           },
-          "contact": [
+          contact: [
           {
-            "id": "salesforce-id-5678",
-            "type": "RP",
-            "firstName": "Steve",
-            "lastName": "Smith"
+            id: "salesforce-id-5678",
+            type: "RP",
+            firstName: "Steve",
+            lastName: "Smith"
           }
           ]
         },
         {
-          "nmi": 6430341122,
-          "interestedPartiesFlag": false,
-          "lifeSupportFlag": true,
-          "distributor": "Powercor",
-          "serviceAddress": {
-            "unitNumber": "1A",
-            "streetNumber": "16",
-            "streetName": "High Street",
-            "suburb": "Richmond",
-            "postcode": 3023
+          nmi: 6430341122,
+          interestedPartiesFlag: false,
+          lifeSupportFlag: true,
+          distributor: "Powercor",
+          serviceAddress: {
+            unitNumber: "1A",
+            streetNumber: "16",
+            streetName: "High Street",
+            suburb: "Richmond",
+            postcode: 3023
           },
-          "contact": [
+          contact: [
           {
-            "id": "salesforce-id-1234",
-            "type": "RP",
-            "firstName": "Steve",
-            "lastName": "Smith"
+            id: "salesforce-id-1234",
+            type: "RP",
+            firstName: "Steve",
+            lastName: "Smith"
           }
           ]
         }
         ]
       }
     type: "object"
-    "additionalProperties": true,
-    "required":
+    additionalProperties: true,
+    required:
       - "nmis"
-    "properties": {
-      "nmis": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "additionalProperties": true,
-          "required": [
+    properties: {
+      nmis: {
+        type: "array",
+        items: {
+          type: "object",
+          additionalProperties: true,
+          required: [
             "nmi",
             "interestedPartiesFlag",
             "lifeSupportFlag",
@@ -261,133 +271,133 @@ definitions:
             "serviceAddress",
             "contact"
           ],
-          "properties": {
-            "nmi": {
-              "type": "integer"
+          properties: {
+            nmi: {
+              type: "integer"
             },
-            "interestedPartiesFlag": {
-              "type": "boolean"
+            interestedPartiesFlag: {
+              type: "boolean"
             },
-            "lifeSupportFlag": {
-              "type": "boolean"
+            lifeSupportFlag: {
+              type: "boolean"
             },
-            "distributor": {
-              "type": "string"
+            distributor: {
+              type: "string"
             },
-            "serviceAddress": {
-              "$ref": "#/definitions/type"
+            serviceAddress: {
+              $ref: "#/definitions/address"
             },
-            "contact": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/type_1"
+            contact: {
+              type: "array",
+              items: {
+                $ref: "#/definitions/contact"
               }
             }
           }
         }
       }
     }
-  "type":
+  address:
     type: "object"
     additionalProperties: true
-    "required":
+    required:
       - "unitNumber"
       - "streetNumber"
       - "streetName"
       - "suburb"
       - "postcode"
-    "properties": {
-      "unitNumber": {
-        "type": "string"
+    properties: {
+      unitNumber: {
+        type: "string"
       },
-      "streetNumber": {
-        "type": "string"
+      streetNumber: {
+        type: "string"
       },
-      "streetName": {
-        "type": "string"
+      streetName: {
+        type: "string"
       },
-      "suburb": {
-        "type": "string"
+      suburb: {
+        type: "string"
       },
-      "postcode": {
-        "type": "integer"
+      postcode: {
+        type: "integer"
       }
     }
-  "type_1":
+  contact:
     type: "object"
-    "additionalProperties": true
-    "required":
+    additionalProperties: true
+    required:
       - "id"
       - "type"
       - "firstName"
       - "lastName"
-    "properties": {
-      "id": {
-        "type": "string"
+    properties: {
+      id: {
+        type: "string"
       },
-      "type": {
-        "enum": [
+      type: {
+        enum: [
           "RP",
           "LSC"
         ],
-        "type": "string"
+        type: "string"
       },
-      "firstName": {
-        "type": "string"
+      firstName: {
+        type: "string"
       },
-      "lastName": {
-        "type": "string"
+      lastName: {
+        type: "string"
       },
-      "postalAddress": {
-        "$ref": "#/definitions/type"
+      postalAddress: {
+        $ref: "#/definitions/address"
       },
-      "lifeSupportCarerAddress": {
-        "$ref": "#/definitions/type"
+      lifeSupportCarerAddress: {
+        $ref: "#/definitions/address"
       },
-      "preferredPhone": {
-        "type": "string"
+      preferredPhone: {
+        type: "string"
       },
-      "preferredEmail": {
-        "type": "string"
+      preferredEmail: {
+        type: "string"
       },
-      "method": {
-        "type": "array",
-        "minItems": 0,
-        "items": {
-          "type": "object",
-          "additionalProperties": true,
-          "required": [
+      method: {
+        type: "array",
+        minItems: 0,
+        items: {
+          type: "object",
+          additionalProperties: true,
+          required: [
             "type",
             "description",
             "value"
           ],
-          "properties": {
-            "type": {
-              "enum": [
+          properties: {
+            type: {
+              enum: [
                 "Phone",
                 "Email"
               ],
-              "type": "string"
+              type: "string"
             },
-            "description": {
-              "type": "string"
+            description: {
+              type: "string"
             },
-            "value": {
-              "type": "string"
+            value: {
+              type: "string"
             }
           }
         }
       }
     }
-  "type_2": {
-    "type": "object",
-    "additionalProperties": true,
-    "required": [
+  nmi: {
+    type: "object",
+    additionalProperties: true,
+    required: [
       "nmi"
     ],
-    "properties": {
-      "nmi": {
-        "type": "integer"
+    properties: {
+      nmi: {
+        type: "integer"
       }
     }
   }
