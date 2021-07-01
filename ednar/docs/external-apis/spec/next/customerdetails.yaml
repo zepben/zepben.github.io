@@ -11,20 +11,23 @@ paths:
     get:
       tags:
         - "customerDetails"
+      summary: "Used to retrieve customer details for one NMI/ICP."
       operationId: "Get Customer Details by NMI/ICP"
       parameters:
         - in: "query"
           name: "nmi"
+          description: "The NMI of the customer whose details are being requested."
           required: true
           type: "integer"
       responses:
         "200":
-          description: ""
+          description: "The customer details for the requested NMI."
           x-amf-mediaType: "application/json"
           schema:
             $ref: "#/definitions/CustomerDetail"
   /customers/list:
     post:
+      summary: "Used to retrieve customer details for multiple NMIs/ICPs."
       tags:
         - "customerDetails"
       operationId: "Retrieve a list of customer based on a list of NMIs/ICPs"
@@ -32,13 +35,14 @@ paths:
         - in: "body"
           x-amf-mediaType: "application/json"
           name: "nmis"
+          description: "The list of NMIs of the customers whose details are being requested."
           required:
             - "nmis"
           schema:
             $ref: "#/definitions/NMIs"
       responses:
         "200":
-          description: ""
+          description: "A list of customer detail objects (one for each requested NMI)."
           x-amf-mediaType: "application/json"
           schema:
             $ref: "#/definitions/CustomerList"
