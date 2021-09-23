@@ -32,7 +32,7 @@ jobs:
           version: "tags/${{ env.TAG }}"
           file: "${{ env.DOCS_FILE_NAME }}"
           target: "docs.zip"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
 
       - name: Download doc site from Bitbucket
         if: contains(github.event.client_payload.download_url, 'bitbucket.org')
