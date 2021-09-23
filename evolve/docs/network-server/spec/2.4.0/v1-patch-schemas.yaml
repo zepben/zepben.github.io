@@ -1,0 +1,7 @@
+doubleArray:
+  type: array
+  items:
+    $ref: '#/double'
+double:
+  type: number
+  format: double
