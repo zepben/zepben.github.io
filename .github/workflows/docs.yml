@@ -17,6 +17,13 @@ jobs:
           echo "TAG=${url_path[4]}" >> $GITHUB_ENV
           echo "DOCS_FILE_NAME=${url_path[5]}" >> $GITHUB_ENV
         shell: bash
+      - name: use vars
+        if: contains(github.event.client_payload.download_url, 'github.com')
+        run: |
+          echo ${{ env.REPO }}
+          echo ${{ env.TAG }}
+          echo ${{ env.DOCS_FILE_NAME }}
+        shell: bash
       - uses: dsaltares/fetch-gh-release-asset@master
         if: contains(github.event.client_payload.download_url, 'github.com')
         with:
