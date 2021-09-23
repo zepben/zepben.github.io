@@ -12,6 +12,7 @@ jobs:
       - name: Parse GH url
         if: contains(github.event.client_payload.download_url, 'github.com')
         run: |
+          url=${{ github.event.client_payload.download_url }}
           IFS='/' read -ra url_path <<< ${url/"https://github.com/"/}
           echo "REPO=${url_path[0]}/${url_path[1]}" >> $GITHUB_ENV
           echo "TAG=${url_path[4]}" >> $GITHUB_ENV
