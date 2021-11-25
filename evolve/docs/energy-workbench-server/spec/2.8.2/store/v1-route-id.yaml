@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Store v1
+  summary: Read the key/value pairs from the store.
+  description: >-
+    This will return all key/value pairs previously added to the store for the specified user.
+  operationId: storeRead
+  parameters:
+    - $ref: 'v1-parameters.yaml#/idParam'
+  responses:
+    '200':
+      $ref: 'v1-response-read.yaml'
+    '400':
+      $ref: '../v1-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-response-not-found.yaml'
+delete:
+  tags:
+    - Store v1
+  summary: Remove a user from the store.
+  description: >-
+    This will remove all keys and values from the store for the specified user.
+  operationId: storeDeleteId
+  parameters:
+    - $ref: 'v1-parameters.yaml#/idParam'
+  responses:
+    '200':
+      description: OK
+    '400':
+      $ref: '../v1-response-bad-request.yaml'

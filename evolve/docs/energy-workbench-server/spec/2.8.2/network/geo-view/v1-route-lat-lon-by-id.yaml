@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Geo-view v1
+  summary: Retrieve the Lat/Long of an asset.
+  description: >-
+    Used to retrieve the Latitude/Longitude of an asset.
+  operationId: latLonById
+  parameters:
+    - $ref: '../v1-parameters.yaml#/assetIdParam'
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-lat-lon.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'
+    '501':
+      $ref: '../../v1-network-response-not-implemented.yaml'
