@@ -39,6 +39,8 @@ paths:
             $ref: "#/definitions/NotifyOutageResponse"
         "400":
           description: "Bad request"
+          schema:
+            $ref: "#/definitions/fault1"
 definitions:
   NotifyOutageRequest:
     type: "object"
@@ -51,16 +53,15 @@ definitions:
       type:
         type: "string"
         description: "Type of outage request (new notification, cancellation, updated request etc.).
-        This string is configurable based on the event (Order, Delay, Cancel) and the outage type (Standard, Short Shutdown).
-        This configuration resides in the cust_notif_type_mappings database table."
-        example: "ORDER"
+        Full details of what these codes mean will be included below as they are confirmed: <br><br>
+        - PLANNED_N = New or updated outage notification
+        - PLANNED_C = Cancellation of existing outage notification"
+        enum:
+        - "PLANNED_N"
+        - "PLANNED_C"
       reasonCode:
         type: "string"
-        description: "Reason for outage/interruption, cancellation of outage/interruption or delay of outage/interruption.
-        The reasonCode that is sent to the notification API endpoint is configured in the cust_notif_event_reasons database table, 
-        which maps to the access reasons (for ordering notifications), delay reasons (for notifiying of delayed outages) and cancel reasons 
-        (cancelling NARs/notifications/individual customers)."
-        example: "Network Maintenance"
+        description: "Reason for outage/interruption, cancellation of outage/interruption or update of outage/interruption"
       outageId:
         type: "string"
         description: ""
@@ -129,6 +130,9 @@ definitions:
         properties:
           type:
             type: "string"
+            enum:
+              - "PLANNED_N"
+              - "PLANNED_C"
           reasonCode:
             type: "string"
           outageId:
@@ -187,3 +191,46 @@ definitions:
             type: "string"
             pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
             description: "Internal for CPPAL, currently not handled by EDNAR"
+  fault1:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+        description: "util.fault:001 - Unknown Fault<br>util.fault:002 - Unknown SOAP Fault<br>util.fault:101 - HTTP Endpoint not reachable<br>util.fault:201 - Invalid Payload<br>util.fault:202 - Transformation Failure"
+        enum:
+          - util.fault:001
+          - util.fault:002
+          - util.fault:101
+          - util.fault:201
+          - util.fault:202
+      message:
+        type: "string"
+      timestamp:
+        type: "string"
+        pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+        example: "2021-05-10T11:01:33+10:00"
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/Errors"
+  Errors:
+    type: "object"
+    properties:
+      elementName:
+        type: "string"
+      errorMessage:
+        type: "string"
+    example: [
+    {
+      "elementName": "type",
+      "errorMessage": "type is null"
+    },
+    {
+      "elementName": "outageStartTime",
+      "errorMessage": "outageStartTime is invalid"
+    },
+    {
+      "elementName": "outageEndTime",
+      "errorMessage": "outageEndTime is invalid"
+    }
+    ]
