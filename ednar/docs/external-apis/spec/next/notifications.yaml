@@ -104,6 +104,15 @@ definitions:
           networkAccessRequestReference:
             type: "string"
             description: "Network Access Request reference (NAR ID)"
+          primaryEquipmentContainer:
+            type: "string"
+            description: "Primary Zone from NAR title"
+          location:
+            type: "string"
+            description: "Location field from NAR title"
+          workType:
+            type: "string"
+            description: "Work Type from NAR title"
           switchingSheetReference:
             type: "string"
             description: "Switch-sheet Number"
