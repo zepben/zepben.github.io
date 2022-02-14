@@ -106,7 +106,7 @@ definitions:
             description: "Network Access Request reference (NAR ID)"
           primaryEquipmentContainer:
             type: "string"
-            description: "Primary Zone from NAR title"
+            description: "Primary equipment container (e.g zone, feeder) from the NAR title"
           location:
             type: "string"
             description: "Location field from NAR title"
