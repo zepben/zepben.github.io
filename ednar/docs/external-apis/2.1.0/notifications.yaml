@@ -1,0 +1,198 @@
+swagger: "2.0"
+info:
+  description: "Customer Notification events API.  "
+  version: "2.1.0"
+  title: "Notification Events"
+tags:
+- name: "notifications"
+  description: "Notification events from EDNAR"
+schemes:
+- "https"
+- "http"
+paths:
+  /notify:
+    post:
+      tags:
+      - "notifications"
+      summary: "Operation to send notification to API endpoint."
+      description: "All notification events follow the same format (outage notifications, cancellations etc.)"
+      operationId: "notifyOutage"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "company"
+        type: "string"
+        description: ""
+      - in: "body"
+        name: "body"
+        description: "NotifyOutageRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/NotifyOutageRequest"
+      responses:
+        "200":
+          description: "Success. If the event is a cancellation, the response body will be empty. <br>The response body is **not** used to update customer notification tasks in EDNAR, and as such no fields are mandatory."
+          schema:
+            $ref: "#/definitions/NotifyOutageResponse"
+        "400":
+          description: "Bad request"
+definitions:
+  NotifyOutageRequest:
+    type: "object"
+    required:
+    - type
+    - requestedTime
+    - nmis
+    - plannedOutageReference
+    properties:
+      type:
+        type: "string"
+        description: "Type of outage request (new notification, cancellation, updated request etc.).
+        This string is configurable based on the event (Order, Delay, Cancel) and the outage type (Standard, Short Shutdown).
+        This configuration resides in the cust_notif_type_mappings database table."
+        example: "ORDER"
+      reasonCode:
+        type: "string"
+        description: "Reason for outage/interruption, cancellation of outage/interruption or delay of outage/interruption.
+        The reasonCode that is sent to the notification API endpoint is configured in the cust_notif_event_reasons database table, 
+        which maps to the access reasons (for ordering notifications), delay reasons (for notifiying of delayed outages) and cancel reasons 
+        (cancelling NARs/notifications/individual customers)."
+        example: "Network Maintenance"
+      outageId:
+        type: "string"
+        description: ""
+      sendHandcard:
+        type: "boolean"
+        description: "True if handcard needs to be sent. Default is false."
+        default: false
+      requestedTime:
+        type: "string"
+        pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+        description: "Timestamp of when the event was created in the source system. Format (timezone at the end): yyyy-mm-dd'T'hh:mm:ss[+,-]hh:mm"
+        example: "2021-05-10T11:01:33+10:00"
+      outageStartTime:
+        type: "string"
+        pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+        description: "Maps to start time at endpoint"
+        example: "2021-07-20T01:44:07+10:00"
+      outageEndTime:
+        type: "string"
+        pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+        description: "Maps to end time in endpoint"
+        example: "2021-07-21T01:44:07+10:00"
+      template:
+        type: "object"
+        properties:
+          ID:
+            type: "string"
+        description: "Only if a custom template needs to be issued"
+      nmis:
+        type: "array"
+        items:
+          type: "string"
+        description: "List of affected National Meter Identifiers (NMIs) or Installation Control Points (ICPs). NMI length is 11 digits, ICP length is 15 characters."
+        example: [ "60001234111" ,"60001244222", "60001235111" ]
+      plannedOutageReference:
+        type: "object"
+        required:
+        - networkAccessRequestReference
+        - taskReference
+        properties:
+          networkAccessRequestReference:
+            type: "string"
+            description: "Network Access Request reference (NAR ID)"
+          primaryEquipmentContainer:
+            type: "string"
+            description: "Primary equipment container (e.g zone, feeder) from the NAR title"
+          location:
+            type: "string"
+            description: "Location field from NAR title"
+          workType:
+            type: "string"
+            description: "Work Type from NAR title"
+          switchingSheetReference:
+            type: "string"
+            description: "Switch-sheet Number"
+          taskReference:
+            type: "string"
+            description: "Task Reference"
+          workOrderId:
+            type: "string"
+            description: "Work Order ID"
+  NotifyOutageResponse:
+    type: "object"
+    properties:
+      header:
+        type: "object"
+        properties:
+          company:
+            type: "string"
+          ebmId:
+            type: "string"
+            description: "Unique ID for tracking requests and responses. Used for audit purposes."
+      body:
+        type: "object"
+        properties:
+          type:
+            type: "string"
+          reasonCode:
+            type: "string"
+          outageId:
+            type: "string"
+          sendHandcard:
+            type: "boolean"
+            default: false
+          requestedTime:
+            type: "string"
+            pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+            example: "2021-05-10T11:01:33+10:00"
+          outageStartTime:
+            type: "string"
+            pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+            example: "2021-07-20T01:44:07+10:00"
+          outageEndTime:
+            type: "string"
+            pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+            example: "2021-07-21T01:44:07+10:00"
+          template:
+            type: "object"
+            properties:
+              ID:
+                type: "string"
+          nmis:
+            type: "object"
+            properties:
+              nmi:
+                type: "string"
+                description: "Length of 11 digits for NMI, 15 characters for ICP"
+              sendTime:
+                type: "string"
+                description: "Scheduled time of the notification for the NMI"
+                pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+              processed:
+                type: "boolean"
+            description: "One NMI object will be returned for each notification that is scheduled/sent."
+            example: [
+            {
+              "nmi": "60001234111",
+              "sendTime": "2021-07-08T00:00:00+10:00",
+              "processed": false
+            },
+            {
+              "nmi": "60001244222",
+              "sendTime": "2021-07-08T00:00:00+10:00",
+              "processed": false
+            },
+            {
+              "nmi": "60001235111",
+              "sendTime": "2021-07-08T00:00:00+10:00",
+              "processed": false
+            }
+            ]
+          lastSendPostTime:
+            type: "string"
+            pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+            description: "Internal for CPPAL, currently not handled by EDNAR"
