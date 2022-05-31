@@ -52,6 +52,7 @@ paths:
                       state:
                       suburb: Bayview
                       unitNumber:
+                      displayAddress: 117a Queen St, Bayview
                     businessName:
                     emails:
                       - email: gary.wark@fakemail.com
@@ -92,6 +93,7 @@ paths:
                   state:
                   suburb: Bayview
                   unitNumber:
+                  displayAddress: 117a Queen St, Bayview
                 type: Residential
         404:
           description: No customer found for the requested NMI
@@ -145,6 +147,7 @@ paths:
                       state:
                       suburb: Bayview
                       unitNumber:
+                      displayAddress: 117a Queen St, Bayview
                     type: Residential
 components:
   schemas:
@@ -363,6 +366,10 @@ components:
           type: string
           nullable: true
           description: The unit number at this address, if applicable.
+        displayAddress:
+          type: string
+          nullable: true
+          description: The display address for this address. If included, this will be the address displayed in the EDNAR UI.
 
     # -- Contact --
     Contact:
