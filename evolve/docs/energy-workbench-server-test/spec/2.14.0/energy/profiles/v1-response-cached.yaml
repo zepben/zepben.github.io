@@ -1,0 +1,11 @@
+description: >
+  OK
+
+
+  The payload of the response will depend on the result that was cached.
+content:
+  'application/json':
+    schema:
+      type: string
+      format: json
+      example: '{...}'
