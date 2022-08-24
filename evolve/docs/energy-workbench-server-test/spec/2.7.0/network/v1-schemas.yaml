@@ -1,0 +1,779 @@
+feederAssetsItem:
+  type: object
+  required:
+    - feeder
+    - assets
+    - infeeds
+  properties:
+    feeder:
+      $ref: '#/feederInfo'
+    assets:
+      $ref: '#/assetArray'
+    infeeds:
+      $ref: '../v1-network-schemas.yaml#/stringArray'
+feederAssetsItemArray:
+  type: array
+  items:
+    $ref: '#/feederAssetsItem'
+feederInfo:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    systemTag:
+      type: string
+assetArray:
+  type: array
+  items:
+    oneOf:
+      - $ref: '#/node'
+      - $ref: '#/transformer'
+      - $ref: '#/conductor'
+      - $ref: '#/meterAsset'
+      - $ref: '#/poleAsset'
+    discriminator:
+      propertyName: type
+      mapping:
+        BasicNode: '#/node'
+        BasicSwitch: '#/node'
+        BrokenBridge: '#/node'
+        Capacitor: '#/node'
+        CircuitBreaker: '#/node'
+        Conductor: '#/conductor'
+        DistTransformer: '#/transformer'
+        FaultIndicator: '#/node'
+        Fuse: '#/node'
+        Generator: '#/node'
+        HvSupplyPoint: '#/node'
+        Isolator: '#/node'
+        IsoTransformer: '#/transformer'
+        Recloser: '#/node'
+        Regulator: '#/transformer'
+        ZoneTransformer: '#/transformer'
+        Meter: '#/meterAsset'
+        Pole: '#/poleAsset'
+asset:
+  oneOf:
+    - $ref: '#/node'
+    - $ref: '#/transformer'
+    - $ref: '#/conductor'
+    - $ref: '#/meterAsset'
+    - $ref: '#/poleAsset'
+  discriminator:
+    propertyName: type
+    mapping:
+      BasicNode: '#/node'
+      BasicSwitch: '#/node'
+      BrokenBridge: '#/node'
+      Capacitor: '#/node'
+      CircuitBreaker: '#/node'
+      Conductor: '#/conductor'
+      DistTransformer: '#/transformer'
+      FaultIndicator: '#/node'
+      Fuse: '#/node'
+      Generator: '#/node'
+      HvSupplyPoint: '#/node'
+      Isolator: '#/node'
+      IsoTransformer: '#/transformer'
+      Recloser: '#/node'
+      Regulator: '#/transformer'
+      ZoneTransformer: '#/transformer'
+      Meter: '#/meterAsset'
+      Pole: '#/poleAsset'
+assetBase:
+  type: object
+  required:
+    - type
+    - id
+    - name
+  properties:
+    type:
+      type: string
+    id:
+      type: string
+    siteId:
+      type: string
+    loadId:
+      type: string
+    name:
+      type: string
+    description:
+      type: string
+    voltage:
+      type: integer
+    connections:
+      $ref: '#/connectionArray'
+    equipmentContainers:
+      $ref: '#/equipmentContainerArray'
+    feeder:
+      type: object
+      properties:
+        normal:
+          $ref: '#/feederDtoArray'
+        current:
+          $ref: '#/feederDtoArray'
+node:
+  allOf:
+    - $ref: '#/assetBase'
+    - type: object
+      required:
+        - symbol
+        - isOpen
+        - lngLat
+      properties:
+        symbol:
+          $ref: '#/symbol'
+        isOpen:
+          type: boolean
+        lngLat:
+          $ref: '#/lngLat'
+transformer:
+  allOf:
+    - $ref: '#/node'
+    - type: object
+      required:
+        - supplyPoints
+        - rating
+      properties:
+        supplyPoints:
+          $ref: '#/supplyPointArray'
+        rating:
+          type: integer
+cimAsset:
+  allOf:
+    - $ref: '#/assetBase'
+    - type: object
+      required:
+        - lngLat
+      properties:
+        lngLat:
+          $ref: '#/lngLat'
+meterAsset:
+  allOf:
+    - $ref: '#/cimAsset'
+    - type: object
+      required:
+        - customerMRID
+        - companyMeterId
+      properties:
+        customerMRID:
+          type: string
+        companyMeterId:
+          type: string
+        supplyPoints:
+          $ref: '#/supplyPointArray'
+poleAsset:
+  allOf:
+    - $ref: '#/cimAsset'
+    - type: object
+      required:
+        - classification
+      properties:
+        classification:
+          type: string
+conductor:
+  allOf:
+    - $ref: '#/assetBase'
+    - type: object
+      required:
+        - length
+        - cableType
+        - lngLats
+      properties:
+        length:
+          $ref: '../v1-network-schemas.yaml#/double'
+        cableType:
+          type: string
+        isUnderground:
+          type: boolean
+        lngLats:
+          $ref: '#/lngLatArray'
+supplyPointArray:
+  type: array
+  items:
+    $ref: '#/supplyPoint'
+supplyPoint:
+  type: object
+  required:
+    - id
+    - name
+    - lngLat
+    - meters
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    lngLat:
+      $ref: '#/lngLat'
+    meters:
+      $ref: '#/meterArray'
+meterArray:
+  type: array
+  items:
+    $ref: '#/meter'
+meter:
+  type: object
+  required:
+    - type
+    - id
+    - company
+    - companyMeterId
+    - tariffType
+    - customerType
+    - nmi
+    - address
+  properties:
+    type:
+      type: string
+      enum:
+        - meter
+    id:
+      type: string
+    company:
+      type: string
+    companyMeterId:
+      type: string
+    tariffType:
+      type: string
+    customerType:
+      type: string
+    nmi:
+      type: string
+    address:
+      type: string
+symbol:
+  type: string
+  enum:
+    - DEFAULT
+    - DIST_TRANSFORMER
+    - ISO_TRANSFORMER
+    - REVERSIBLE_REGULATOR
+    - NON_REVERSIBLE_REGULATOR
+    - ZONE_TRANSFORMER
+    - FEEDER_CB
+    - CB
+    - FUSE
+    - ISOLATOR
+    - RECLOSER
+    - FAULT_INDICATOR
+    - BROKEN_BRIDGE
+    - GENERATOR
+    - CAPACITOR
+    - SUPPLY_POINT
+equipmentContainerArray:
+  type: array
+  items:
+    $ref: '#/equipmentContainer'
+equipmentContainer:
+  type: object
+  required:
+    - id
+    - name
+    - class
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    class:
+      type: string
+feederDtoArray:
+  type: array
+  items:
+    $ref: '#/feederDto'
+feederDto:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    zone:
+      $ref: '#/zoneDto'
+zoneDto:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+connectionArray:
+  type: array
+  items:
+    $ref: '#/connection'
+connection:
+  type: object
+  required:
+    - connectivityNodeId
+    - numCores
+    - normalPhases
+    - normalDirections
+    - currentPhases
+    - currentDirections
+    - lngLat
+  properties:
+    connectivityNodeId:
+      type: string
+    numCores:
+      type: integer
+    normalPhases:
+      $ref: '#/phaseArray'
+    normalDirections:
+      $ref: '#/directionArray'
+    currentPhases:
+      $ref: '#/phaseArray'
+    currentDirections:
+      $ref: '#/directionArray'
+    lngLat:
+      $ref: '#/lngLat'
+phaseArray:
+  type: array
+  items:
+    $ref: '#/phase'
+phase:
+  type: string
+  enum:
+    - A
+    - B
+    - C
+    - N
+directionArray:
+  type: array
+  items:
+    $ref: '#/direction'
+direction:
+  type: string
+  enum:
+    - IN
+    - OUT
+    - BOTH
+    - NONE
+lngLatArray:
+  type: array
+  items:
+    $ref: '#/lngLat'
+lngLat:
+  type: object
+  required:
+    - longitude
+    - latitude
+  properties:
+    longitude:
+      $ref: '../v1-network-schemas.yaml#/double'
+    latitude:
+      $ref: '../v1-network-schemas.yaml#/double'
+businessArray:
+  type: array
+  items:
+    $ref: '#/business'
+business:
+  type: object
+  required:
+    - id
+    - name
+    - regions
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    regions:
+      $ref: '#/regionArray'
+regionArray:
+  type: array
+  items:
+    $ref: '#/region'
+region:
+  type: object
+  required:
+    - id
+    - name
+    - zones
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    zones:
+      $ref: '#/zoneArray'
+zoneArray:
+  type: array
+  items:
+    $ref: '#/zone'
+zone:
+  type: object
+  required:
+    - id
+    - name
+    - feeders
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    feeders:
+      $ref: '#/feederArray'
+feederArray:
+  type: array
+  items:
+    $ref: '#/feeder'
+feeder:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+networkState:
+  type: string
+  enum:
+    - current
+    - normal
+  default: normal
+assetType:
+  type: string
+  enum:
+    - transformer
+    - distTransformer
+    - zoneTransformer
+    - isoTransformer
+    - regulator
+    - node
+    - basicNode
+    - generator
+    - capacitor
+    - switch
+    - basicSwitch
+    - circuitBreaker
+    - fuse
+    - isolator
+    - recloser
+    - faultIndicator
+    - brokenBridge
+    - conductor
+fromToPair:
+  type: object
+  required:
+    - from
+  properties:
+    from:
+      type: string
+    to:
+      type: string
+attachedLoadPointsArray:
+  type: array
+  items:
+    $ref: '#/attachedLoadPoints'
+attachedLoadPoints:
+  type: object
+  required:
+    - id
+    - loadPoints
+  properties:
+    id:
+      type: string
+    loadPoints:
+      $ref: '#/meterArray'
+cableTypeArray:
+  type: array
+  items:
+    $ref: '#/cableType'
+cableType:
+  type: object
+  required:
+    - id
+    - resistance
+    - reactance
+    - zeroSeqResistance
+    - zeroSeqReactance
+    - nominalVoltage
+    - rating
+    - maxFaultCurrent
+    - normalRating
+    - springDay
+    - springNight
+    - summerDay
+    - summerNight
+    - autumnDay
+    - autumnNight
+    - winterDay
+    - winterNight
+    - neutralRating
+  properties:
+    id:
+      type: string
+    resistance:
+      $ref: '../v1-network-schemas.yaml#/float'
+    reactance:
+      $ref: '../v1-network-schemas.yaml#/float'
+    zeroSeqResistance:
+      $ref: '../v1-network-schemas.yaml#/float'
+    zeroSeqReactance:
+      $ref: '../v1-network-schemas.yaml#/float'
+    nominalVoltage:
+      $ref: '../v1-network-schemas.yaml#/float'
+    rating:
+      $ref: '../v1-network-schemas.yaml#/float'
+    maxFaultCurrent:
+      $ref: '../v1-network-schemas.yaml#/float'
+    normalRating:
+      $ref: '../v1-network-schemas.yaml#/float'
+    springDay:
+      $ref: '../v1-network-schemas.yaml#/float'
+    springNight:
+      $ref: '../v1-network-schemas.yaml#/float'
+    summerDay:
+      $ref: '../v1-network-schemas.yaml#/float'
+    summerNight:
+      $ref: '../v1-network-schemas.yaml#/float'
+    autumnDay:
+      $ref: '../v1-network-schemas.yaml#/float'
+    autumnNight:
+      $ref: '../v1-network-schemas.yaml#/float'
+    winterDay:
+      $ref: '../v1-network-schemas.yaml#/float'
+    winterNight:
+      $ref: '../v1-network-schemas.yaml#/float'
+    neutralRating:
+      $ref: '../v1-network-schemas.yaml#/float'
+assetMatchArray:
+  type: array
+  items:
+    $ref: '#/assetMatch'
+assetMatch:
+  type: object
+  required:
+    - id
+    - loadId
+    - name
+    - class
+  properties:
+    id:
+      type: string
+    loadId:
+      type: string
+    name:
+      type: string
+    class:
+      type: string
+geoJsonCoordArray:
+  type: array
+  items:
+    $ref: '#/geoJsonCoord'
+geoJsonCoord:
+  type: array
+  items:
+    type: number
+    format: double
+  minItems: 2
+  maxItems: 2
+  example: [144.22322198, -37.55477289]
+geoJsonFeatureBase:
+  type: object
+  required:
+    - type
+    - geometry
+    - id
+    - properties
+  properties:
+    type:
+      type: string
+      enum:
+        - Feature
+    id:
+      type: string
+geoJsonZonePolygonFeature:
+  allOf:
+    - $ref: '#/geoJsonFeatureBase'
+    - type: object
+      required:
+        - geometry
+        - properties
+      properties:
+        geometry:
+          $ref: '#/geoJsonPolygonGeometry'
+        properties:
+          $ref: '#/geoJsonZonePolygonProperties'
+geoJsonPolygonGeometry:
+  type: object
+  required:
+    - type
+    - coordinates
+  properties:
+    type:
+      type: string
+      enum:
+        - Polygon
+    coordinates:
+      $ref: '#/geoJsonCoordArray'
+geoJsonZonePolygonProperties:
+  type: object
+  required:
+    - id
+    - name
+    - type
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    type:
+      type: string
+      enum:
+        - zone
+geographicalRegionArray:
+  type: array
+  items:
+    $ref: '#/geographicalRegion'
+geographicalRegion:
+  type: object
+  required:
+    - mRID
+    - name
+  properties:
+    mRID:
+      type: string
+    name:
+      type: string
+subGeographicalRegionArray:
+  type: array
+  items:
+    $ref: '#/subGeographicalRegion'
+subGeographicalRegion:
+  type: object
+  required:
+    - mRID
+    - name
+    - geographicalRegionMRID
+  properties:
+    mRID:
+      type: string
+    name:
+      type: string
+    geographicalRegionMRID:
+      type: string
+substationArray:
+  type: array
+  items:
+    $ref: '#/substation'
+substation:
+  type: object
+  required:
+    - mRID
+    - name
+    - subGeographicalRegionMRID
+  properties:
+    mRID:
+      type: string
+    name:
+      type: string
+    subGeographicalRegionMRID:
+      type: string
+cimFeederArray:
+  type: array
+  items:
+    $ref: '#/cimFeeder'
+cimFeeder:
+  type: object
+  required:
+    - mRID
+    - name
+    - substationMRID
+    - adjacentFeederMRIDs
+  properties:
+    mRID:
+      type: string
+    name:
+      type: string
+    substationMRID:
+      type: string
+    adjacentFeederMRIDs:
+      type: array
+      items:
+        $ref: '../v1-network-schemas.yaml#/stringArray'
+circuitArray:
+  type: array
+  items:
+    $ref: '#/circuit'
+circuit:
+  type: object
+  required:
+    - mRID
+    - name
+    - endSubstationMRIDs
+    - endTerminalMRIDs
+  properties:
+    mRID:
+      type: string
+    name:
+      type: string
+    endSubstationMRIDs:
+      $ref: '../v1-network-schemas.yaml#/stringArray'
+    endTerminalMRIDs:
+      $ref: '../v1-network-schemas.yaml#/stringArray'
+loopArray:
+  type: array
+  items:
+    $ref: '#/loop'
+loop:
+  type: object
+  required:
+    - mRID
+    - name
+    - energizingSubstationMRIDs
+    - substationMRIDs
+    - circuitMRIDs
+  properties:
+    mRID:
+      type: string
+    name:
+      type: string
+    energizingSubstationMRIDs:
+      $ref: '../v1-network-schemas.yaml#/stringArray'
+    substationMRIDs:
+      $ref: '../v1-network-schemas.yaml#/stringArray'
+    circuitMRIDs:
+      $ref: '../v1-network-schemas.yaml#/stringArray'
+applicationInfo:
+  type: object
+  required:
+    - title
+    - version
+  properties:
+    title:
+      type: string
+    version:
+      type: string
+dataSourceArray:
+  type: array
+  items:
+    $ref: '#/dataSource'
+dataSource:
+  type: object
+  required:
+    - source
+    - version
+    - timestamp
+  properties:
+    source:
+      type: string
+    version:
+      type: string
+    timestamp:
+      type: string
+      format: date-time

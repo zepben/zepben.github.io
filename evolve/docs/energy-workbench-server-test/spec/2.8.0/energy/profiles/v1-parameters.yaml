@@ -1,0 +1,156 @@
+fromAssetParam:
+  name: fromAsset
+  in: path
+  description: >-
+    The ID of the asset you wish to retrieve the maximum demand profile for,
+    or the start of the downstream trace if the asset has no profile.
+  required: true
+  schema:
+    type: string
+    example: startAsset
+fromDateParam:
+  name: fromDate
+  in: query
+  description: |-
+    The earliest date to use when searching for a profile (yyyy-mm-dd). Can be specified multiple times, but must be paired with a toDate.
+  required: false
+  schema:
+    type: array
+    items:
+      type: string
+      format: date
+      default: unlimited
+toDateParam:
+  name: toDate
+  in: query
+  description: |-
+    The latest date to use when searching for a profile (yyyy-mm-dd). Can be specified multiple times, but must be paired with a fromDate.
+  required: false
+  schema:
+    type: array
+    items:
+      type: string
+      format: date
+      default: unlimited
+toAssetParam:
+  name: toAsset
+  in: query
+  description: The ID of the asset you wish to stop a downstream trace at.
+  required: false
+  schema:
+    type: string
+    example: stopAsset
+cacheResultsParam:
+  name: cacheResults
+  in: query
+  description: |
+    Indicates if the results should be cached for later retrieval.
+  required: false
+  schema:
+    type: boolean
+    default: false
+systemTagParam:
+  name: systemTag
+  in: query
+  description: >
+    Allows the changing of the system used to define the ID's in the
+    request.
+  required: false
+  schema:
+    type: string
+    default: EWB
+    example: GIS
+filterParam:
+  name: filter
+  in: query
+  description: >
+    Apply the specified filter to the response. See the <a href="../api/filtering">filtering overview</a> for details.
+  required: false
+  schema:
+    type: string
+    default: no filter
+    example: 'results.series.energy.readings(time,values(kwIn,kwOut))'
+includeResultsParam:
+  name: includeResults
+  in: query
+  description: >
+    DEPRECATED, use filter instead.
+
+
+    Indicates if the days readings should be included in the response.
+  required: false
+  deprecated: true
+  schema:
+    type: boolean
+    default: true
+seasonParam:
+  name: season
+  in: path
+  description: >
+    Specify the season to match the weather criteria in.
+  required: true
+  schema:
+    type: string
+    enum:
+      - summer
+      - winter
+dayTypeParam:
+  name: dayType
+  in: path
+  description: >
+    Specify the type of day to find.
+  required: true
+  schema:
+    type: string
+    enum:
+      - weekday
+      - saturday
+      - sunday
+temperatureParam:
+  name: temperature
+  in: path
+  description: >
+    Specify the target temperature.
+  required: true
+  schema:
+    type: number
+    format: double
+    example: 25.5
+varianceParam:
+  name: variance
+  in: path
+  description: >
+    Specify the variance from the target temperature that is acceptable.
+  required: true
+  schema:
+    type: number
+    format: double
+    example: 1.5
+searchParam:
+  name: search
+  in: path
+  description: >
+    The text to search for.
+  required: true
+  deprecated: true
+  schema:
+    type: string
+    example: asset name
+cacheKeyParam:
+  in: path
+  name: cacheKey
+  description: >
+    The cache key for the required results
+  required: true
+  schema:
+    type: string
+    example: key
+scadaParam:
+  name: scada
+  in: query
+  description: |
+    Source from SCADA
+  required: false
+  schema:
+    type: boolean
+    default: false

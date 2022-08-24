@@ -1,0 +1,10 @@
+latLon:
+  type: object
+  required:
+    - lat
+    - lon
+  properties:
+    lat:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    lon:
+      $ref: '../../v1-network-schemas.yaml#/double'
