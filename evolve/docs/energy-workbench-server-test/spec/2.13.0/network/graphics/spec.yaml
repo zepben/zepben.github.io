@@ -1,0 +1,27 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/network/graphics/api
+info:
+  version: 1.7.1
+  title: EWB Network Graphics API
+  license:
+    name: Zeppelin Bend
+tags:
+    - name: Network Graphics v1
+paths:
+  /v1/asset/{assetId}:
+    $ref: 'v1-route-asset-graphics-by-id.yaml'
+  /v1/geo/asset/{assetId}:
+    $ref: 'v1-route-asset-geo-graphics-by-id.yaml'
+  /v1/asset:
+    $ref: 'v1-route-asset-graphics-multi.yaml'
+  /v1/geo/asset:
+    $ref: 'v1-route-asset-geo-graphics-multi.yaml'
+  /v1/geo-json/asset/{assetId]:
+    $ref: 'v1-route-asset-geo-json-by-id.yaml'
+  /v1/geo-json/asset:
+    $ref: 'v1-route-asset-geo-json-multi.yaml'
+  /v1/view/{viewId}:
+    $ref: 'v1-route-graphics-for-view.yaml'
+  /v1/mvt/geo-view/{z}/{x}/{y}:
+    $ref: 'v1-route-mvt-geo-view.yaml'
