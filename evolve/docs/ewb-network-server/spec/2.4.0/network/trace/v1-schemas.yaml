@@ -1,0 +1,70 @@
+downstreamTreeNode:
+  type: object
+  required:
+    - type
+    - id
+    - name
+    - children
+  properties:
+    type:
+      $ref: '#/assetType'
+    id:
+      type: string
+    name:
+      type: string
+    children:
+      $ref: '#/downstreamTreeNodeArray'
+assetType:
+  type: string
+  enum:
+    - BasicNode
+    - BasicSwitch
+    - BrokenBridge
+    - Capacitor
+    - CircuitBreaker
+    - Conductor
+    - DistTransformer
+    - FaultIndicator
+    - Fuse
+    - Generator
+    - HvSupplyPoint
+    - Isolator
+    - IsoTransformer
+    - Recloser
+    - Regulator
+    - ZoneTransformer
+downstreamTreeNodeArray:
+  type: array
+  items:
+    $ref: '#/downstreamTreeNode'
+isolationTraceRequest:
+  type: object
+  required:
+    - assets
+  properties:
+    assets:
+      $ref: '#/assetIdWithPointArray'
+assetIdWithPointArray:
+  type: array
+  items:
+    $ref: '#/assetIdWithPoint'
+assetIdWithPoint:
+  type: object
+  required:
+    - id
+  properties:
+    id:
+      type: string
+    lngLat:
+      $ref: '../v1-schemas.yaml#/lngLat'
+isolatedAssetsResultArray:
+  type: array
+  items:
+    $ref: '#/isolatedAssetsResult'
+isolatedAssetsResult:
+  type: object
+  required:
+    - assets
+  properties:
+    assets:
+      $ref: '../v1-schemas.yaml#/assetArray'

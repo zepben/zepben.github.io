@@ -1,0 +1,7 @@
+description: OK
+content:
+  'application/vnd.mapbox-vector-tile':
+    schema:
+      $ref: '../../v1-network-schemas.yaml#binary'
+    description: >-
+      Binary compressed format specified by Mapbox for streaming vector tiles.

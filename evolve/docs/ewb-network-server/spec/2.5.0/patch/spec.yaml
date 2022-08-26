@@ -1,0 +1,13 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/patch/api
+info:
+  version: 1.0.0
+  title: EWB Network Server Patch API
+  license:
+    name: Zeppelin Bend
+tags:
+  - name: Patch v1
+paths:
+  /v1/load-manipulations:
+    $ref: v1-route-load-manipulations.yaml

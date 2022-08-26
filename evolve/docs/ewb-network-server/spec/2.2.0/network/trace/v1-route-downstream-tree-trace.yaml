@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Network Trace v1
+  summary: Retrieve the assets connected downstream of the specified asset.
+  description: >-
+    Used to retrieve a tree defining the assets connected downstream from the specified asset. If an asset
+    can be reached from multiple paths it will appear multiple times in the tree.
+  operationId: downstreamTreeTrace
+  parameters:
+    - $ref: '../v1-parameters.yaml#/assetIdParam'
+    - $ref: '../v1-parameters.yaml#/networkStateParam'
+    - $ref: '../v1-parameters.yaml#/includeLengthParam'
+    - $ref: '../v1-parameters.yaml#/includeCableTypeParam'
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-downstream-tree.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'

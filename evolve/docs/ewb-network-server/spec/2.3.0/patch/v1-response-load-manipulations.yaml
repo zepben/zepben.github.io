@@ -1,0 +1,10 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - loadManipulations
+      properties:
+        loadManipulations:
+          $ref: 'v1-schemas.yaml#/loadManipulationArray'

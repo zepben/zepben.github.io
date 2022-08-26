@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Network Trace v1
+  summary: Retrieve the assets connected immediately upstream of the specified asset.
+  description: >-
+    Used to retrieve a list of assets connected immediately upstream from the specified asset that match a provided
+    asset type. If an asset type is not specified, the response will contain the assets that are directly connected
+    to the specified asset upstream.
+  operationId: upstreamAssetTrace
+  parameters:
+    - $ref: '../v1-parameters.yaml#/assetIdParam'
+    - $ref: '../v1-parameters.yaml#/assetTypeParam'
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-upstream-asset.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'
