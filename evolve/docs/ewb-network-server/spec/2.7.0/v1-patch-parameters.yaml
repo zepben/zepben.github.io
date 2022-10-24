@@ -1,0 +1,10 @@
+filterParam:
+  name: filter
+  in: query
+  description: >
+    Apply the specified filter to the response. See the <a href="/docs/api/filtering">filtering overview</a> for details.
+  required: false
+  schema:
+    type: string
+    default: no filter
+    example: feeders(assets(id,name),feeder)

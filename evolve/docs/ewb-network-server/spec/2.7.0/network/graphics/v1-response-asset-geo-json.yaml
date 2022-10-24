@@ -1,0 +1,19 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - features
+        - type
+      properties:
+        features:
+          type: array
+          items:
+            anyOf:
+              - $ref: 'v1-schemas.yaml#/geoJsonNodeFeature'
+              - $ref: 'v1-schemas.yaml#/geoJsonConductorFeature'
+        type:
+          type: string
+          enum:
+            - FeatureCollection
