@@ -8,7 +8,6 @@ info:
   title: EAS User API
   version: next
 security:
-  - Self: []
   - Auth0: []
 paths:
   /createUser:
@@ -56,7 +55,5 @@ paths:
                 type: string
 components:
   securitySchemes:
-    Self:
-      $ref: "../shared-components.yaml#components/securitySchemes/Self"
     Auth0:
       $ref: "../shared-components.yaml#components/securitySchemes/Auth0"

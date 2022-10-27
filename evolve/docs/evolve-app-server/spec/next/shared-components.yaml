@@ -1,13 +1,5 @@
 components:
   securitySchemes:
-    Self:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: oauth/authorize
-          tokenUrl: oauth/token
-          scopes:
-            trusted: Enables API Access
     Auth0:
       type: oauth2
       flows:

@@ -8,7 +8,6 @@ info:
   title: EAS Map API
   version: next
 security:
-  - Self: []
   - Auth0: []
 paths:
   /tile/{z}/{x}/{y}:
@@ -71,7 +70,5 @@ paths:
                 format: binary
 components:
   securitySchemes:
-    Self:
-      $ref: "../shared-components.yaml#components/securitySchemes/Self"
     Auth0:
       $ref: "../shared-components.yaml#components/securitySchemes/Auth0"

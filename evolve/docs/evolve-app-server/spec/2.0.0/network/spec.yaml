@@ -8,7 +8,6 @@ info:
   title: EAS Network API
   version: next
 security:
-  - Self: []
   - Auth0: []
 paths:
   /hierarchy:
@@ -128,7 +127,5 @@ paths:
             using.
 components:
   securitySchemes:
-    Self:
-      $ref: "../shared-components.yaml#components/securitySchemes/Self"
     Auth0:
       $ref: "../shared-components.yaml#components/securitySchemes/Auth0"
