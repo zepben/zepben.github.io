@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-alpha.70">
+<link rel="alternate" type="application/rss+xml" href="/evolve/docs/jvm-sdk/blog/rss.xml" title="Evolve SDK (JVM) Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/evolve/docs/jvm-sdk/blog/atom.xml" title="Evolve SDK (JVM) Blog Atom Feed">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-81287323-1","auto"),ga("send","pageview")</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<link rel="search" type="application/opensearchdescription+xml" title="Evolve SDK (JVM)" href="/evolve/docs/jvm-sdk/opensearch.xml"><title data-react-helmet="true">CIM Services | Evolve SDK (JVM)</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="0.14.0"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-0.14.0"><meta data-react-helmet="true" name="docsearch:project" content="jvm-sdk"><meta data-react-helmet="true" property="og:title" content="CIM Services | Evolve SDK (JVM)"><meta data-react-helmet="true" name="description" content="Now that you are able to create a data model, you need something to manage the objects."><meta data-react-helmet="true" property="og:description" content="Now that you are able to create a data model, you need something to manage the objects."><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.14.0/sdk-services"><link data-react-helmet="true" rel="shortcut icon" href="/evolve/docs/jvm-sdk/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/evolve/docs/jvm-sdk//evolve/docs/jvm-sdk/0.14.0/sdk-services"><link rel="stylesheet" href="/evolve/docs/jvm-sdk/styles.8014a7c2.css">
+<link rel="preload" href="/evolve/docs/jvm-sdk/styles.ff2c58d7.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/runtime~main.7e9eaf78.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/main.24cdaceb.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/1.9ef2de0b.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/2.82125a4d.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/97.56d554d3.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/01aeec71.6dc354fa.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/17896441.ed4ac714.js" as="script">
+<link rel="preload" href="/evolve/docs/jvm-sdk/94270db6.f60e2092.js" as="script">
+</head>
+<body>
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<nav aria-label="Skip navigation links"><button type="button" tabindex="0" class="skipToContent_11B0">Skip to main content</button></nav><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><div aria-label="Navigation bar toggle" class="navbar__toggle" role="button" tabindex="0"><svg aria-label="Menu" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></div><a href="https://www.zepben.com/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><img src="/evolve/docs/jvm-sdk/img/logo.svg" alt="Zepben" class="themedImage_YANc themedImage--light_3CMI navbar__logo"><img src="/evolve/docs/jvm-sdk/img/logo-dark.svg" alt="Zepben" class="themedImage_YANc themedImage--dark_3ARp navbar__logo"></a><a href="https://zepben.github.io/evolve/docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Evolve</a><a class="navbar__item navbar__link" href="/evolve/docs/jvm-sdk/">Docs</a></div><div class="navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/evolve/docs/jvm-sdk/release-notes">Release Notes</a><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/evolve/docs/jvm-sdk/0.14.0/">0.14.0</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/next/sdk-services">Next</a></li><li><a aria-current="page" class="dropdown__link dropdown__link--active" href="/evolve/docs/jvm-sdk/0.14.0/sdk-services">0.14.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.13.0/sdk-services">0.13.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.12.1/sdk-services">0.12.1</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.12.0/sdk-services">0.12.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.11.0/sdk-services">0.11.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.10.0/sdk-services">0.10.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.9.0/sdk-services">0.9.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.8.0/sdk-services">0.8.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.7.0/sdk-services">0.7.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.6.0/sdk-services">0.6.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.5.0/sdk-services">0.5.0</a></li><li><a class="dropdown__link" href="/evolve/docs/jvm-sdk/0.4.0/sdk-services">0.4.0</a></li></ul></div><a href="https://github.com/zepben/evolve-sdk-jvm/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="react-toggle react-toggle--disabled displayOnlyInLargeViewport_2N3Q"><div class="react-toggle-track"><div class="react-toggle-track-check"><span class="toggle_3NWk">🌜</span></div><div class="react-toggle-track-x"><span class="toggle_3NWk">🌞</span></div></div><div class="react-toggle-thumb"></div><input type="checkbox" disabled="" aria-label="Dark mode toggle" class="react-toggle-screenreader-only"></div><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><div class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></div></button></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div><div class="navbar-sidebar"><div class="navbar-sidebar__brand"><a href="https://www.zepben.com/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><img src="/evolve/docs/jvm-sdk/img/logo.svg" alt="Zepben" class="themedImage_YANc themedImage--light_3CMI navbar__logo"><img src="/evolve/docs/jvm-sdk/img/logo-dark.svg" alt="Zepben" class="themedImage_YANc themedImage--dark_3ARp navbar__logo"></a></div><div class="navbar-sidebar__items"><div class="menu"><ul class="menu__list"><li class="menu__list-item"><a href="https://zepben.github.io/evolve/docs" target="_blank" rel="noopener noreferrer" class="menu__link">Evolve</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/">Docs</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/release-notes">Release Notes</a></li><li class="menu__list-item"><a role="button" class="menu__link menu__link--sublist">Versions</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/next/sdk-services">Next</a></li><li class="menu__list-item"><a aria-current="page" class="menu__link menu__link--active" href="/evolve/docs/jvm-sdk/0.14.0/sdk-services">0.14.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.13.0/sdk-services">0.13.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.12.1/sdk-services">0.12.1</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.12.0/sdk-services">0.12.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.11.0/sdk-services">0.11.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.10.0/sdk-services">0.10.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.9.0/sdk-services">0.9.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.8.0/sdk-services">0.8.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.7.0/sdk-services">0.7.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.6.0/sdk-services">0.6.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.5.0/sdk-services">0.5.0</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.4.0/sdk-services">0.4.0</a></li></ul></li><li class="menu__list-item"><a href="https://github.com/zepben/evolve-sdk-jvm/" target="_blank" rel="noopener noreferrer" class="menu__link header-github-link" aria-label="GitHub repository"></a></li></ul></div></div></div></nav><div class="main-wrapper"><div class="docPage_vMrn"><div class="docSidebarContainer_3Ak5" role="complementary"><div class="sidebar_3gvy"><div class="menu menu--responsive thin-scrollbar menu_1yIk"><button aria-label="Open Menu" aria-haspopup="true" class="button button--secondary button--sm menu__button" type="button"><svg aria-label="Menu" class="sidebarMenuIcon_1CUI" width="24" height="24" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.14.0/">Data Model</a></li><li class="menu__list-item"><a aria-current="page" class="menu__link menu__link--active active" href="/evolve/docs/jvm-sdk/0.14.0/sdk-services">CIM Services</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.14.0/sdk-phases">Phases and Feeder Directions</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.14.0/sdk-tracing">Tracing</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.14.0/sdk-persistence">Persisting Models</a></li><li class="menu__list-item"><a class="menu__link" href="/evolve/docs/jvm-sdk/0.14.0/sdk-consumer">Requesting Models</a></li></ul></div></div></div><main class="docMainContainer_2iGs"><div class="container padding-vert--lg docItemWrapper_1bxp"><div class="row"><div class="col docItemCol_U38p"><div class="docItemContainer_a7m4"><article><div><span class="badge badge--secondary">Version: 0.14.0</span></div><header><h1 class="docTitle_Oumm">CIM Services</h1></header><div class="markdown"><p>Now that you are able to create a data model, you need something to manage the objects.
+This is where we provide a set of classes, which we call services, to do this.</p><p>The services basically act as a container for your model. However, they provide some features which make it much nicer
+to use than a typical map / dictionary type data container to store your identified objects. The SDK provides the
+following services</p><ul><li>NetworkService</li><li>CustomerService</li><li>DiagramService</li></ul><p>Each of these services manage a specific subset of identified objects. This subset will hopefully be somewhat obvious
+based on the name of each service. If you would like to know why there a multiple services for different object types
+you can read more about it <a href="#why-multiple-services">here</a>.</p><h2 id="common-service-functionality">Common Service functionality</h2><p>Because services work with <a href="https://zepben.github.io/evolve/docs/cim/cim100/TC57CIM/IEC61970/Base/Core/IdentifiedObject">identified objects</a>
+they can provide some common level of functionality. This functionality can be found in the base class <code>BaseService</code>.</p><h3 id="adding-and-removing-objects">Adding and Removing Objects</h3><p>As the different services support different subsets of identified objects, you can only add objects directly to a concrete
+service reference. However, sometimes you wish to write some code that works with a set of different objects that are all supported
+by the one service. For example you might have some code that works only on <code>ConductingEquipment</code> and you want add or remove
+these objects. Instead of having to cast to their derived type just to add/remove, <code>tryAdd</code> and <code>tryRemove</code> functions
+are provided that accept any identified object. These functions will do the grunt work and call the appropriate concrete
+add/remove functions on the service. If the service does not support the provided identified object an exception is thrown.</p><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">NetworkService service = new NetworkService();
+
+Breaker breaker = new Breaker();
+service.add(breaker);
+
+// If you don&#x27;t have a reference to a leaf type, you can use the tryAdd function.
+// However this will throw if the service doesn&#x27;t support the object type.
+IdentifiedObject idObjRef = new Junction();
+service.tryAdd(idObjRef);
+</code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">val service = NetworkService()
+
+val breaker = Breaker()
+service.add(breaker)
+
+// If you don&#x27;t have a reference to a leaf type, you can use the tryAdd function.
+// However this will throw if the service doesn&#x27;t support the object type.
+val idObjRef: IdentifiedObject = Junction()
+service.tryAdd(idObjRef)
+</code></pre></div></div></div><h3 id="object-retrieval">Object Retrieval</h3><p>There are a few ways we provide to get objects back out of a service. The most obvious one is by mRID:</p><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">NetworkService service = NetworkService();
+service.add(new Breaker(&quot;breaker1&quot;));
+Breaker breaker = service.get(&quot;breaker1&quot;, Breaker.class)
+</code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">val service = NetworkService()
+service.add(Breaker(&quot;breaker1&quot;))
+val breaker = service.get&lt;Breaker&gt;(&quot;breaker1&quot;)
+</code></pre></div></div></div><p>You can also get collections of objects back out of the service. The power here is you can get objects from anywhere
+in the CIM class hierarchy. Due to the internal data structures used by the services, using these functions is more
+efficient than looping over all objects in the service and checking if they are of the required type.</p><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">NetworkService service = new NetworkService()
+
+service.add(new Breaker())
+service.add(new Junction())
+
+// All the following will contain both the breaker and the junction added to the service.
+service.sequenceOf(ConductingEquipment.class)
+service.listOf(ConductingEquipment.class)
+service.setOf(ConductingEquipment.class)
+
+// This creates a map of mRID to the Identified Object
+service.mapOf(ConductingEquipment.class)
+</code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">val service = NetworkService()
+
+service.add(Breaker())
+service.add(Junction())
+
+// All the following will contain both the breaker and the junction added to the service.
+service.sequenceOf&lt;ConductingEquipment&gt;()
+service.listOf&lt;ConductingEquipment&gt;()
+service.setOf&lt;ConductingEquipment&gt;()
+
+// This creates a map of mRID to the Identified Object
+service.mapOf&lt;ConductingEquipment&gt;()
+</code></pre></div></div></div><h2 id="network-service">Network Service</h2><p>The network service works with objects related to the physical asset model. That means all
+<a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Core/PowerSystemResource">PowerSystemResource</a> types, but also
+data related types such as <a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61968/Assets/AssetInfo">AssetInfo</a> and
+<a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61968/Common/Location">Location</a>.</p><p>The network service also generates an index between power system resources and terminals and their corresponding
+measurements. When you add a <a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/Meas/Measurement">Measurement</a>
+to the service, it indexes it against the <code>powerSystemResourceMRID</code> or the <code>terminalMRID</code> associated with the measurement.
+You can then get all measurements associated with a power system resource or a terminal via its mRID via the lookup on
+the service:</p><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">NetworkService service = NetworkService();
+
+Analog amps = new Analog();
+amps.setPowerSystemResourceMRID(&quot;ASWITCH&quot;);
+
+Accumulator count = Accumulator();
+count.setPowerSystemResourceMRID(&quot;ASWITCH&quot;);
+
+service.add(amps);
+service.add(count);
+
+// Gets both the analog and the accumulator
+service.getMeasurements(&quot;ASWITCH&quot;, Measurement.class);
+
+// Will get just the analog
+service.getMeasurements(&quot;ASWITCH&quot;, Analog.class);
+</code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">val service = NetworkService()
+
+val amps = Analog().apply { powerSystemResourceMRID = &quot;ASWITCH&quot; }
+val count = Accumulator().apply { powerSystemResourceMRID = &quot;ASWITCH&quot; }
+
+service.add(amps)
+service.add(count)
+
+// Gets both the analog and the accumulator
+service.getMeasurements&lt;Measurement&gt;(&quot;ASWITCH&quot;)
+
+// Will get just the analog
+service.getMeasurements&lt;Analog&gt;(&quot;ASWITCH&quot;)
+</code></pre></div></div></div><p>Note if you change the <code>powerSystemResourceMRID</code> or <code>terminalMRID</code> set on the measurement after it has been added to the
+service, it is not re-indexed automatically. Currently you need to to remove the measurement and re-add it to the service.
+However this should rarely be an issue as a measurement is unlikely to ever change the device it is measuring, so as long
+as the association is set before adding to the service it is unlikely to be a problem.</p><h2 id="customer-service">Customer Service</h2><p>The customer service works with objects related to customers and their agreements they may have with actors in the
+network. At this point in time it provides no further specialised functionality.</p><h2 id="diagram-service">Diagram Service</h2><p>The diagram service works with objects related to diagrams associated with identified objects.
+It also provides a lookup to be able to get the
+<a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/DiagramLayout/DiagramObject">DiagramObjects</a> associated with any
+identified object. Specifically:</p><ul><li>If the mRID is a diagram object, a list with just the diagram object is returned.</li><li>If the mRID is a <a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/DiagramLayout/Diagram">Diagram</a> all diagram
+objects belonging to that diagram are returned.</li><li>If the mRID is any other identified object, the diagram objects for that identified object are returned.</li></ul><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">DiagramService service = new DiagramService();
+
+Diagram aDiagram = new Diagram();
+
+DiagramObject do1 = DiagramObject();
+do1.setDiagram(aDiagram);
+do1.identifiedObjectMRID = &quot;aSwitch&quot;;
+aDiagram.addDiagramObject(this);
+
+DiagramObject do2 = DiagramObject();
+do2.setDiagram(aDiagram);
+do2.identifiedObjectMRID = &quot;aSwitch&quot;;
+aDiagram.addDiagramObject(this);
+
+DiagramObject do3 = DiagramObject();
+do3.setDiagram(aDiagram);
+do3.identifiedObjectMRID = &quot;aSwitch&quot;;
+aDiagram.addDiagramObject(this);
+
+service.add(do1)
+service.add(do2)
+service.add(do3)
+
+// Contains [do1]
+service.getDiagramObjects(do1.mRID)
+
+// Contains [do1, do2, do3]
+service.getDiagramObjects(aDiagram.mRID)
+
+// Contains [do1, do2]
+service.getDiagramObjects(&quot;aSwitch&quot;)
+</code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">val service = DiagramService()
+
+val aDiagram = Diagram()
+
+val do1 = DiagramObject().apply {
+    diagram = aDiagram
+    identifiedObjectMRID = &quot;aSwitch&quot;
+    aDiagram.addDiagramObject(this)
+}
+
+val do2 = DiagramObject().apply {
+    diagram = aDiagram
+    identifiedObjectMRID = &quot;aSwitch&quot;
+    aDiagram.addDiagramObject(this)
+}
+
+val do3 = DiagramObject().apply {
+    diagram = aDiagram
+    aDiagram.addDiagramObject(this)
+}
+
+service.add(do1)
+service.add(do2)
+service.add(do3)
+
+// Contains [do1]
+service.getDiagramObjects(do1.mRID)
+
+// Contains [do1, do2, do3]
+service.getDiagramObjects(aDiagram.mRID)
+
+// Contains [do1, do2]
+service.getDiagramObjects(&quot;aSwitch&quot;)
+</code></pre></div></div></div><p>This works by indexing the <code>identifiedObjectMRID</code> when the diagram object is added to the service. Note however,
+that setting the <code>identifiedObjectMRID</code> after the diagram object is added will not cause it to be re-indexed automatically.
+Currently you need to to remove the diagram object and re-add it to the service.
+This should rarely be an issue however, as a diagram object is unlikely to ever change the identified object it is
+representing, so as long as it is set before adding it to the service it is unlikely to be a problem.</p><h2 id="deferred-references">Deferred References</h2><p>When creating an object to include in the model, you will often not have all referenced objects constructed, not have
+all the information to construct a reference immediately, or not have a reference handy to use. However, you will
+generally have the mRID of any referenced objects. To deal with this, the services provide a <code>resolveOrDeferReference</code>
+function. This function will:</p><ul><li>Resolve a reference immediately (in both directions if applicable) if the reference mRID object is already added to the service. </li><li>If the reference mRID is not added to the service, the request to resolve the reference is cached. When an object
+with the referenced mRID is eventually added to the service, the reference is resolved at this time. </li></ul><p>Unresolved references can also be queried back out of the service. Let&#x27;s see it all with a simple example:</p><div><ul role="tablist" aria-orientation="horizontal" class="tabs"><li role="tab" tabindex="0" aria-selected="true" class="tabs__item tabItem_1shy tabs__item--active">Java</li><li role="tab" tabindex="0" aria-selected="false" class="tabs__item tabItem_1shy">Kotlin</li></ul><div class="margin-vert--md"><div role="tabpanel"><pre><code class="language-java">NetworkService service = new NetworkService();
+
+Feeder feeder = new Feeder(&quot;f&quot;);
+service.add(feeder)
+
+Breaker switch = new Breaker(&quot;b1&quot;);
+service.add(switch);
+
+// As the switch is already added to the service, this will be resolved immediately.
+service.resolveOrDeferReference(Resolvers.equipment(feeder), switch.getMRID());
+System.out.println(feeder.getEquipment().contains(switch)); // true
+
+// Now if we try and resolve something not added it will be deferred
+Junction junction = new Junction(&quot;j1&quot;);
+service.resolveOrDeferReference(Resolvers.equipment(feeder), junction.getMRID());
+System.out.println(feeder.getEquipment().contains(junction)); // false
+
+// We can query the unresolved reference mRIDs back out of the service
+System.out.println(service.getUnresolvedReferenceMrids(Resolvers.equipment(feeder))); // [&quot;j1&quot;]
+// Or using the mrid of the destination object
+System.out.println(service.getUnresolvedReferencesTo(feeder.mrid)) // [UnresolvedReference(junction, toMrid=&quot;f&quot;)]
+// Or using the mrid of the source object
+System.out.println(service.getUnresolvedReferencesFrom(junction.mrid)) // [UnresolvedReference(feeder, toMrid=&quot;j1&quot;)]
+
+// When the object with the deferred mRID is added, the reference gets resolved
+service.add(junction)
+System.out.println(feeder.getEquipment().contains(junction)) // true
+</code></pre></div><div role="tabpanel" hidden=""><pre><code class="language-kotlin">val service = NetworkService()
+
+val feeder = Feeder(&quot;f&quot;)
+service.add(feeder)
+
+val switch = Breaker(&quot;b1&quot;)
+service.add(switch)
+
+// As the switch is already added to the service, this will be resolved immediately.
+service.resolveOrDeferReference(Resolvers.equipment(feeder), switch.mRID)
+println(feeder.equipment.contains(switch)) // true
+
+// Now if we try and resolve something not added it will be deferred
+val junction = Junction(&quot;j1&quot;)
+service.resolveOrDeferReference(Resolvers.equipment(feeder), junction.mRID)
+println(feeder.equipment.contains(junction)) // false
+
+// We can query the unresolved reference mRIDs back out of the service
+println(service.getUnresolvedReferenceMrids(Resolvers.equipment(feeder))) // [&quot;j1&quot;]
+// Or using the mrid of the destination object
+println(service.getUnresolvedReferencesTo(feeder.mrid)) // [UnresolvedReference(junction, toMrid=&quot;f&quot;)]
+// Or using the mrid of the source object
+println(service.getUnresolvedReferencesFrom(junction.mrid)) // [UnresolvedReference(feeder, toMrid=&quot;j1&quot;)]
+
+// When the object with the deferred mRID is added, the reference gets resolved
+service.add(junction)
+println(feeder.equipment.contains(junction)) // true
+</code></pre></div></div></div><hr><h4 id="why-multiple-services">Why multiple services?</h4><p>You might be asking &quot;Why not just one service for all identified objects?&quot;. Admittedly, just having one would be easier
+to work with. However, as models can become large, having every object in a single service (and thus process) will mean
+you need an ever increasing amount of RAM in your system. What we have done is separated out parts of the
+data model into separate concerns, at what we feel are sensible boundary points. That is:</p><ul><li>The network service deals with models of the physical electricity network.</li><li>The customer service deals with customers and their agreements with electricity providers
+(e.g their <a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61968/Customers/Tariff">Tariff</a>).</li><li>The diagram service deals with things related to representing networks as diagrams
+(see <a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/DiagramLayout/Diagram">Diagram</a> and
+<a href="https://zepben.github.io/evolve/docs/cim/evolve/IEC61970/Base/DiagramLayout/DiagramObject">DiagramObject</a>).</li><li>Once the platform supports measurement values, these values will be retrieved via a separate service rather than
+directly from measurement objects.</li></ul><p>Ultimately there is a tradeoff between developer usability and model size feasibility. Hopefully you will find this
+is a reasonable trade off when working with large systems.</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/evolve/docs/jvm-sdk/0.14.0/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« Data Model</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/evolve/docs/jvm-sdk/0.14.0/sdk-phases"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Phases and Feeder Directions »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_2xL- thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#common-service-functionality" class="table-of-contents__link">Common Service functionality</a><ul><li><a href="#adding-and-removing-objects" class="table-of-contents__link">Adding and Removing Objects</a></li><li><a href="#object-retrieval" class="table-of-contents__link">Object Retrieval</a></li></ul></li><li><a href="#network-service" class="table-of-contents__link">Network Service</a></li><li><a href="#customer-service" class="table-of-contents__link">Customer Service</a></li><li><a href="#diagram-service" class="table-of-contents__link">Diagram Service</a></li><li><a href="#deferred-references" class="table-of-contents__link">Deferred References</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2023 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
+<script src="/evolve/docs/jvm-sdk/styles.ff2c58d7.js"></script>
+<script src="/evolve/docs/jvm-sdk/runtime~main.7e9eaf78.js"></script>
+<script src="/evolve/docs/jvm-sdk/main.24cdaceb.js"></script>
+<script src="/evolve/docs/jvm-sdk/1.9ef2de0b.js"></script>
+<script src="/evolve/docs/jvm-sdk/2.82125a4d.js"></script>
+<script src="/evolve/docs/jvm-sdk/97.56d554d3.js"></script>
+<script src="/evolve/docs/jvm-sdk/01aeec71.6dc354fa.js"></script>
+<script src="/evolve/docs/jvm-sdk/17896441.ed4ac714.js"></script>
+<script src="/evolve/docs/jvm-sdk/94270db6.f60e2092.js"></script>
+</body>
+</html>
