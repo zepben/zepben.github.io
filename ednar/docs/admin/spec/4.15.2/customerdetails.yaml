@@ -1,0 +1,483 @@
+openapi: 3.0.1
+info:
+  title: Customer Details
+  version: 4.15.2
+  description: |
+    API to be implemented so that EDNAR can query for customer details.
+
+    This spec uses the term/abbreviation `NMI` or `nmi` throughout. This is used to represent the identifier of a
+    customer for outage purposes. In Australia it stands for 'National Metering Identfier'. In New Zealand the equivalent is 'ICP'
+    (Installation Control Point). For simplicity sake, the API uses `nmi` so it is clear what the intention of this
+    fields means throughout, even if your country uses different terminology.
+tags:
+  - name: Customer Details
+paths:
+  /customers/{nmi}:
+    get:
+      tags:
+        - Customer Details
+      summary: Used to retrieve complete details for one customer.
+      description: |
+        Request the complete details about the customer. It is used in EDNAR when a user selects a customer
+        within a NAR to view that customers details. Note that this endpoint returns more details than the customer list
+        one. This is primarily for performance based reasons, as complete customer details are generally only needed
+        on demand one at a time.
+      parameters:
+        - name: nmi
+          in: path
+          required: true
+          description: The identifier of the customer whose details are being requested.
+          schema:
+            type: string
+      responses:
+        200:
+          description: The customer details for the requested NMI.
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/CustomerDetail'
+              example:
+                nmi: '00001234'
+                contacts:
+                  - id: contact1
+                    address:
+                      buildingName:
+                      buildingNumber:
+                      country: Australia
+                      floorNumber:
+                      postcode:
+                      streetName: Queen
+                      streetNumber: 117A
+                      streetType: Street
+                      state:
+                      suburb: Bayview
+                      unitNumber:
+                      displayAddress: 117a Queen St, Bayview
+                    businessName:
+                    emails:
+                      - email: gary.wark@fakemail.com
+                        isPrimary: true
+                        description: primary
+                      - email: gary.work@fakecorp.com
+                        isPrimary: false
+                        description: work
+                    firstName: Gary
+                    lastName: Wark
+                    isPrimary: true
+                    phones:
+                      - number: "(02) 4987 3470"
+                        isPrimary: true
+                        description: home
+                      - number: "(02) 4070 6360"
+                        isPrimary: false
+                        description: work
+                    preferredContactMethod: EMAIL
+                    type: Account Owner
+                distributor: Energy Corp
+                hasAdditionalContacts: true
+                hasEnergyFeedBack: true
+                sensitivityCategory: Critical Infrastructure
+                isEmbeddedNetwork: false
+                meters:
+                  - id: meter1
+                moveInDate: '2021-09-13T12:07:29.207787Z'
+                serviceAddress:
+                  buildingName:
+                  buildingNumber:
+                  country: Australia
+                  floorNumber:
+                  postcode:
+                  streetName: Queen
+                  streetNumber: 117A
+                  streetType: Street
+                  state:
+                  suburb: Bayview
+                  unitNumber:
+                  displayAddress: 117a Queen St, Bayview
+                type: Residential
+        404:
+          description: No customer found for the requested NMI
+  /customers:
+    post:
+      tags:
+        - Customer Details
+      summary: Used to retrieve multiple customer details.
+      description: |
+        Request a simplified view of multiple customers in a single call. This is used in EDNAR when it is populating
+        customer outage lists, and only specific fields of the customer details are needed to be shown in the table.
+        This improves performance and reduces load for both EDNAR and the implementing customer API server as complete
+        details will only be requested when required by EDNAR.
+      requestBody:
+        description: The list of NMIs of the customers whose details are being requested.
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/nmisRequest'
+        required: false
+      responses:
+        200:
+          description: A list of customer detail objects (one for each requested NMI).
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/CustomerList'
+              example:
+                nmis:
+                  - nmi: '00001234'
+                    distributor: Energy Corp
+                    hasAdditionalContacts: true
+                    hasEnergyFeedBack: true
+                    sensitivityCategory: Critical Infrastructure
+                    isEmbeddedNetwork: false
+                    primaryContact:
+                      id: contact1
+                      type: Account Owner
+                      businessName:
+                      firstName: Gary
+                      lastName: Wark
+                    serviceAddress:
+                      buildingName:
+                      buildingNumber:
+                      country: Australia
+                      floorNumber:
+                      postcode:
+                      streetName: Queen
+                      streetNumber: 117A
+                      streetType: Street
+                      state:
+                      suburb: Bayview
+                      unitNumber:
+                      displayAddress: 117a Queen St, Bayview
+                    type: Residential
+components:
+  schemas:
+    # Requests
+    nmisRequest:
+      required:
+        - nmis
+      type: object
+      properties:
+        nmis:
+          type: array
+          items:
+            type: object
+            required:
+              - nmi
+            properties:
+              nmi:
+                type: string
+      example:
+        nmis:
+          - {"nmi":"nmi1"}
+          - {"nmi":"nmi2"}
+
+    # Data Objects
+    # -- CustomerDetail --
+    CustomerDetail:
+      type: object
+      required:
+        - contacts
+        - distributor
+        - hasAdditionalContacts
+        - hasEnergyFeedBack
+        - sensitivityCategory
+        - isEmbeddedNetwork
+        - meters
+        - moveInDate
+        - nmi
+        - serviceAddress
+        - type
+      properties:
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        distributor:
+          type: string
+          description: The energy distrubtor for this customer.
+        hasAdditionalContacts:
+          type: boolean
+          nullable: true
+          description: Flag to indicate if the customer has additional contact information. A null value indicates this is unknown.
+        hasEnergyFeedBack:
+          type: boolean
+          nullable: true
+          description: Flag to indicate if the customer has equipment that can feed back energy to the grid. E.g a solar system. A null value indicates this is unknown.
+        sensitivityCategory:
+          type: string
+          nullable: true
+          description: Sensitivity category of the customer (e.g. Life Support). A blank string indicates "not sensitive", and a null value indicates this is unknown.
+        isEmbeddedNetwork:
+          type: boolean
+          nullable: true
+          description: Flag to indicate the customer is part of an embedded network. E.g. part of an apartment complex network. A null value indicates this is unknown.
+        meters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Meter'
+          description: The meters belonging to this customer.
+        moveInDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: The date the customer moved into the premesis.
+        nmi:
+          type: string
+          description: The unique identifier for the customer.
+        serviceAddress:
+          $ref: '#/components/schemas/Address'
+          nullable: true
+          description: The service address of this customer.
+        type:
+          type: string
+          description: The type of customer. Different DNSPs categorise customers differently, but examples could include 'Residential', 'Commercial' etc.
+      example:
+
+    # -- CustomerList --
+    CustomerList:
+      required:
+        - nmis
+      type: object
+      properties:
+        nmis:
+          type: array
+          items:
+            type: object
+            required:
+              - distributor
+              - hasAdditionalContacts
+              - hasEnergyFeedBack
+              - sensitivityCategory
+              - isEmbeddedNetwork
+              - nmi
+              - primaryContact
+              - serviceAddress
+              - type
+            properties:
+              distributor:
+                type: string
+                description: The energy distrubtor for this customer.
+              hasAdditionalContacts:
+                type: boolean
+                nullable: true
+                description: Flag to indicate if the customer has additional contact information. A null value indicates this is unknown.
+              hasEnergyFeedBack:
+                type: boolean
+                nullable: true
+                description: Flag to indicate if the customer has equipment that can feed back energy to the grid. E.g a solar system. A null value indicates this is unknown.
+              sensitivityCategory:
+                type: string
+                nullable: true
+                description: Sensitivity category of the customer (e.g. Life Support). A blank string indicates "not sensitive", and a null value indicates this is unknown.
+              isEmbeddedNetwork:
+                type: boolean
+                nullable: true
+                description: Flag to indicate the customer is part of an embedded network. E.g. part of an apartment complex network. A null value indicates this is unknown.
+              nmi:
+                type: string
+                description: The unique identifier for the customer.
+              primaryContact:
+                $ref: '#/components/schemas/PrimaryContact'
+                description: Primary contact information. This is cut down contact information used within the customer list view in EDNAR. Detailed contact information
+                             will come from the detail endpoint.
+              serviceAddress:
+                $ref: '#/components/schemas/Address'
+                description: The service address of this customer.
+              type:
+                type: string
+                description: The type of customer. Different DNSPs categorise customers differently, but examples could include 'Residential', 'Commercial' etc.
+
+    # -- PrimaryContact --
+    PrimaryContact:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        businessName:
+          type: string
+          nullable: true
+          description: The name of the business if this customer is not an indivdual.
+            This should only be populated when firstName and lastName are null.
+        firstName:
+          type: string
+          nullable: true
+          description: The first name of the customer. This should always be filled out when businessName is null.
+        lastName:
+          type: string
+          nullable: true
+          description: The last name of the customer. This should always be filled out when businessName is null.
+        id:
+          type: string
+          description: A unique identifier to reference the contact back to the source system.
+        type:
+          type: string
+          description: The type of contact. It could be used to identify contacts as the account holder,
+                       additional account holder, emergency contact etc.
+
+    # -- Address --
+    Address:
+      type: object
+      description: An object that represents a physical address. Note that because addresses are very difficult to
+                   validate, no individual field is required. However, it makes no sense for all fields to be missing;
+                   enough should always be populated to form a sensible address.
+      properties:
+        buildingName:
+          type: string
+          nullable: true
+          description: The name of the building at this address, if applicable.
+        buildingNumber:
+          type: string
+          nullable: true
+          description: The number of the building at this address, if applicable.
+        country:
+          type: string
+          nullable: true
+          description: The country of this address.
+        floorNumber:
+          type: string
+          nullable: true
+          description: The floor number at this address, if applicable.
+        postcode:
+          type: string
+          nullable: true
+          description: The postal code of this address. This may be known as different things in different countries, e.g. zip code.
+        streetName:
+          type: string
+          nullable: true
+          description: The name of the street of this address.
+        streetNumber:
+          type: string
+          nullable: true
+          description: The number on the street for this address.
+        streetType:
+          type: string
+          nullable: true
+          description: The type of street. E.g. Street, Drive, Crescent etc.
+        state:
+          type: string
+          nullable: true
+          description: The state of this address.
+        suburb:
+          type: string
+          nullable: true
+          description: The suburb, town or city of this address.
+        unitNumber:
+          type: string
+          nullable: true
+          description: The unit number at this address, if applicable.
+        displayAddress:
+          type: string
+          nullable: true
+          description: The display address for this address. If included, this will be the address displayed in the EDNAR UI.
+
+    # -- Contact --
+    Contact:
+      type: object
+      required:
+        - id
+        - type
+      description: |
+        A contact for the customer. What constitues a valid contact will depend on a DNSPs business rules.
+        It is not EDNAR's responsibility to validate this.
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+          description: The address of this contact.
+        businessName:
+          type: string
+          nullable: true
+          description: The name of the business if this customer is not an indivdual.
+            This should only be populated when firstName and lastName are null.
+        emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/Email'
+          description: A list of email addresses for this contact.
+        firstName:
+          type: string
+          nullable: true
+          description: The first name of the customer. This should always be filled out when businessName is null.
+        lastName:
+          type: string
+          nullable: true
+          description: The last name of the customer. This should always be filled out when businessName is null.
+        id:
+          type: string
+          description: Unique identifier to identify the contact in the source system.
+        isPrimary:
+          type: boolean
+          description: Flag to indicate this is the primary contact. Note if this object is part of an array, only one
+                       object in the array should have this set to true. If none are set to true, the first will
+                       always be treated as the primary.
+        phones:
+          type: array
+          items:
+            $ref: '#'#/components/schemas/Phone'
+          description: A list of phones for this contact.
+        preferredContactMethod:
+          type: string
+          nullable: true
+          enum:
+            - PHONE
+            - EMAIL
+            - MAIL
+          description: The preferred contact method for this contact.
+        type:
+          type: string
+          description: The type of contact. It could be used to identify contacts as the account holder,
+            additional account holder, emergency contact etc.
+
+
+    # -- Email --
+    Email:
+      type: object
+      required:
+        - email
+      description: Represents an email address and related information.
+      properties:
+        email:
+          type: string
+          description: The email address.
+        isPrimary:
+          type: boolean
+          description: Flag to indicate this is the email address. Note if this object is part of an array, only one
+            object in the array should have this set to true. If none are set to true, the first will
+            always be treated as the primary.
+        description:
+          type: string
+          nullable: true
+          description: An optional description describing this address (e.g. work, home etc).
+
+    # -- Phone --
+    Phone:
+      type: object
+      required:
+        - number
+      description: Represents a phone number and related information.
+      properties:
+        number:
+          type: string
+          description: The phone number.
+        isPrimary:
+          type: boolean
+          description: Flag to indicate this is the email address. Note if this object is part of an array, only one
+            object in the array should have this set to true. If none are set to true, the first will
+            always be treated as the primary.
+        description:
+          type: string
+          nullable: true
+          description: An optional description describing this number (e.g. work, home etc).
+
+    # -- Meter --
+    Meter:
+      type: object
+      required:
+        - id
+      description: Information about a customers meter.
+      properties:
+        id:
+          type: string
+          description: The id/number of the customer's meter.
+
+
