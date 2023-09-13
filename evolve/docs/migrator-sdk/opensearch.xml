@@ -5,7 +5,7 @@
   <Description>Search Migrator SDK (JVM)</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://zepben.github.io/evolve/docs/migrator-sdk-jvm/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/migrator-sdk-jvm//search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://zepben.github.io/evolve/docs/migrator-sdk-jvm//opensearch.xml" />
+  <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/migrator-sdk-jvm/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://zepben.github.io/evolve/docs/migrator-sdk-jvm/opensearch.xml" />
   <moz:SearchForm>https://zepben.github.io/evolve/docs/migrator-sdk-jvm/</moz:SearchForm>
 </OpenSearchDescription>
