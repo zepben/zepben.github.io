@@ -26,8 +26,10 @@ paths:
                 properties:
                   authType:
                     type: string
-                  issuer:
+                  issuerDomain:
                     type: string
                   audience:
+                    type: string
+                  tokenPath:
                     type: string
 
