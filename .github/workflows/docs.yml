@@ -18,11 +18,11 @@ jobs:
           sleep 10s
           # download latest artifact from the other repository 
           echo "Download the artifact from ${{github.event.client_payload.download_url}}"
-          gh run download -p docs-site.zip -R ${{github.event.client_payload.download_url}} `gh run list -R ${{github.event.client_payload.download_url}} -L1 --json headBranch,databaseId | jq '.[].databaseId'` 
+          gh run download -p docs.zip -R ${{github.event.client_payload.download_url}} `gh run list -R ${{github.event.client_payload.download_url}} -L1 --json headBranch,databaseId | jq '.[].databaseId'` 
 
           # gh download for the artifact is a bit dumb, so move things around
-          mv docs-site.zip snapshot
-          mv snapshot/docs-site.zip .
+          mv docs.zip snapshot
+          mv snapshot/docs.zip .
           rm -rf snapshot
         shell: bash
         env:
