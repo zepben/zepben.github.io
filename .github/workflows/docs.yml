@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Wait for remote repository dispatch workflow to finish 
-        run:
-          sleep 15s
+      - name: Wait for remote repository dispatch workflow to finish and download the artifact
+        run: |
+          sleep 20s
+          # download latest artifact from the other repository 
+          gh run download `gh run list --workflow=python-lib-build-test.yml -L1 --json headBranch,databaseId | jq '.[].databaseId'` -p docs 
+          ls -R docs
         shell: bash
 
       - uses: actions/checkout@v2
