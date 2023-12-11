@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Evolve SDK (Python) - for testing CI</ShortName>
+  <Description>Search Evolve SDK (Python) - for testing CI</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://zepben.github.io/evolve/docs/python-lib-test/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/python-lib-test/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://zepben.github.io/evolve/docs/python-lib-test/opensearch.xml" />
+  <moz:SearchForm>https://zepben.github.io/evolve/docs/python-lib-test/</moz:SearchForm>
+</OpenSearchDescription>
