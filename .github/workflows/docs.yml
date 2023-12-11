@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - uses: actions/checkout@v2
+
       - name: Wait for remote repository dispatch workflow to finish and download the artifact
         run: |
           sleep 10s
@@ -19,7 +21,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v2
       - name: Parse GH url
         if: contains(github.event.client_payload.download_url, 'github.com')
         run: |
