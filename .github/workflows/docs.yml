@@ -11,11 +11,13 @@ jobs:
 
       - name: Wait for remote repository dispatch workflow to finish and download the artifact
         run: |
-          sleep 20s
+          sleep 10s
           # download latest artifact from the other repository 
           gh run download `gh run list -R zepben/python-lib-ci-test --workflow=python-lib-build-test.yml -L1 --json headBranch,databaseId | jq '.[].databaseId'` -p docs 
           ls -R docs
         shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
 
       - uses: actions/checkout@v2
       - name: Parse GH url
