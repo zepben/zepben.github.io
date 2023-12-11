@@ -8,6 +8,12 @@ jobs:
   deploy-docs:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Wait for remote repository dispatch workflow to finish 
+        run:
+          sleep 15s
+        shell: bash
+
       - uses: actions/checkout@v2
       - name: Parse GH url
         if: contains(github.event.client_payload.download_url, 'github.com')
