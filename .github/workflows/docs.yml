@@ -13,7 +13,7 @@ jobs:
         run: |
           sleep 20s
           # download latest artifact from the other repository 
-          gh run download `gh run list --workflow=python-lib-build-test.yml -L1 --json headBranch,databaseId | jq '.[].databaseId'` -p docs 
+          gh run download `gh run list -R zepben/python-lib-ci-test --workflow=python-lib-build-test.yml -L1 --json headBranch,databaseId | jq '.[].databaseId'` -p docs 
           ls -R docs
         shell: bash
 
