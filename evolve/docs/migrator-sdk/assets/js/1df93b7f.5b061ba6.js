@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmigrator_sdk_jvm_doco=self.webpackChunkmigrator_sdk_jvm_doco||[]).push([[3237],{9754:function(e,t,n){n.r(t);var r=n(7294),u=n(1226),c=n(4958);t.default=function(){return r.createElement(u.Z,null,r.createElement(c.Z,null))}}}]);
