@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkopendss_exporter_doco=self.webpackChunkopendss_exporter_doco||[]).push([[237],{9754:function(e,n,t){t.r(n);var r=t(7294),o=t(4774),u=t(4958);n.default=function(){return r.createElement(o.Z,null,r.createElement(u.Z,null))}}}]);
