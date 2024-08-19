@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Power Factory Model Service</ShortName>
+  <Description>Search Power Factory Model Service</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://zepben.github.io/evolve/docs/powerfactory-model-service/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/powerfactory-model-service/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://zepben.github.io/evolve/docs/powerfactory-model-service/opensearch.xml" />
+  <moz:SearchForm>https://zepben.github.io/evolve/docs/powerfactory-model-service/</moz:SearchForm>
+</OpenSearchDescription>
