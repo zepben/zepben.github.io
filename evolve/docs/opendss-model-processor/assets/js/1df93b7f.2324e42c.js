@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkopendss_model_processor_doco=self.webpackChunkopendss_model_processor_doco||[]).push([[237],{9754:function(e,o,n){n.r(o);var s=n(7294),c=n(4774),l=n(4958);o.default=function(){return s.createElement(c.Z,null,s.createElement(l.Z,null))}}}]);
