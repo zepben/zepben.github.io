@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpof_simplified_extractor_doco=self.webpackChunkpof_simplified_extractor_doco||[]).push([[237],{9754:(e,t,l)=>{l.r(t),l.d(t,{default:()=>a});var c=l(7294),o=l(1226),r=l(4958);const a=()=>c.createElement(o.Z,null,c.createElement(r.Z,null))}}]);

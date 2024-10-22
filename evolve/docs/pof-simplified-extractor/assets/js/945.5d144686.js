@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpof_simplified_extractor_doco=self.webpackChunkpof_simplified_extractor_doco||[]).push([[945],{6945:(e,o,c)=>{c.r(o)}}]);
