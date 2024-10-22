@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkxml_rdf_network_importer_doco=self.webpackChunkxml_rdf_network_importer_doco||[]).push([[237],{9754:(e,r,t)=>{t.r(r),t.d(r,{default:()=>c});var l=t(7294),n=t(1226),o=t(4958);const c=()=>l.createElement(n.Z,null,l.createElement(o.Z,null))}}]);
