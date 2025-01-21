@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-alpha.70">
+<link rel="alternate" type="application/rss+xml" href="/ednar/docs/admin/blog/rss.xml" title="EDNAR Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/ednar/docs/admin/blog/atom.xml" title="EDNAR Blog Atom Feed">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","TRACKING_ID","auto"),ga("send","pageview")</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<link rel="search" type="application/opensearchdescription+xml" title="EDNAR" href="/ednar/docs/admin/opensearch.xml"><title data-react-helmet="true">EDNAR Web Client | EDNAR</title><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="5.20.0"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-5.20.0"><meta data-react-helmet="true" name="docsearch:project" content="admin"><meta data-react-helmet="true" property="og:title" content="EDNAR Web Client | EDNAR"><meta data-react-helmet="true" name="description" content="The EDNAR Web Client is the single-page application (SPA) that provides the user interface that users interact with in their web browsers. The Web Client consists of static assets, meaning these can be served by the EDNAR App Server itself, or by something such as IIS."><meta data-react-helmet="true" property="og:description" content="The EDNAR Web Client is the single-page application (SPA) that provides the user interface that users interact with in their web browsers. The Web Client consists of static assets, meaning these can be served by the EDNAR App Server itself, or by something such as IIS."><meta data-react-helmet="true" property="og:url" content="https://zepben.github.io/ednar/docs/admin//ednar/docs/admin/ednar-web-client"><link data-react-helmet="true" rel="shortcut icon" href="/ednar/docs/admin/img/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://3K6D3DR52K-dsn.algolia.net" crossorigin="anonymous"><link data-react-helmet="true" rel="canonical" href="https://zepben.github.io/ednar/docs/admin//ednar/docs/admin/ednar-web-client"><link rel="stylesheet" href="/ednar/docs/admin/styles.b97cd87d.css">
+<link rel="preload" href="/ednar/docs/admin/styles.21b10d21.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/runtime~main.4db23b63.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/main.2683a396.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/2.ea136d5d.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/170.8da498c3.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/174.54034389.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/57b9b438.9ae8f996.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/169.a77191d6.js" as="script">
+<link rel="preload" href="/ednar/docs/admin/e9f486dc.99570040.js" as="script">
+</head>
+<body>
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<nav aria-label="Skip navigation links"><button type="button" tabindex="0" class="skipToContent_11B0">Skip to main content</button></nav><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><div aria-label="Navigation bar toggle" class="navbar__toggle" role="button" tabindex="0"><svg aria-label="Menu" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></div><a href="https://www.zepben.com/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><img src="/ednar/docs/admin/img/logo.svg" alt="Zepben" class="themedImage_YANc themedImage--light_3CMI navbar__logo"><img src="/ednar/docs/admin/img/logo-dark.svg" alt="Zepben" class="themedImage_YANc themedImage--dark_3ARp navbar__logo"></a><a href="https://zepben.github.io/ednar/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">EDNAR</a><a class="navbar__item navbar__link" href="/ednar/docs/admin/">Docs</a></div><div class="navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ednar/docs/admin/">5.20.0</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/ednar/docs/admin/next/ednar-web-client">Next</a></li><li><a aria-current="page" class="dropdown__link dropdown__link--active" href="/ednar/docs/admin/ednar-web-client">5.20.0</a></li><li><a class="dropdown__link" href="/ednar/docs/admin/5.1.0/">5.1.0</a></li><li><a class="dropdown__link" href="/ednar/docs/admin/4.21.0/">4.21.0</a></li><li><a class="dropdown__link" href="/ednar/docs/admin/4.15.1/">4.15.1</a></li></ul></div><div class="react-toggle react-toggle--disabled displayOnlyInLargeViewport_2N3Q"><div class="react-toggle-track"><div class="react-toggle-track-check"><span class="toggle_3NWk">🌜</span></div><div class="react-toggle-track-x"><span class="toggle_3NWk">🌞</span></div></div><div class="react-toggle-thumb"></div><input type="checkbox" disabled="" aria-label="Dark mode toggle" class="react-toggle-screenreader-only"></div><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><div class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></div></button></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div><div class="navbar-sidebar"><div class="navbar-sidebar__brand"><a href="https://www.zepben.com/" target="_blank" rel="noopener noreferrer" class="navbar__brand"><img src="/ednar/docs/admin/img/logo.svg" alt="Zepben" class="themedImage_YANc themedImage--light_3CMI navbar__logo"><img src="/ednar/docs/admin/img/logo-dark.svg" alt="Zepben" class="themedImage_YANc themedImage--dark_3ARp navbar__logo"></a></div><div class="navbar-sidebar__items"><div class="menu"><ul class="menu__list"><li class="menu__list-item"><a role="button" class="menu__link menu__link--sublist">Versions</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/next/ednar-web-client">Next</a></li><li class="menu__list-item"><a aria-current="page" class="menu__link menu__link--active" href="/ednar/docs/admin/ednar-web-client">5.20.0</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/5.1.0/">5.1.0</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/4.21.0/">4.21.0</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/4.15.1/">4.15.1</a></li></ul></li><li class="menu__list-item"><a href="https://zepben.github.io/ednar/" target="_blank" rel="noopener noreferrer" class="menu__link">EDNAR</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/">Docs</a></li></ul></div></div></div></nav><div class="main-wrapper"><div class="docPage_vMrn"><div class="docSidebarContainer_3Ak5" role="complementary"><div class="sidebar_3gvy"><div class="menu menu--responsive thin-scrollbar menu_1yIk"><button aria-label="Open Menu" aria-haspopup="true" class="button button--secondary button--sm menu__button" type="button"><svg aria-label="Menu" class="sidebarMenuIcon_1CUI" width="24" height="24" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/">Home</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/high-level-introduction">High Level Introduction</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/nar-lifecycles">NAR Lifecycles</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/hardware-specification">Hardware Specification</a></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/dms">DMS Integration</a></li><li class="menu__list-item menu__list-item--collapsed"><a class="menu__link menu__link--sublist" href="#!">EDNAR API Server</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/ednar-api-server">EDNAR API Server</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/ednar-api-server-configuration">EDNAR API Server Configuration</a></li></ul></li><li class="menu__list-item"><a class="menu__link menu__link--sublist menu__link--active" href="#!">Services and Integrations</a><ul class="menu__list"><li class="menu__list-item"><a aria-current="page" class="menu__link menu__link--active active" tabindex="0" href="/ednar/docs/admin/ednar-web-client">EDNAR Web Client</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ednar-reporting-service">EDNAR Reporting Service</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ednar-dms-agent">EDNAR DMS Agent</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ewb">EWB</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/peek">Peek DMS Diagram Viewer</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ednar-controller-pdf">EDNAR Controller PDF</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ednar-oms-service">EDNAR OMS Service</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ednar-user-management-service">EDNAR User Management Service</a></li><li class="menu__list-item"><a class="menu__link" tabindex="0" href="/ednar/docs/admin/ednar-ldap-user-sync-service">EDNAR LDAP User Sync Service</a></li></ul></li><li class="menu__list-item menu__list-item--collapsed"><a class="menu__link menu__link--sublist" href="#!">External APIs</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/api/customers">Customer Details</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/api/notifications">Notification Events</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/api/api/graphql">GraphQL API</a></li></ul></li><li class="menu__list-item"><a class="menu__link" href="/ednar/docs/admin/config-schema">Database Config Schema</a></li><li class="menu__list-item menu__list-item--collapsed"><a class="menu__link menu__link--sublist" href="#!">Admin Configuration</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/user-management">User Management</a></li><li class="menu__list-item menu__list-item--collapsed"><a class="menu__link menu__link--sublist" href="#!" tabindex="-1">Notification Management</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/criteria">Criteria</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/templates">Templates</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/target-groups">Target Groups</a></li></ul></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/system-notifications">System Notifications</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/app-options">App Options</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/api-clients">API Clients</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/calendar-events">Calendar Events</a></li></ul></li><li class="menu__list-item menu__list-item--collapsed"><a class="menu__link menu__link--sublist" href="#!">Other Guides</a><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/export-sql-server-config">Exporting SQL Server config</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/debugging-steps">Steps to debug EDNAR</a></li><li class="menu__list-item"><a class="menu__link" tabindex="-1" href="/ednar/docs/admin/editing-clientoverrides-lang-files">Editing clientOverrides lang files</a></li></ul></li></ul></div></div></div><main class="docMainContainer_2iGs"><div class="container padding-vert--lg docItemWrapper_1bxp"><div class="row"><div class="col docItemCol_U38p"><div class="docItemContainer_a7m4"><article><div><span class="badge badge--secondary">Version: 5.20.0</span></div><header><h1 class="docTitle_Oumm">EDNAR Web Client</h1></header><div class="markdown"><p>The EDNAR Web Client is the single-page application (SPA) that provides the user interface that users interact with in their web browsers. The Web Client consists of static assets, meaning these can be served by the EDNAR App Server itself, or by something such as IIS.</p><p>This page contains information on the configuration used by the EDNAR Web Client, which includes configuration for things such as single sign-on (SSO). Configuration for setting up IIS hosting if not provided by Zepben.</p><h2 id="configuration">Configuration</h2><p>The configuration for the EDNAR Web Client can be found in the <code>/configs</code> directory of both the main EDNAR Web App and the EDNAR Admin App files. In this folder, there will be a config.json file that must be used to populate the required config. </p><table><thead><tr><th>Option</th><th>Description</th><th>Required</th><th>Default</th></tr></thead><tbody><tr><td><code>msalConfig</code></td><td>Object holding MSAL config for SSO. More information at the <a href="https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md#configuration-options-1">MSAL Documentation</a>.</td><td>Only if SSO is enabled</td><td></td></tr><tr><td><code>msalLoginRequest</code></td><td>Object holding MSAL Authorization URL Request config for SSO login. More information at the <a href="https://azuread.github.io/microsoft-authentication-library-for-js/ref/types/_azure_msal_common.CommonAuthorizationUrlRequest.html">MSAL Documentation</a></td><td>Only if SSO is enabled</td><td></td></tr><tr><td><code>msalSilentRequest</code></td><td>Object holding MSAL Authorization URL Request config for SSO silent login. More information at the <a href="https://azuread.github.io/microsoft-authentication-library-for-js/ref/types/_azure_msal_common.CommonAuthorizationUrlRequest.html">MSAL Documentation</a></td><td>Only if SSO is enabled</td><td></td></tr><tr><td><code>msalLogoutRequest</code></td><td>Object holding MSAL <code>EndSessionPopupRequest</code> config for SSO logout. More information at the <a href="https://learn.microsoft.com/en-us/javascript/api/%40azure/msal-browser/endsessionpopuprequest">MSAL Documentation</a></td><td>No</td><td></td></tr><tr><td><code>useIdToken</code></td><td>Flag for whether the auth provider ID token should be used instead of the Access Token. If false, the access token will be used as user&#x27;s auth token for EDNAR requests.</td><td>No</td><td><code>false</code></td></tr><tr><td><code>useEmailAsLoginHint</code></td><td>Flag for whether the user&#x27;s email address should be used as their SSO &quot;login hint&quot;. If false, the user&#x27;s username will be used.</td><td>No</td><td><code>false</code></td></tr><tr><td><code>displayDetailedAuthErrors</code></td><td>Flag for whether detailed authentication errors should display to users on the login page. Typically used for debugging, and disabled for production instances.</td><td>No</td><td><code>false</code></td></tr><tr><td><code>adminBasePath</code></td><td>Base path of the EDNAR Admin app. Used when the web client is served by the App Server.</td><td>No</td><td></td></tr><tr><td><code>mapLayerColours</code></td><td>Object containing map layer colours that is used for styling the EDNAR network maps. Note that the full object must be included if this option is configured. Not including this option will fall back to the EDNAR defaults.</td><td>No</td><td></td></tr></tbody></table><h3 id="sample-config">Sample Config</h3><pre><code class="language-json">{
+  &quot;msalConfig&quot;: {
+    &quot;auth&quot;: {
+      &quot;clientId&quot;: &quot;&lt;ID of the application in Azure/Okta&gt;&quot;,
+      &quot;authority&quot;: &quot;https://login.microsoftonline.com/&lt;Azure/Okta tenant ID&gt;&quot;,
+      &quot;redirectUri&quot;: &quot;&lt;EDNAR URL&gt;&quot;,
+      &quot;postLogoutRedirectUri&quot;: &quot;&lt;EDNAR URL&gt;&quot;,
+      &quot;navigateToLoginRequestUrl&quot;: false
+    },
+    &quot;cache&quot;: {
+      &quot;cacheLocation&quot;: &quot;localStorage&quot;,
+      &quot;storeAuthStateInCookie&quot;: false
+    }
+  },
+  &quot;msalLoginRequest&quot;: {
+    &quot;scopes&quot;: [&quot;openid&quot;, &quot;profile&quot;, &quot;email&quot;]
+  },
+  &quot;msalSilentRequest&quot;: {
+    &quot;scopes&quot;: [&quot;openid&quot;, &quot;profile&quot;, &quot;email&quot;]
+  },
+  &quot;useEmailAsLoginHint&quot;: true,
+  &quot;useIdToken&quot;: true,
+  &quot;displayDetailedAuthErrors&quot;: false,
+  &quot;adminBasePath&quot;: &quot;/admin&quot;,
+  &quot;mapLayerColours&quot;: {
+    &quot;enableColorOverrides&quot;: true,
+    &quot;voltage&quot;: [
+      {
+        &quot;range&quot;: [0, 0],
+        &quot;color&quot;: &quot;#CCCCCC&quot;
+      },
+      {
+        &quot;range&quot;: [1, 240],
+        &quot;color&quot;: &quot;rgba(251,176,121,0.667)&quot;
+      },
+      {
+        &quot;range&quot;: [241, 1000],
+        &quot;color&quot;: &quot;rgba(251,176,121,1)&quot;
+      },
+      {
+        &quot;range&quot;: [6300, 6400],
+        &quot;color&quot;: &quot;#ff0c0c&quot;
+      },
+      {
+        &quot;range&quot;: [6600, 6600],
+        &quot;color&quot;: &quot;#A020F0&quot;
+      },
+      {
+        &quot;range&quot;: [11000, 11000],
+        &quot;color&quot;: &quot;#b45ffe&quot;
+      },
+      {
+        &quot;range&quot;: [12500, 12800],
+        &quot;color&quot;: &quot;#f8c36a&quot;
+      },
+      {
+        &quot;range&quot;: [19000, 19200],
+        &quot;color&quot;: &quot;#ffa500&quot;
+      },
+      {
+        &quot;range&quot;: [21000, 24000],
+        &quot;color&quot;: &quot;#289FA0&quot;
+      },
+      {
+        &quot;range&quot;: [33000, 33000],
+        &quot;color&quot;: &quot;#D1D1D1&quot;
+      },
+      {
+        &quot;range&quot;: [66000, 66000],
+        &quot;color&quot;: &quot;#ff5151&quot;
+      },
+      {
+        &quot;range&quot;: [132000, 132000],
+        &quot;color&quot;: &quot;#9FA050&quot;
+      },
+      {
+        &quot;range&quot;: [220000, 220000],
+        &quot;color&quot;: &quot;#1FF0EA&quot;
+      },
+      {
+        &quot;range&quot;: [275000, 275000],
+        &quot;color&quot;: &quot;#FFD1D1&quot;
+      },
+      {
+        &quot;range&quot;: [500000, 500000],
+        &quot;color&quot;: &quot;#99FF99&quot;
+      }
+    ],
+    &quot;missingVoltage&quot;: &quot;#000&quot;,
+    &quot;phases&quot;: {
+      &quot;A&quot;: &quot;#FF0000&quot;,
+      &quot;B&quot;: &quot;#FFFF00&quot;,
+      &quot;C&quot;: &quot;#0000FF&quot;,
+      &quot;AB&quot;: &quot;#FF0000&quot;,
+      &quot;AC&quot;: &quot;#FF00FF&quot;,
+      &quot;BC&quot;: &quot;#0000FF&quot;,
+      &quot;ABC&quot;: &quot;#4B4B4B&quot;,
+      &quot;AN&quot;: &quot;#FF0000&quot;,
+      &quot;BN&quot;: &quot;#FFFF00&quot;,
+      &quot;CN&quot;: &quot;#0000FF&quot;,
+      &quot;ABN&quot;: &quot;#FF0000&quot;,
+      &quot;ACN&quot;: &quot;#FF00FF&quot;,
+      &quot;BCN&quot;: &quot;#0000FF&quot;,
+      &quot;ABCN&quot;: &quot;#4B4B4B&quot;,
+      &quot;X&quot;: &quot;#FF6D6D&quot;,
+      &quot;Y&quot;: &quot;#5555FB&quot;,
+      &quot;YX&quot;: &quot;#A52CB3&quot;,
+      &quot;XN&quot;: &quot;#FF6D6D&quot;,
+      &quot;YN&quot;: &quot;#5555FB&quot;,
+      &quot;YXN&quot;: &quot;#A52CB3&quot;,
+      &quot;NONE&quot;: &quot;#FFF000&quot;
+    },
+    &quot;pen&quot;: [
+      &quot;#8800FF&quot;,
+      &quot;#AAAA00&quot;,
+      &quot;#00AA00&quot;,
+      &quot;#FF00AA&quot;,
+      &quot;#0000AA&quot;,
+      &quot;#AAAAAA&quot;,
+      &quot;#AA0000&quot;,
+      &quot;#00AAFF&quot;,
+      &quot;#AA00AA&quot;,
+      &quot;#CC8800&quot;,
+      &quot;#00AAAA&quot;,
+      &quot;#0000FF&quot;,
+      &quot;#666666&quot;,
+      &quot;#e30707&quot;
+    ],
+    &quot;offSupply&quot;: [&quot;#BB0000&quot;],
+    &quot;partiallyOffSupply&quot;: [&quot;#AA0000&quot;, &quot;#DDDDDD&quot;],
+    &quot;highlight&quot;: &quot;#00AA00&quot;
+  }
+}
+</code></pre></div></article><div class="margin-vert--xl"><div class="row"><div class="col"><a href="https://github.com/zepben/versioned_docs/version-5.20.0/ednar-web-client.md" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" role="img" viewBox="0 0 40 40" class="iconEdit_2LL7"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div></div></div><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/ednar/docs/admin/ednar-api-server-configuration"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« EDNAR API Server Configuration</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/ednar/docs/admin/ednar-reporting-service"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">EDNAR Reporting Service »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_2xL- thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#configuration" class="table-of-contents__link">Configuration</a><ul><li><a href="#sample-config" class="table-of-contents__link">Sample Config</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Zeppelin Bend Pty. Ltd.</div></div></div></footer></div>
+<script src="/ednar/docs/admin/styles.21b10d21.js"></script>
+<script src="/ednar/docs/admin/runtime~main.4db23b63.js"></script>
+<script src="/ednar/docs/admin/main.2683a396.js"></script>
+<script src="/ednar/docs/admin/2.ea136d5d.js"></script>
+<script src="/ednar/docs/admin/170.8da498c3.js"></script>
+<script src="/ednar/docs/admin/174.54034389.js"></script>
+<script src="/ednar/docs/admin/57b9b438.9ae8f996.js"></script>
+<script src="/ednar/docs/admin/169.a77191d6.js"></script>
+<script src="/ednar/docs/admin/e9f486dc.99570040.js"></script>
+</body>
+</html>
