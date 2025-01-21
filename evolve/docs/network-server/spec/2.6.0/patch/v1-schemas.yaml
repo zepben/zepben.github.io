@@ -1,0 +1,14 @@
+loadManipulationArray:
+  type: array
+  items:
+    $ref: '#/loadManipulation'
+loadManipulation:
+  type: object
+  required:
+    - mRID
+    - values
+  properties:
+    mRID:
+      type: string
+    values:
+      $ref: '../v1-patch-schemas.yaml#/doubleArray'
