@@ -6,10 +6,12 @@ on:
 
 jobs:
   deploy-docs:
+    env:
+      GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Show Parameters
         run: |
@@ -29,8 +31,6 @@ jobs:
           mv snapshot/docs.zip .
           rm -rf snapshot
         shell: bash
-        env:
-          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
 
       - name: Download doc site from GitHub
         if: contains(github.event.client_payload.download_url, 'github.com')
@@ -48,6 +48,7 @@ jobs:
           echo ${{ env.TAG }}
           echo ${{ env.DOCS_FILE_NAME }}
         shell: bash
+
       - uses: dsaltares/fetch-gh-release-asset@master
         if: contains(github.event.client_payload.download_url, 'github.com')
         with:
@@ -56,15 +57,6 @@ jobs:
           file: "${{ env.DOCS_FILE_NAME }}"
           target: "docs.zip"
           token: ${{ secrets.CI_GITHUB_TOKEN }}
-
-      - name: Download doc site from Bitbucket
-        if: contains(github.event.client_payload.download_url, 'bitbucket.org')
-        run: |
-          curl -v -L -u "${CI_BB_USERNAME}:${CI_BB_TOKEN}" -o docs.zip ${{ github.event.client_payload.download_url }}
-        shell: bash
-        env:
-          CI_BB_USERNAME: ${{ secrets.CI_BB_USERNAME }}
-          CI_BB_TOKEN: ${{ secrets.CI_BB_TOKEN }}
 
       - name: Replace docs site with the downloaded one
         run: |
