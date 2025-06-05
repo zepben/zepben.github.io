@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpof_network_extractor_doco=self.webpackChunkpof_network_extractor_doco||[]).push([[237],{9754:function(e,t,n){n.r(t);var r=n(7294),o=n(1226),c=n(4958);t.default=function(){return r.createElement(o.Z,null,r.createElement(c.Z,null))}}}]);
