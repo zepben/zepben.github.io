@@ -15,9 +15,15 @@ jobs:
         with:
           token: ${{ env.GITHUB_TOKEN }}
 
-      - name: Show Parameters
+      - name: Validate Parameters
         run: |
           echo "Running with product key:  '${{github.event.client_payload.product_key}}' and download_url: '${{github.event.client_payload.download_url}}'" 
+
+          if [ "x${{github.event.client_payload.product_key}}" = "x" ]; then
+            # something is wrong with the product_key
+            echo " :boom: Something went wrong with passing the product key; check calling workflow!" >> "${GITHUB_STEP_SUMMARY}"
+            exit 1
+          fi
 
       - name: Download the snapshot release
         if: contains(github.event.client_payload.download_url, 'zepben')
