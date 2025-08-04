@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmvn_lib_ci_test_doco=self.webpackChunkmvn_lib_ci_test_doco||[]).push([[237],{9754:function(e,t,n){n.r(t);var c=n(7294),l=n(4774),u=n(4958);t.default=function(){return c.createElement(l.Z,null,c.createElement(u.Z,null))}}}]);
