@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzepben_commons_doco=self.webpackChunkzepben_commons_doco||[]).push([[583],{6866:(e,n,c)=>{c.r(n),c.d(n,{default:()=>t});var l=c(6540),o=c(1708),s=c(90);const t=()=>l.createElement(o.A,null,l.createElement(s.A,null))}}]);
