@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcurrent_state_api_doco=self.webpackChunkcurrent_state_api_doco||[]).push([[237],{9754:(e,t,a)=>{a.r(t),a.d(t,{default:()=>r});var c=a(7294),l=a(1226),n=a(4958);const r=()=>c.createElement(l.Z,null,c.createElement(n.Z,null))}}]);

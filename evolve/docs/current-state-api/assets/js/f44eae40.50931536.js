@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcurrent_state_api_doco=self.webpackChunkcurrent_state_api_doco||[]).push([[969],{7085:e=>{e.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
