@@ -1,0 +1,288 @@
+swagger: "2.0"
+info:
+  description: "Custom Data Keys API.  "
+  version: "1.0.0"
+  title: "Custom Data Keys"
+tags:
+  - name: "Custom Data Key Configuration"
+    description: "Registration of custom data keys for associating values against NARs"
+  - name: "Custom Data Value Assignment"
+    description: "Assigning values to configured custom data keys for specific NARs"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /api/v0/config/custom-data-keys:
+    get:
+      tags:
+        - "Custom Data Key Configuration"
+      summary: "Retrieve all data keys configured within EDNAR."
+      description: "Returns all the data keys that have been registered with EDNAR."
+      operationId: "readDataKeys"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Success. Contains the list of all data keys registered with EDNAR."
+          schema:
+            $ref: "#/definitions/DataKeys"
+        "401":
+          description: "Unauthorised. You aren't authorised to query data keys."
+  /api/v0/config/custom-data-keys/{key}:
+    post:
+      tags:
+        - "Custom Data Key Configuration"
+      summary: "Create a new custom data key within EDNAR."
+      description: "Create a new custom data key that can have values assigned to it for specific NARs."
+      operationId: "createCustomDataKey"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "key"
+          in: "path"
+          description: "New key to be created."
+          required: true
+      responses:
+        "200":
+          description: "Success. The custom data key has been registered with EDNAR, and values can be assigned to the key for NARs."
+          schema:
+            $ref: "#/definitions/DataKey"
+        "400":
+          description: "Bad request. The data key registration has been rejected by EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to register data keys."
+    put:
+      tags:
+        - "Custom Data Key Configuration"
+      summary: "Update an existing data key configured within EDNAR."
+      description: "Update an existing data key in EDNAR (i.e. rename the key)."
+      operationId: "updateDataKey"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: string
+          description: "The name of the data key to modify."
+          required: true
+        - name: "body"
+          in: "body"
+          description: "The updated webhook registration."
+          required: true
+          schema:
+            $ref: "#/definitions/DataKey"
+      responses:
+        "200":
+          description: "Success. The key was successfully updated. A copy of the updated key is returned."
+          schema:
+            $ref: "#/definitions/DataKey"
+        "400":
+          description: "Bad request. The updated data key was rejected by EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to update data keys."
+        "404":
+          description: "Not found. The requested data key to update wasn't found in EDNAR."
+    delete:
+      tags:
+        - "Custom Data Key Configuration"
+      summary: "Delete an existing data key configured within EDNAR."
+      description: "Deletes an existing data key from EDNAR. Only allowed if the data key has no values assigned for existing NARs."
+      operationId: "deleteDataKey"
+      consumes:
+        - "application/json"
+      produces:
+        - "None"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: string
+          description: "The name of the data key to delete."
+          required: true
+      responses:
+        "200":
+          description: "Success. The data key has been deleted from EDNAR. Response includes a list of data keys that are still available."
+          schema:
+            $ref: "#/definitions/DataKeys"
+        "401":
+          description: "Unauthorised. You aren't authorised to delete data keys."
+        "404":
+          description: "Not found. The requested data key to delete wasn't found in EDNAR."
+  /api/v0/nars/{nar_id}/custom-data:
+    get:
+      tags:
+        - "Custom Data Value Retrieval"
+      summary: "Fetch the values for all custom data keys for a specific NAR."
+      description: "Fetch the values for all custom data keys for the specified NAR. **Note**: custom data keys can also be retrieved for NARs via the [GraphQL API](./graphql) using the `customDataValues` field in the `getNar` or `searchNars` queries."
+      operationId: "getCustomDataValues"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "nar_id"
+          in: "path"
+          description: "ID of NAR to retrieve the value for"
+          required: true
+      responses:
+        "200":
+          description: "Success. Responds with the keys and associated values for the NAR."
+          schema:
+            $ref: "#/definitions/NarCustomDataValues"
+        "401":
+          description: "Unauthorised. You aren't authorised to values for keys on this NAR."
+        "404":
+          description: "Not found. The NAR wasn't found in EDNAR."
+  /api/v0/nars/{nar_id}/custom-data/{key}:
+    get:
+      tags:
+        - "Custom Data Value Retrieval"
+      summary: "Fetch the value for a specific custom data key for a specific NAR."
+      description: "Fetch the value for the specified custom data key for the specified NAR."
+      operationId: "getCustomDataValue"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "nar_id"
+          in: "path"
+          description: "ID of NAR to retrieve the value for"
+          required: true
+        - name: "key"
+          in: "path"
+          description: "Name of key to fetch the value for"
+          required: true
+      responses:
+        "200":
+          description: "Success. Responds with the specified key and associated value for the NAR."
+          schema:
+            $ref: "#/definitions/NarCustomDataValue"
+        "401":
+          description: "Unauthorised. You aren't authorised to view values for this key on this NAR."
+        "404":
+          description: "Not found. The requested data key wasn't found on the NAR, or the requested NAR wasn't found in EDNAR."
+    put:
+      tags:
+        - "Custom Data Value Assignment"
+      summary: "Add or update a value to a custom data key for a specific NAR."
+      description: "Assign a value to a custom data key for a specific NAR. This will overwrite any previous value assigned to this key for this NAR."
+      operationId: "assignCustomDataValue"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "nar_id"
+          in: "path"
+          description: "ID of NAR for value to be assigned to"
+          required: true
+        - name: "key"
+          in: "path"
+          description: "Name of key for value to be assigned to"
+          required: true
+        - name: "body"
+          in: "body"
+          description: "The key and value to be assigned to the NAR."
+          required: true
+          schema:
+            $ref: "#/definitions/NarCustomDataValue"
+      responses:
+        "200":
+          description: "Success. The value has been assigned to the specified key for the specified NAR. Responds with a list of currently assigned keys and values for the NAR."
+          schema:
+            $ref: "#/definitions/NarCustomDataValues"
+        "400":
+          description: "Bad request. The key value assignment has been rejected by EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to assign values for this key on this NAR."
+        "404":
+          description: "Not found. The requested data key or the requested NAR wasn't found in EDNAR."
+    delete:
+      tags:
+        - "Custom Data Value Assignment"
+      summary: "Delete a value for custom data key for a specific NAR."
+      description: "Remove an assigned custom data value for the specified key on the specified NAR. This will clear any previous value assigned to this key for this NAR."
+      operationId: "deleteCustomDataValue"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "nar_id"
+          in: "path"
+          description: "ID of NAR for value to be removed from"
+          required: true
+        - name: "key"
+          in: "path"
+          description: "Name of key for value to be cleared for"
+          required: true
+      responses:
+        "200":
+          description: "Success. The value has been cleared for the specified key for the specified NAR. Responds with a list of currently assigned keys and values for the NAR."
+          schema:
+            $ref: "#/definitions/NarCustomDataValues"
+        "400":
+          description: "Bad request. The key value removal has been rejected by EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to remove the data key value for this NAR."
+        "404":
+          description: "Not found. The requested data key wasn't found on the NAR, or the requested NAR wasn't found in EDNAR."
+definitions:
+  DataKey:
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: "The key name that will be used to store values against for NARs."
+        example: "gis-patch-id"
+      valueCount:
+        type: integer
+        description: "The number of NARs which have a value populated against this key."
+        example: 3
+  DataKeys:
+    type: array
+    items:
+      $ref: "#/definitions/DataKey"
+    example:
+      - name: "gis-patch-id"
+        valueCount: 3
+      - name: "dms-patch-id"
+        valueCount: 99
+  NarCustomDataValue:
+    type: object
+    properties:
+      key:
+        type: string
+        description: "The name of the key to assign the value to."
+        example: "gis-patch-id"
+      value:
+        type: string
+        description: "The value to be assigned to the key for this NAR."
+        example: "ABC-123"
+  NarCustomDataValueResponse:
+    type: object
+    additionalProperties: true
+  NarCustomDataValues:
+    type: array
+    items:
+      type: object
+      properties:
+        key:
+          type: string
+          description: "The name of the key to assign the value to."
+          example: "gis-patch-id"
+        value:
+          type: string
+          description: "The value to be assigned to the key for this NAR."
+          example: "ABC-123"
+    example:
+      gis-patch-id: "ABC-123"
+      dms-patch-id: "PATCH-456"
