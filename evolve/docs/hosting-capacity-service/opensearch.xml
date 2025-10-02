@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
                        xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>Docs in test</ShortName>
-  <Description>Search Docs in test</Description>
+  <ShortName>Hosting Capacity Service</ShortName>
+  <Description>Search Hosting Capacity Service</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://zepben.github.io/evolve/docs/hosting-capacity-service/img/favicon.ico</Image>
   <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/hosting-capacity-service/search?q={searchTerms}"/>
