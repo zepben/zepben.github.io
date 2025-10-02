@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_name_=self.webpackChunk_name_||[]).push([[583],{6866:(e,s,a)=>{a.r(s),a.d(s,{default:()=>h});a(6540);var n=a(3850),c=a(90),u=a(4848);const h=()=>(0,u.jsx)(n.A,{children:(0,u.jsx)(c.A,{})})}}]);
