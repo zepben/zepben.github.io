@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpower_factory_exporter_doco=self.webpackChunkpower_factory_exporter_doco||[]).push([[237],{9754:function(e,r,t){t.r(r);var o=t(7294),c=t(1226),n=t(4958);r.default=function(){return o.createElement(c.Z,null,o.createElement(n.Z,null))}}}]);
