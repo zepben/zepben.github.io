@@ -19,6 +19,8 @@ paths:
     $ref: 'v1-route-min-demand-from.yaml'
   /v1/range/{fromAsset}/from-date/{fromDate}/to-date/{toDate}:
     $ref: 'v1-route-range.yaml'
+  /v1/range:
+    $ref: 'v1-route-range-multi.yaml'
   /v1/weather/{fromAsset}/season/{season}/day/{dayType}/temperature/{temperature}/variance/{variance}:
     $ref: 'v1-route-weather.yaml'
   /v1/find-names/{seach}:
