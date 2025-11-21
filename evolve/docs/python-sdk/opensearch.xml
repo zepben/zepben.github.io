@@ -4,8 +4,8 @@
   <ShortName>Docs in test</ShortName>
   <Description>Search Docs in test</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://zepben.github.io/evolve/docs/ewb-sdk-python/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/ewb-sdk-python/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://zepben.github.io/evolve/docs/ewb-sdk-python/opensearch.xml" />
-  <moz:SearchForm>https://zepben.github.io/evolve/docs/ewb-sdk-python/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://zepben.github.io/evolve/docs/python-sdk/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://zepben.github.io/evolve/docs/python-sdk/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://zepben.github.io/evolve/docs/python-sdk/opensearch.xml" />
+  <moz:SearchForm>https://zepben.github.io/evolve/docs/python-sdk/</moz:SearchForm>
 </OpenSearchDescription>
