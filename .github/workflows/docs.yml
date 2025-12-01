@@ -25,7 +25,8 @@ jobs:
             exit 1
           fi
 
-          echo "component=$(echo ${{github.event.client_payload.download_url}} | cut -f2 -d\/)" >> "${GITHUB_ENV}"
+          component=$(echo ${{github.event.client_payload.download_url}} | cut -f2 -d\/)
+          echo "component=$component" >> "${GITHUB_ENV}"
 
           echo
           echo "Will attempt to deploy a component '$component' under 'zepben.github.io/${{github.event.client_payload.product}}' using repo '${{github.event.client_payload.download_url}}'" 
@@ -102,4 +103,4 @@ jobs:
 
       - name: Put out nice info
         run: |
-          echo "✅ Another successful deployment: the '$component' was deployed under `zepben.github.io/${{github.event.client_payload.product}}`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "✅ Another successful deployment: the \`$component\` was deployed under \`zepben.github.io/${{github.event.client_payload.product}}\`" >> "${GITHUB_STEP_SUMMARY}"
