@@ -15,22 +15,22 @@ jobs:
         with:
           token: ${{ env.GITHUB_TOKEN }}
 
-      - name: Validate Parameters
+      - name: Validate and parse parameters
+        id: parse
         shell: bash
         run: |
-          echo "Running with product key:  '${{github.event.client_payload.component}}' and download_url: '${{github.event.client_payload.download_url}}' for product '${{github.event.client_payload.product}}'" 
-
           if [[ "${{github.event.client_payload.product}}" != "evolve" && "${{github.event.client_payload.product}}" != "ednar" ]]; then
             echo "Unsupported product deployment requested '${{github.event.client_payload.product}}'! Only 'ednar' or 'evolve' supported."
             echo ":boom: Unsupported product deployment requested '${{github.event.client_payload.product}}'! Only 'ednar' or 'evolve' supported." >> "${GITHUB_STEP_SUMMARY}"
             exit 1
           fi
 
-          if [ "x${{github.event.client_payload.component}}" = "x" ]; then
-            # something is wrong with the component
-            echo " :boom: Something went wrong with passing the product key; check calling workflow!" >> "${GITHUB_STEP_SUMMARY}"
-            exit 1
-          fi
+          echo "component=$(echo ${{github.event.client_payload.download_url}} | cut -f2 -d\/)" >> "${GITHUB_ENV}"
+
+          echo
+          echo "Will attempt to deploy a component '$component' under 'zepben.github.io/${{github.event.client_payload.product}}' using repo '${{github.event.client_payload.download_url}}'" 
+          echo
+
 
       - name: Download the snapshot release
         if: contains(github.event.client_payload.download_url, 'zepben')
@@ -47,10 +47,11 @@ jobs:
           rm -rf snapshot
         shell: bash
 
+      # TODO: remove
       - name: Download doc site from GitHub
         if: contains(github.event.client_payload.download_url, 'github.com')
         run: |
-          echo "This step shouldn't be used! Talk to Alex."
+          echo ":boom: This step shouldn't be used! Talk to Alex."
           exit 1
           # url=${{ github.event.client_payload.download_url }}
           # IFS='/' read -ra url_path <<< ${url/"https://github.com/"/}
@@ -59,16 +60,18 @@ jobs:
           # echo "DOCS_FILE_NAME=${url_path[5]}" >> $GITHUB_ENV
         shell: bash
 
+      # TODO: remove
       - name: use vars
         if: contains(github.event.client_payload.download_url, 'github.com')
         run: |
-          echo "This step shouldn't be used! Talk to Alex."
+          echo ":boom: This step shouldn't be used! Talk to Alex."
           exit 1
           # echo ${{ env.REPO }}
           # echo ${{ env.TAG }}
           # echo ${{ env.DOCS_FILE_NAME }}
         shell: bash
 
+      # TODO: remove
       # Following the 2 sections above, we should not use this flow anymore.
       # - uses: dsaltares/fetch-gh-release-asset@master
       #   if: contains(github.event.client_payload.download_url, 'github.com')
@@ -81,7 +84,7 @@ jobs:
 
       - name: Replace docs site with the downloaded one
         run: |
-          docs_path="./${{ github.event.client_payload.product }}/docs/${{ github.event.client_payload.component }}"
+          docs_path="./${{ github.event.client_payload.product }}/docs/$component"
           rm -rf "$docs_path"
           mkdir "$docs_path"
           unzip docs.zip -d "$docs_path"
@@ -90,7 +93,7 @@ jobs:
           if [[ ! -z "$staged_files" ]]; then
             git config user.email "ci.github@zepben.com"
             git config user.name "Github CI"
-            git commit -m "Updated site for ${{ github.event.client_payload.component }}"
+            git commit -m "Updated site for $component"
             git push origin master
           else
             echo "There are no changed to deployment, if this is wrong, talk with Alex"
@@ -99,4 +102,4 @@ jobs:
 
       - name: Put out nice info
         run: |
-          echo "✅ Another successful deployment: '${{github.event.client_payload.component}}' deployed under `zepben.github.io/${{github.event.client_payload.product}}`" >> "${GITHUB_STEP_SUMMARY}"
+          echo "✅ Another successful deployment: the '$component' was deployed under `zepben.github.io/${{github.event.client_payload.product}}`" >> "${GITHUB_STEP_SUMMARY}"
