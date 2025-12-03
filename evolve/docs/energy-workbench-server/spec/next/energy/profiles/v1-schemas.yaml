@@ -210,7 +210,10 @@ energyReadingValues:
   required:
     - kwIn
     - kwOut
+    - kvarIn
+    - kvarOut
     - kwNet
+    - kvarNet
     - pf
     - kvaNet
   properties:
@@ -218,7 +221,13 @@ energyReadingValues:
       $ref: '../../v1-schemas.yaml#/float'
     kwOut:
       $ref: '../../v1-schemas.yaml#/float'
+    kvarIn:
+      $ref: '../../v1-schemas.yaml#/float'
+    kvarOut:
+      $ref: '../../v1-schemas.yaml#/float'
     kwNet:
+      $ref: '../../v1-schemas.yaml#/float'
+    kvarNet:
       $ref: '../../v1-schemas.yaml#/float'
     pf:
       $ref: '../../v1-schemas.yaml#/float'
