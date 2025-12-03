@@ -51,8 +51,8 @@ definitions:
       type:
         type: "string"
         description: "Type of outage request (new notification, cancellation, updated request etc.).
-        This string is configurable based on the event (Order, Delay, Cancel) and the outage type (Standard, Short Shutdown).
-        This configuration resides in the cust_notif_type_mappings database table."
+        This string is configurable based on the event (Order, Delay, Cancel), the outage type (Standard, Short Shutdown) and the delivery method used for the task.
+        This configuration resides in the cust_notif_type_mappings database table which now includes delivery_method_id and triggers_outbound_request columns."
         example: "ORDER"
       reasonCode:
         type: "string"
@@ -95,6 +95,31 @@ definitions:
           type: "string"
         description: "List of affected National Meter Identifiers (NMIs) or Installation Control Points (ICPs). NMI length is 11 digits, ICP length is 15 characters."
         example: [ "60001234111" ,"60001244222", "60001235111" ]
+      eic:
+        type: "array"
+        description: "EIC delivery details for NMIs where consent (hasApprovedEIC) has been recorded. Empty or omitted when no consent is present."
+        items:
+          type: "object"
+          required:
+          - nmi
+          - deliveredBy
+          - deliveryDateTime
+          properties:
+            nmi:
+              type: "string"
+            deliveredBy:
+              type: "string"
+            deliveryDateTime:
+              type: "string"
+              pattern: '^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d[+,-]\d\d:\d\d$'
+            receivedBy:
+              type: "string"
+            isAtHome:
+              type: "boolean"
+            hasApprovedEIC:
+              type: "boolean"
+            comment:
+              type: "string"
       plannedOutageReference:
         type: "object"
         required:
