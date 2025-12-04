@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpower_factory_exporter=self.webpackChunkpower_factory_exporter||[]).push([["452"],{2283:function(e,r,t){t.r(r),t.d(r,{default:()=>p});var a=t(4848);t(6540);var c=t(8634),o=t(8895);let p=()=>(0,a.jsx)(c.A,{children:(0,a.jsx)(o.A,{})})}}]);
