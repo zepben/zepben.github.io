@@ -19,34 +19,35 @@ jobs:
         id: parse
         shell: bash
         run: |
+
+          # Expected payload:
+          #   client-payload: {
+          #        "product": "<PRODUCT>"  ( 'ednar' or 'evolve'),
+          #        "repository": "<repo>" ( repository to download the artifact from ), 
+          #        "artifact": "<id>" ( artifact id to download ),
+          #        "run-id": "<id>" ( workflow run id to download from )
+          #   }
+
           if [[ "${{github.event.client_payload.product}}" != "evolve" && "${{github.event.client_payload.product}}" != "ednar" ]]; then
             echo "Unsupported product deployment requested '${{github.event.client_payload.product}}'! Only 'ednar' or 'evolve' supported."
             echo ":boom: Unsupported product deployment requested '${{github.event.client_payload.product}}'! Only 'ednar' or 'evolve' supported." >> "${GITHUB_STEP_SUMMARY}"
             exit 1
           fi
 
-          component=$(echo ${{github.event.client_payload.download_url}} | cut -f2 -d\/)
+          component=$(echo ${{github.event.client_payload.repository}} | cut -f2 -d\/)
           echo "component=$component" >> "${GITHUB_ENV}"
 
           echo
-          echo "Will attempt to deploy a component '$component' under 'zepben.github.io/${{github.event.client_payload.product}}' using repo '${{github.event.client_payload.download_url}}'" 
+          echo "Will attempt to deploy a component '$component' under 'zepben.github.io/${{github.event.client_payload.product}}' using repo '${{github.event.client_payload.repository}}'" 
           echo
 
-
-      - name: Download the snapshot release
-        if: contains(github.event.client_payload.download_url, 'zepben')
-        run: |
-          # Sleep to make sure that the workflow that generated the snapshot has finished and the artifact is available 
-          sleep 10s
-          # download latest artifact from the other repository 
-          echo "Download the artifact from ${{github.event.client_payload.download_url}}"
-          gh run download -p docs.zip -R ${{github.event.client_payload.download_url}} `gh run list -R ${{github.event.client_payload.download_url}} -L1 --json headBranch,databaseId | jq '.[].databaseId'` 
-
-          # gh download for the artifact is a bit dumb, so move things around
-          mv docs.zip snapshot
-          mv snapshot/docs.zip .
-          rm -rf snapshot
-        shell: bash
+      - name: Download the docs archive
+        uses: actions/download-artifact@v5
+        with:
+          github-token: ${{ secrets.CI_GITHUB_TOKEN }} 
+          artifact-ids: ${{github.event.client_payload.artifact}}
+          repository: ${{github.event.client_payload.repository}}
+          run-id: ${{github.event.client_payload.run-id}}
 
       # TODO: remove
       - name: Download doc site from GitHub
