@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkpowerfactory_model_service_doco=self.webpackChunkpowerfactory_model_service_doco||[]).push([[237],{9754:function(e,c,r){r.r(c);var o=r(7294),t=r(1226),l=r(4958);c.default=function(){return o.createElement(t.Z,null,o.createElement(l.Z,null))}}}]);
