@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmvn_lib_ci_test=self.webpackChunkmvn_lib_ci_test||[]).push([["452"],{5146:function(e,s,t){t.r(s),t.d(s,{default:()=>n});var c=t(4848);t(6540);var i=t(2129),l=t(8978);let n=()=>(0,c.jsx)(i.A,{children:(0,c.jsx)(l.A,{})})}}]);
