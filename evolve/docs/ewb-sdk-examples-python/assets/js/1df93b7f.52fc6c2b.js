@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkewb_sdk_examples_python=self.webpackChunkewb_sdk_examples_python||[]).push([["9452"],{2283:function(e,s,a){a.r(s),a.d(s,{default:()=>t});var l=a(4848);a(6540);var n=a(8634),p=a(8895);let t=()=>(0,l.jsx)(n.A,{children:(0,l.jsx)(p.A,{})})}}]);
