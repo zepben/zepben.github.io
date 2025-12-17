@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcommons=self.webpackChunkcommons||[]).push([["9452"],{5146:function(s,e,c){c.r(e),c.d(e,{default:()=>l});var n=c(4848);c(6540);var u=c(2129),a=c(8978);let l=()=>(0,n.jsx)(u.A,{children:(0,n.jsx)(a.A,{})})}}]);
