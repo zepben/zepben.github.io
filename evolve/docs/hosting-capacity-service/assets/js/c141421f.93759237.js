@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkhosting_capacity_service=self.webpackChunkhosting_capacity_service||[]).push([["8366"],{2938:function(e){e.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
