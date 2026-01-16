@@ -91,7 +91,7 @@ jobs:
         run: |
           docs_path="./${{github.event.client_payload.product}}"
           if [[ "${{github.event.client_payload.front-page}}" != "yes" ]]; then
-            docs_path="./$docs_path/docs/$component"
+            docs_path="$docs_path/docs/$component"
             rm -rf "$docs_path"
             mkdir "$docs_path"
           fi
