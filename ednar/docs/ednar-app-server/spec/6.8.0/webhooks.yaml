@@ -1,0 +1,276 @@
+swagger: "2.0"
+info:
+  description: "Notification Webhooks API.  "
+  version: "1.0.0"
+  title: "Notification Webhooks"
+tags:
+  - name: "Webhook Configuration"
+    description: "Registration and modification for notification webhooks from EDNAR"
+  - name: "Webhook Outbound"
+    description: "Callback requests for notification webhooks from EDNAR when triggered by NAR events"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /api/v0/config/webhooks:
+    post:
+      tags:
+        - "Webhook Configuration"
+      summary: "Create a webhook registration with EDNAR."
+      description: "Create a new webhook registration that will call the specified URL when an appropriate action is taken in EDNAR."
+      operationId: "createWebhook"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "Webhook registration"
+          required: true
+          schema:
+            $ref: "#/definitions/WebhookWithoutId"
+      responses:
+        "200":
+          description: "Success. The webhook has been registered with EDNAR. The returned webhook contains the registered ID."
+          schema:
+            $ref: "#/definitions/Webhook"
+        "400":
+          description: "Bad request. The webhook registration has been rejected by EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to register webhooks."
+    get:
+      tags:
+        - "Webhook Configuration"
+      summary: "Retrieve all webhooks registered with EDNAR."
+      description: "Returns all the webhooks that have been registered with EDNAR."
+      operationId: "readWebhooks"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Success. Contains the list of all webhooks registered with EDNAR."
+          schema:
+            $ref: "#/definitions/Webhooks"
+        "401":
+          description: "Unauthorised. You aren't authorised to query webhooks."
+  /api/v0/config/webhooks/{id}:
+    put:
+      tags:
+        - "Webhook Configuration"
+      summary: "Update a webhook callback."
+      description: "Update an existing webhook registration in EDNAR."
+      operationId: "updateWebhook"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: integer
+          description: "The identifier of the webhook to modify."
+          required: true
+        - name: "body"
+          in: "body"
+          description: "The updated webhook registration."
+          required: true
+          schema:
+            $ref: "#/definitions/Webhook"
+      responses:
+        "200":
+          description: "Success. The webhook was successfully updated. A copy of the new registration is returned."
+          schema:
+            $ref: "#/definitions/Webhook"
+        "400":
+          description: "Bad request. The updated registration was rejected by EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to update webhooks."
+        "404":
+          description: "Not found. The requested webhook to update wasn't found in EDNAR."
+    delete:
+      tags:
+        - "Webhook Configuration"
+      summary: "Delete a webhook callback."
+      description: "Deletes an existing webhook registration from EDNAR."
+      operationId: "deleteWebhook"
+      consumes:
+        - "application/json"
+      produces:
+        - "None"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: integer
+          description: "The identifier of the webhook to delete."
+          required: true
+      responses:
+        "200":
+          description: "Success. The webhook has been deregistered from EDNAR."
+        "401":
+          description: "Unauthorised. You aren't authorised to deregister webhooks."
+        "404":
+          description: "Not found. The requested webhook to deregister wasn't found in EDNAR."
+  /your/registered/url:
+    post:
+      tags:
+        - "Webhook Outbound"
+      summary: "An output webhook callback."
+      description: "Defines the callback structure of all webhook outbound messages issued by EDNAR."
+      operationId: "sendWebhook"
+      consumes:
+        - "application/json"
+      produces:
+        - "None"
+      parameters:
+        - name: "Authorization"
+          in: "header"
+          type: string
+          description: "The authorisation header with the registered token. Only included if an `authToken` was provided
+          in the webhook registration."
+          example: "Bearer my-auth-token"
+        - name: "Content-Digest"
+          in: "header"
+          type: string
+          description: "The sha-256 digest of the message content."
+          required: true
+          example: "sha-256=:<DIGEST-CODE>>:"
+        - name: "Content-Length"
+          in: "header"
+          type: string
+          description: "The length of the message content in bytes."
+          required: true
+          example: "1234"
+        - name: "Date"
+          in: "header"
+          type: string
+          description: "The timestamp the message payload was generated. This may not be when the message was sent if
+          the message required retries or queuing."
+          required: true
+          example: "Wed, 20 Aug 2025 08:02:25 GMT"
+        - name: "Signature"
+          in: "header"
+          type: string
+          description: "The HMAC-SHA256 signature of the message. Only included if a `signingKey` was provided in the
+          webhook registration."
+          example: "ednar=:<MESSAGE-SIGNATURE>:"
+        - name: "Signature-Input"
+          in: "header"
+          type: string
+          description: "The input fields used to generate the message signature. Only included if a `signingKey` was
+          provided in the webhook registration."
+          example: 'sig1=(\"@method\" \"@path\" \"date\" \"content-type\" \"content-digest\");created=<SIGNATURE-GENERATION-TIME>;keyid=\"my-key-id\";alg=\"hmac-sha256\"'
+        - name: "body"
+          in: "body"
+          description: "Webhook Payload"
+          required: true
+          schema:
+            $ref: "#/definitions/WebhookPayload"
+      responses:
+        "200":
+          description: "Success."
+definitions:
+  WebhookWithoutId:
+    type: object
+    required:
+      - name
+      - url
+      - notificationActions
+    properties:
+      name:
+        type: string
+        description: "The name given to the webhook for identification in the UI."
+        example: "Send NAR status change to My External System."
+      url:
+        type: string
+        description: "The full url to send the webhook payload to."
+        example: "https://my-server:1234/ednar-updates"
+      notificationActions:
+        type: array
+        items:
+          type: string
+          description: "A notification template action."
+          example: "CANCEL_NAR"
+        description: "The list of notification template actions that will trigger the webhook to be called."
+      queryFields:
+        type: string
+        description: "The field selection part of a GraphQL NAR query. If this is provided, the query results will be
+        sent in the webhook payload."
+        example: "{ id state { name } comments { results { commentText user { username } } } }"
+        default: "null"
+      authToken:
+        type: string
+        description: "An optional bearer token to include in the authorisation header of the webhook message."
+        example: "my-auth-token"
+        default: "null"
+      signingKey:
+        type: object
+        required:
+          - id
+          - key
+        properties:
+          id:
+            type: string
+            description: "The value to put in the `keyId` field of the message signature. This can be used to select
+            the appropriate key on the receiver."
+            example: "my-key-id"
+          key:
+            type: string
+            description: "The key used to sign the message using HMAC-SHA256. This is the shared key that should also be
+            used by the receiver to verify the signature."
+            example: "my-signing-code"
+  Webhook:
+    allOf:
+      - type: object
+        required:
+          - id
+        properties:
+          id:
+            type: integer
+            description: "The identifier of the webhook."
+            example: "12345678"
+      - $ref: "#/definitions/WebhookWithoutId"
+  Webhooks:
+    type: array
+    items:
+      $ref: "#/definitions/Webhook"
+  WebhookPayload:
+    type: object
+    required:
+      - messageId
+      - narId
+      - currentState
+      - previousState
+      - reason
+      - retry
+    properties:
+      messageId:
+        type: UUID
+        description: "Unique identifier for the webhook message for traceability through the system. This will be consistent between retries."
+        example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+      narId:
+        type: integer
+        description: "The identifier of the NAR that caused this webhook message to be sent."
+        example: 42
+      currentState:
+        type: string
+        description: "The current state of the NAR."
+        example: "SUBMITTED"
+      previousState:
+        type: string
+        description: "The previous state of the NAR. This will be the same as the current state if the `action` that
+        caused this webhook message wasn't a transition action."
+        example: "DRAFT"
+      reason:
+        type: string
+        description: "The notification action that caused this webhook message to be sent."
+        example: "NAR_COMMENT_ADDED"
+      queryData:
+        type: object
+        description: "Optional query payload depending on the `queryFields` used to register the webhook."
+      retry:
+        type: integer
+        description: "The number of retries to send this webhook message. Will be 0 if this is the first try."
+        example: 0
