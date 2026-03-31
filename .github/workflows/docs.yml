@@ -28,6 +28,9 @@ jobs:
           #        "run-id": "<id>" ( workflow run id to download from )
           #   }
 
+          # An extended payload value is "front-page" with value "yes". This allows
+          # us specifically target deployments of evolve or ednar front pages
+
           if [[ "${{github.event.client_payload.product}}" != "evolve" && "${{github.event.client_payload.product}}" != "ednar" ]]; then
             echo "Unsupported product deployment requested '${{github.event.client_payload.product}}'! Only 'ednar' or 'evolve' supported."
             echo ":boom: Unsupported product deployment requested '${{github.event.client_payload.product}}'! Only 'ednar' or 'evolve' supported." >> "${GITHUB_STEP_SUMMARY}"
@@ -86,9 +89,12 @@ jobs:
 
       - name: Replace docs site with the downloaded one
         run: |
-          docs_path="./${{ github.event.client_payload.product }}/docs/$component"
-          rm -rf "$docs_path"
-          mkdir "$docs_path"
+          docs_path="./${{github.event.client_payload.product}}"
+          if [[ "${{github.event.client_payload.front-page}}" != "yes" ]]; then
+            docs_path="$docs_path/docs/$component"
+            rm -rf "$docs_path"
+            mkdir "$docs_path"
+          fi
           unzip docs.zip -d "$docs_path"
           git add "${docs_path}/*"
           staged_files=$(git diff --staged --name-only "${docs_path}")
