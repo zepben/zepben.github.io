@@ -95,7 +95,8 @@ jobs:
             rm -rf "$docs_path"
             mkdir "$docs_path"
           fi
-          unzip docs.zip -d "$docs_path"
+          # Force unzip to override files without prompting
+          unzip -o docs.zip -d "$docs_path"
           git add "${docs_path}/*"
           staged_files=$(git diff --staged --name-only "${docs_path}")
           if [[ ! -z "$staged_files" ]]; then
