@@ -3,11 +3,21 @@ name: Manual Deploy Evolve docs
 on: 
   workflow_dispatch:
     inputs:
-      product-key:
-        description: 'Directory name of the product under evolve/docs/'
+      product:
+        description: 'Product to deploy the docs for, evolve or ednar'
         required: true
-      download-url:
-        description: 'Download URL'
+        type: choice
+        options:
+          - "evolve"
+          - "ednar"
+      repository:
+        description: 'Repository of the project to deploy the docs for'
+        required: true
+      artifact:
+        description: 'The artifact id to deploy'
+        required: true
+      run-id:
+        description: 'The run id of the action that created the artifact'
         required: true
 jobs:
   deploy-docs:
@@ -19,4 +29,4 @@ jobs:
           token: ${{ secrets.CI_GITHUB_TOKEN }}
           repository: ${{ secrets.DOCS_REPO }}
           event-type: ${{ secrets.DOCS_REPO_EVOLVE_WORKFLOW }}
-          client-payload: '{"product_key": "${{ github.event.inputs.product-key }}", "download_url": "${{ github.event.inputs.download-url }}"}'
+          client-payload: '{"product": "${{ inputs.product}}", "repository": "${{ inputs.repository }}", "artifact": "${{ inputs.artifact }}", "run-id": "${{ inputs.run-id }}"}'
