@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkednar_web_client=self.webpackChunkednar_web_client||[]).push([["19452"],{5146(e,a,l){l.r(a),l.d(a,{default:()=>c});var n=l(74848);l(96540);var r=l(32129),s=l(28978);let c=()=>(0,n.jsx)(r.A,{children:(0,n.jsx)(s.A,{})})}}]);
