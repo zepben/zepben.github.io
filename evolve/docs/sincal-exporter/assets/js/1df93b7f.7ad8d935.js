@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksincal_exporter=self.webpackChunksincal_exporter||[]).push([["9452"],{5146:function(e,r,s){s.r(r),s.d(r,{default:()=>n});var a=s(4848);s(6540);var c=s(2129),l=s(8978);let n=()=>(0,a.jsx)(c.A,{children:(0,a.jsx)(l.A,{})})}}]);
