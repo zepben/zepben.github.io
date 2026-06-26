@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgis_network_extractor=self.webpackChunkgis_network_extractor||[]).push([["9452"],{5146(e,r,t){t.r(r),t.d(r,{default:()=>k});var s=t(4848);t(6540);var a=t(2129),c=t(8978);let k=()=>(0,s.jsx)(a.A,{children:(0,s.jsx)(c.A,{})})}}]);
