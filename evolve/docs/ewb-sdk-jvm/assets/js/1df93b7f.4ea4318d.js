@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkewb_sdk_jvm=self.webpackChunkewb_sdk_jvm||[]).push([["9452"],{5146(e,s,k){k.r(s),k.d(s,{default:()=>r});var a=k(74848);k(96540);var d=k(32129),l=k(28978);let r=()=>(0,a.jsx)(d.A,{children:(0,a.jsx)(l.A,{})})}}]);
