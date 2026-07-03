@@ -1,0 +1,38 @@
+put:
+  tags:
+    - Store v1
+  summary: Add a key/value pair to the store.
+  description: >-
+    This will add the key/value into the store for the specified user. If the key already exists the value will be replaced.
+  operationId: storeAddBody
+  parameters:
+    - $ref: 'v1-parameters.yaml#/idParam'
+    - $ref: 'v1-parameters.yaml#/keyParam'
+  requestBody:
+    description: Any JSON object to use as the value.
+    content:
+      application/json:
+        schema:
+          type: object
+          additionalProperties: true
+    required: true
+  responses:
+    '200':
+      description: OK
+    '400':
+      $ref: '../v1-response-bad-request.yaml'
+delete:
+  tags:
+    - Store v1
+  summary: Remove a key/value pair from the store.
+  description: >-
+    This will remove any value associated with the key from the store for the specified user.
+  operationId: storeDeleteKey
+  parameters:
+    - $ref: 'v1-parameters.yaml#/idParam'
+    - $ref: 'v1-parameters.yaml#/keyParam'
+  responses:
+    '200':
+      description: OK
+    '400':
+      $ref: '../v1-response-bad-request.yaml'

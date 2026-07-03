@@ -1,0 +1,12 @@
+get:
+  tags:
+    - Network v1
+  summary: Get the metadata for the network routes service.
+  description: >-
+    Used to retrieve the metadata for the network routes service.
+  operationId: metadata
+  parameters:
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-metadata.yaml'

@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Energy Analysis v1
+  summary: Retrieve the EV charging station summary.
+  description: >-
+    Used to retrieve a report into the EV charging station capacity or all transformers.
+  operationId: evSummary
+  parameters:
+    - $ref: 'v1-parameters.yaml#/chargingBlockKwParam'
+    - $ref: 'v1-parameters.yaml#/minKvaParam'
+    - $ref: '../v1-parameters.yaml#/fromTimeParam'
+    - $ref: '../v1-parameters.yaml#/toTimeParam'
+  responses:
+    '200':
+      $ref: 'v1-response-ev.yaml'
+    '400':
+      $ref: '../../v1-response-bad-request.yaml'

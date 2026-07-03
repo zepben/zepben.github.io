@@ -1,0 +1,28 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - businesses
+        - geographicalRegions
+        - subGeographicalRegions
+        - substations
+        - feeders
+        - circuits
+        - loops
+      properties:
+        businesses:
+          $ref: 'v1-schemas.yaml#/businessArray'
+        geographicalRegions:
+          $ref: 'v1-schemas.yaml#/geographicalRegionArray'
+        subGeographicalRegions:
+          $ref: 'v1-schemas.yaml#/subGeographicalRegionArray'
+        substations:
+          $ref: 'v1-schemas.yaml#/substationArray'
+        feeders:
+          $ref: 'v1-schemas.yaml#/cimFeederArray'
+        circuits:
+          $ref: 'v1-schemas.yaml#/circuitArray'
+        loops:
+          $ref: 'v1-schemas.yaml#/loopArray'

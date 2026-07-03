@@ -1,0 +1,36 @@
+viewPathParam:
+  name: view
+  in: path
+  description: |
+    Filter the graphics by the specified view.
+  required: true
+  schema:
+    type: integer
+    example: 752
+z:
+  name: z
+  in: path
+  description: |
+    Controls the z axis.
+  required: true
+  schema:
+    type: integer
+    example: 20
+x:
+  name: x
+  in: path
+  description: |
+    Controls the x axis.
+  required: true
+  schema:
+    type: integer
+    example: 201
+y:
+  name: y
+  in: path
+  description: |
+    Controls the y axis.
+  required: true
+  schema:
+    type: integer
+    example: 155

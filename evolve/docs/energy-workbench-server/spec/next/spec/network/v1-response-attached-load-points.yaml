@@ -1,0 +1,13 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - results
+        - errors
+      properties:
+        results:
+          $ref: 'v1-schemas.yaml#/attachedLoadPointsArray'
+        errors:
+          $ref: '../v1-network-schemas.yaml#/stringArray'

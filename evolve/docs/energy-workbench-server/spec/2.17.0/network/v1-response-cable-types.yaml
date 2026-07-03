@@ -1,0 +1,10 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - cableTypes
+      properties:
+        cableTypes:
+          $ref: 'v1-schemas.yaml#/cableTypeArray'

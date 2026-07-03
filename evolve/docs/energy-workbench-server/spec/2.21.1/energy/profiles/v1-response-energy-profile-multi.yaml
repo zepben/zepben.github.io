@@ -1,0 +1,12 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - results
+      properties:
+        results:
+          $ref: 'v1-schemas.yaml#/traceProfileArray'
+        cachedResultKey:
+          type: string

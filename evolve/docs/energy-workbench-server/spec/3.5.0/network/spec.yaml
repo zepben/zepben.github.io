@@ -1,0 +1,37 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/network/api
+info:
+  version: 1.8.0
+  title: EWB Network API
+  license:
+    name: Zeppelin Bend
+tags:
+  - name: Network v1
+paths:
+  /v1/assets/{assetId}:
+    $ref: v1-route-asset-by-id.yaml
+  /v1/assets/by-location/{locationId}:
+    $ref: v1-response-assets-by-location.yaml
+  /v1/attached-load-points/{assetId}:
+    $ref: v1-route-attached-load-points.yaml
+  /v1/attached-load-points:
+    $ref: v1-route-attached-load-points-body.yaml
+  /v1/cable-types:
+    $ref: v1-route-cable-types.yaml
+  /v1/feeder-assets/feeder/{feederId}:
+    $ref: v1-route-feeder-assets-by-feeder.yaml
+  /v1/feeder-assets/zone/{zoneId}:
+    $ref: v1-route-feeder-assets-by-zone.yaml
+  /v1/feeder-assets/region/{regionId}:
+    $ref: v1-route-feeder-assets-by-region.yaml
+  /v1/find/{searchString}:
+    $ref: v1-route-find.yaml
+  /v1/hierarchy:
+    $ref: v1-route-hierarchy.yaml
+  /v1/metadata:
+    $ref: v1-route-metadata.yaml
+  /v1/system-tags:
+    $ref: v1-route-system-tags.yaml
+  /v1/zone-polygon/{zoneId}:
+    $ref: v1-route-zone-polygon.yaml

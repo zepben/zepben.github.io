@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve the assets that belong to all feeders on a zone.
+  description: >-
+    Used to retrieve a list of all feeders and the assets on each feeder that belong to a zone.
+    The response also contains a list of asset ID's that are infeeds into each feeder.
+  operationId: feederAssetsByZone
+  parameters:
+    - $ref: 'v1-parameters.yaml#/zoneIdParam'
+    - $ref: '../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: 'v1-parameters.yaml#/byNameParam'
+    - $ref: 'v1-parameters.yaml#/networkStateParam'
+    - $ref: 'v1-parameters.yaml#/assetTypeParam'
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-feeder-assets.yaml'
+    '400':
+      $ref: '../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-network-response-not-found.yaml'

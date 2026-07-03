@@ -1,0 +1,36 @@
+get:
+  tags:
+    - Store v1
+  summary: Add a key/value pair to the store.
+  description: >-
+    DEPRECATED, use PUT instead.
+
+
+    This will add the key/value into the store for the specified user. If the key already exists the value will be replaced.
+  operationId: storeAddGet
+  deprecated: true
+  parameters:
+    - $ref: 'v1-parameters.yaml#/idParam'
+    - $ref: 'v1-parameters.yaml#/keyParam'
+    - $ref: 'v1-parameters.yaml#/valueParam'
+  responses:
+    '200':
+      description: OK
+    '400':
+      $ref: '../v1-response-bad-request.yaml'
+put:
+  tags:
+    - Store v1
+  summary: Add a key/value pair to the store.
+  description: >-
+    This will add the key/value into the store for the specified user. If the key already exists the value will be replaced.
+  operationId: storeAdd
+  parameters:
+    - $ref: 'v1-parameters.yaml#/idParam'
+    - $ref: 'v1-parameters.yaml#/keyParam'
+    - $ref: 'v1-parameters.yaml#/valueParam'
+  responses:
+    '200':
+      description: OK
+    '400':
+      $ref: '../v1-response-bad-request.yaml'

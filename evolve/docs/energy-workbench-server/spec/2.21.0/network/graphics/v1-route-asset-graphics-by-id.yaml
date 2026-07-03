@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Network Graphics v1
+  summary: Retrieve the graphics for an asset.
+  description: >-
+    Used to retrieve the graphics for an asset. If the optional view
+    parameter is used only the graphics from that view will be returned
+  operationId: assetGraphicsById
+  parameters:
+    - $ref: '../v1-parameters.yaml#/assetIdParam'
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+    - $ref: '../v1-parameters.yaml#/viewParam'
+  responses:
+    '200':
+      $ref: 'v1-response-asset-graphics.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'

@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Energy Profiles v1
+  summary: Retrieve minimum demand profiles.
+  description: >-
+    Used to retrieve a profile with the lowest maximum demand for the specified
+    asset. If the asset has a profile it will be returned, otherwise a downstream
+    trace will be performed and the aggregation of the profiles found will
+    be returned.
+
+
+    If a toAsset is provided, a downstream path must exist between fromAsset and the toAsset otherwise an error will be returned.
+  operationId: minDemandFrom
+  parameters:
+    - $ref: 'v1-parameters.yaml#/fromAssetParam'
+    - $ref: 'v1-parameters.yaml#/toAssetParam'
+    - $ref: 'v1-parameters.yaml#/fromDateParam'
+    - $ref: 'v1-parameters.yaml#/toDateParam'
+    - $ref: '../v1-parameters.yaml#/fromTimeParam'
+    - $ref: '../v1-parameters.yaml#/toTimeParam'
+    - $ref: '../../v1-parameters.yaml#/limitParam'
+    - $ref: 'v1-parameters.yaml#/systemTagParam'
+    - $ref: 'v1-parameters.yaml#/filterParam'
+    - $ref: 'v1-parameters.yaml#/includeResultsParam'
+  responses:
+    '200':
+      $ref: 'v1-response-energy-profile.yaml'
+    '400':
+      $ref: '../../v1-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-response-not-found.yaml'

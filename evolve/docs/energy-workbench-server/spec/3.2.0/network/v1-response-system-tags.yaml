@@ -1,0 +1,10 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - systemTags
+      properties:
+        systemTags:
+          $ref: '../v1-network-schemas.yaml#/stringArray'

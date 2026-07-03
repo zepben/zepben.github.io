@@ -1,0 +1,10 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - assets
+      properties:
+        assets:
+          $ref: 'v1-schemas.yaml#/assetArray'
