@@ -22,7 +22,7 @@ get:
     - $ref: 'v1-parameters.yaml#/toDateParam'
     - $ref: 'v1-parameters.yaml#/systemTagParam'
     - $ref: 'v1-parameters.yaml#/filterParam'
-    - $ref: 'v1-parameters.yaml#/includeResultsParam'
+    - $ref: 'v1-parameters.yaml#/includeReadingsParam'
   responses:
     '200':
       $ref: 'v1-response-energy-profile.yaml'

@@ -70,8 +70,8 @@ filterParam:
     type: string
     default: no filter
     example: 'results.series.energy.readings(time,values(kwIn,kwOut))'
-includeResultsParam:
-  name: includeResults
+includeReadingsParam:
+  name: includeReadings
   in: query
   description: >
     DEPRECATED, use filter instead.
