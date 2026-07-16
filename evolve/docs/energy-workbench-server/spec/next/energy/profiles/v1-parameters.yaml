@@ -20,6 +20,15 @@ fromDateParam:
       type: string
       format: date
       default: unlimited
+fromDateRequiredParam:
+  name: fromDate
+  in: query
+  description: |-
+    The earliest date to use when searching for a profile (yyyy-mm-dd).
+  required: true
+  schema:
+    type: string
+    format: date
 toDateParam:
   name: toDate
   in: query
@@ -32,6 +41,15 @@ toDateParam:
       type: string
       format: date
       default: unlimited
+toDateRequiredParam:
+  name: toDate
+  in: query
+  description: |-
+    The latest date to use when searching for a profile (yyyy-mm-dd).
+  required: true
+  schema:
+    type: string
+    format: date
 toAssetParam:
   name: toAsset
   in: query
@@ -70,8 +88,8 @@ filterParam:
     type: string
     default: no filter
     example: 'results.series.energy.readings(time,values(kwIn,kwOut))'
-includeResultsParam:
-  name: includeResults
+includeReadingsParam:
+  name: includeReadings
   in: query
   description: >
     DEPRECATED, use filter instead.
@@ -154,3 +172,12 @@ scadaParam:
   schema:
     type: boolean
     default: false
+aggregateParam:
+  name: aggregate
+  in: query
+  description: >
+    Indicates if the matched series should be returned as an aggregated profile instead of individually.
+  required: false
+  schema:
+    type: boolean
+    default: true
