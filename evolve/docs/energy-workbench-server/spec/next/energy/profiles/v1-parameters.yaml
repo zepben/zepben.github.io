@@ -180,4 +180,4 @@ aggregateParam:
   required: false
   schema:
     type: boolean
-    default: true
+    default: false
