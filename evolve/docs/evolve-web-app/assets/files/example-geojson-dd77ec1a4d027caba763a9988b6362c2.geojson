@@ -1,0 +1,963 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"id": "transformer6083",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.892322,
+					-31.465109
+				]
+			},
+			"properties": {
+				"pv_percent": 50,
+				"pv_percent_label": "50%",
+				"pv_ec_count": 1,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site208133",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.837788,
+					-31.449014
+				]
+			},
+			"properties": {
+				"pv_percent": 44,
+				"pv_percent_label": "44%",
+				"pv_ec_count": 4,
+				"ec_count": 9,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site202362",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.839711,
+					-31.450858
+				]
+			},
+			"properties": {
+				"pv_percent": 25,
+				"pv_percent_label": "25%",
+				"pv_ec_count": 1,
+				"ec_count": 4,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site357234",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.849154,
+					-31.458543
+				]
+			},
+			"properties": {
+				"pv_percent": 29,
+				"pv_percent_label": "29%",
+				"pv_ec_count": 2,
+				"ec_count": 7,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer73481",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.844515,
+					-31.456714
+				]
+			},
+			"properties": {
+				"pv_percent": 9,
+				"pv_percent_label": "99%",
+				"pv_ec_count": 3,
+				"ec_count": 33,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site206612",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.925947,
+					-31.473339
+				]
+			},
+			"properties": {
+				"pv_percent": 57,
+				"pv_percent_label": "57%",
+				"pv_ec_count": 40,
+				"ec_count": 70,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer67540",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.927079,
+					-31.472518
+				]
+			},
+			"properties": {
+				"pv_percent": 50,
+				"pv_percent_label": "50%",
+				"pv_ec_count": 1,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3378",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.925861,
+					-31.470181
+				]
+			},
+			"properties": {
+				"pv_percent": 47,
+				"pv_percent_label": "47%",
+				"pv_ec_count": 41,
+				"ec_count": 88,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer59975",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.920898,
+					-31.47393
+				]
+			},
+			"properties": {
+				"pv_percent": 50,
+				"pv_percent_label": "50%",
+				"pv_ec_count": 1,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer44891",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.918598,
+					-31.473386
+				]
+			},
+			"properties": {
+				"pv_percent": 55,
+				"pv_percent_label": "55%",
+				"pv_ec_count": 58,
+				"ec_count": 105,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer36780",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.914632,
+					-31.473848
+				]
+			},
+			"properties": {
+				"pv_percent": 59,
+				"pv_percent_label": "59%",
+				"pv_ec_count": 60,
+				"ec_count": 102,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer15699",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.902586,
+					-31.450958
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 0,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer6251",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.902591,
+					-31.451033
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 1,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3625",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.909271,
+					-31.455853
+				]
+			},
+			"properties": {
+				"pv_percent": 45,
+				"pv_percent_label": "45%",
+				"pv_ec_count": 40,
+				"ec_count": 88,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site246871",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.908219,
+					-31.4569
+				]
+			},
+			"properties": {
+				"pv_percent": 33,
+				"pv_percent_label": "33%",
+				"pv_ec_count": 5,
+				"ec_count": 15,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer56634",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.904996,
+					-31.456747
+				]
+			},
+			"properties": {
+				"pv_percent": 37,
+				"pv_percent_label": "37%",
+				"pv_ec_count": 17,
+				"ec_count": 46,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer5146",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.90533,
+					-31.454205
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site210787",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.903697,
+					-31.453062
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site209690",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.899199,
+					-31.453395
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 4,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer5780",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.900354,
+					-31.472333
+				]
+			},
+			"properties": {
+				"pv_percent": 64,
+				"pv_percent_label": "64%",
+				"pv_ec_count": 16,
+				"ec_count": 25,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer55727",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.902567,
+					-31.469927
+				]
+			},
+			"properties": {
+				"pv_percent": 66,
+				"pv_percent_label": "66%",
+				"pv_ec_count": 52,
+				"ec_count": 79,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer60462",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.904296,
+					-31.470645
+				]
+			},
+			"properties": {
+				"pv_percent": 53,
+				"pv_percent_label": "53%",
+				"pv_ec_count": 38,
+				"ec_count": 72,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer59000",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.896415,
+					-31.474537
+				]
+			},
+			"properties": {
+				"pv_percent": 59,
+				"pv_percent_label": "59%",
+				"pv_ec_count": 29,
+				"ec_count": 49,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer58630",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.898693,
+					-31.474245
+				]
+			},
+			"properties": {
+				"pv_percent": 55,
+				"pv_percent_label": "55%",
+				"pv_ec_count": 24,
+				"ec_count": 44,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3603",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.902095,
+					-31.472738
+				]
+			},
+			"properties": {
+				"pv_percent": 65,
+				"pv_percent_label": "65%",
+				"pv_ec_count": 44,
+				"ec_count": 68,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer44892",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.90493,
+					-31.47369
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3406",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.910703,
+					-31.477398
+				]
+			},
+			"properties": {
+				"pv_percent": 57,
+				"pv_percent_label": "57%",
+				"pv_ec_count": 68,
+				"ec_count": 119,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer57589",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.905724,
+					-31.482068
+				]
+			},
+			"properties": {
+				"pv_percent": 61,
+				"pv_percent_label": "61%",
+				"pv_ec_count": 28,
+				"ec_count": 46,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer8887",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.904253,
+					-31.483836
+				]
+			},
+			"properties": {
+				"pv_percent": 72,
+				"pv_percent_label": "72%",
+				"pv_ec_count": 26,
+				"ec_count": 36,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer55041",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.910504,
+					-31.481111
+				]
+			},
+			"properties": {
+				"pv_percent": 53,
+				"pv_percent_label": "53%",
+				"pv_ec_count": 46,
+				"ec_count": 86,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer10142",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.912945,
+					-31.480257
+				]
+			},
+			"properties": {
+				"pv_percent": 42,
+				"pv_percent_label": "42%",
+				"pv_ec_count": 34,
+				"ec_count": 80,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site349369",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.916763,
+					-31.481676
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site210477",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.917007,
+					-31.482852
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site200884",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.913698,
+					-31.485371
+				]
+			},
+			"properties": {
+				"pv_percent": 33,
+				"pv_percent_label": "33%",
+				"pv_ec_count": 1,
+				"ec_count": 3,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site208573",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.908476,
+					-31.48886
+				]
+			},
+			"properties": {
+				"pv_percent": 77,
+				"pv_percent_label": "77%",
+				"pv_ec_count": 24,
+				"ec_count": 31,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site202797",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.906038,
+					-31.490112
+				]
+			},
+			"properties": {
+				"pv_percent": 13,
+				"pv_percent_label": "13%",
+				"pv_ec_count": 19,
+				"ec_count": 144,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site210611",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.899482,
+					-31.50194
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer62089",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.903407,
+					-31.490169
+				]
+			},
+			"properties": {
+				"pv_percent": 33,
+				"pv_percent_label": "33%",
+				"pv_ec_count": 1,
+				"ec_count": 3,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer10254",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.90951,
+					-31.483019
+				]
+			},
+			"properties": {
+				"pv_percent": 71,
+				"pv_percent_label": "71%",
+				"pv_ec_count": 60,
+				"ec_count": 84,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "substation_site202792",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.912923,
+					-31.482338
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 2,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3386",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.916256,
+					-31.478929
+				]
+			},
+			"properties": {
+				"pv_percent": 58,
+				"pv_percent_label": "58%",
+				"pv_ec_count": 57,
+				"ec_count": 98,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer5884",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.914762,
+					-31.477135
+				]
+			},
+			"properties": {
+				"pv_percent": 17,
+				"pv_percent_label": "17%",
+				"pv_ec_count": 1,
+				"ec_count": 6,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3407",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.914318,
+					-31.478421
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 3,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer63382",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.903924,
+					-31.476421
+				]
+			},
+			"properties": {
+				"pv_percent": 58,
+				"pv_percent_label": "58%",
+				"pv_ec_count": 15,
+				"ec_count": 26,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer52497",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.901812,
+					-31.479157
+				]
+			},
+			"properties": {
+				"pv_percent": 72,
+				"pv_percent_label": "72%",
+				"pv_ec_count": 34,
+				"ec_count": 47,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer6414",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.905256,
+					-31.477183
+				]
+			},
+			"properties": {
+				"pv_percent": 85,
+				"pv_percent_label": "85%",
+				"pv_ec_count": 28,
+				"ec_count": 33,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer10017",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.906539,
+					-31.476634
+				]
+			},
+			"properties": {
+				"pv_percent": 40,
+				"pv_percent_label": "40%",
+				"pv_ec_count": 4,
+				"ec_count": 10,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer59696",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.903726,
+					-31.473304
+				]
+			},
+			"properties": {
+				"pv_percent": 77,
+				"pv_percent_label": "77%",
+				"pv_ec_count": 17,
+				"ec_count": 22,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3662",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.906855,
+					-31.47093
+				]
+			},
+			"properties": {
+				"pv_percent": 57,
+				"pv_percent_label": "57%",
+				"pv_ec_count": 42,
+				"ec_count": 74,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer3403",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.908513,
+					-31.469345
+				]
+			},
+			"properties": {
+				"pv_percent": 60,
+				"pv_percent_label": "60%",
+				"pv_ec_count": 53,
+				"ec_count": 89,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer5247",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.896635,
+					-31.471062
+				]
+			},
+			"properties": {
+				"pv_percent": 63,
+				"pv_percent_label": "63%",
+				"pv_ec_count": 36,
+				"ec_count": 57,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer55721",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.900842,
+					-31.468412
+				]
+			},
+			"properties": {
+				"pv_percent": 56,
+				"pv_percent_label": "56%",
+				"pv_ec_count": 48,
+				"ec_count": 86,
+				"type": "pt"
+			}
+		},
+		{
+			"type": "Feature",
+			"id": "transformer73674",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					152.897422,
+					-31.460914
+				]
+			},
+			"properties": {
+				"pv_percent": 0,
+				"pv_percent_label": "0%",
+				"pv_ec_count": 0,
+				"ec_count": 0,
+				"type": "pt"
+			}
+		}
+	],
+	"styles": [
+		"a78705fc-c437-4e74-a26e-ff07261b0f62",
+		"7f5c064f-a6f2-4e19-8e7c-6c9375f00771"
+	]
+}

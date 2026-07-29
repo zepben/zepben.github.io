@@ -1,0 +1,77 @@
+[
+	{
+		"id": "a78705fc-c437-4e74-a26e-ff07261b0f62",
+		"name": "PV % by Transformer",
+		"type": "circle",
+		"minzoom": 12,
+		"paint": {
+			"circle-radius": 15,
+			"circle-color": [
+				"case",
+				[
+					"<",
+					[
+						"get",
+						"ec_count"
+					],
+					3
+				],
+				"rgb(160,160,160)",
+				[
+					"step",
+					[
+						"get",
+						"pv_percent"
+					],
+					"rgb(0,180,40)",
+					10,
+					"rgb(171,221,164)",
+					25,
+					"rgb(253,174,97)",
+					40,
+					"rgb(244,109,67)",
+					60,
+					"rgb(210,2,29)"
+				]
+			],
+			"circle-stroke-color": "white",
+			"circle-stroke-width": 1
+		},
+		"filter": [
+			"==",
+			[
+				"get",
+				"type"
+			],
+			"pt"
+		]
+	},
+	{
+		"id": "7f5c064f-a6f2-4e19-8e7c-6c9375f00771",
+		"name": "PV Percentage",
+		"type": "symbol",
+		"minzoom": 12,
+		"layout": {
+			"text-field": [
+				"get",
+				"pv_percent_label"
+			],
+			"text-font": [
+				"DIN Offc Pro Medium",
+				"Arial Unicode MS Bold"
+			],
+			"text-size": 12
+		},
+		"paint": {
+			"text-color": "white"
+		},
+		"filter": [
+			"==",
+			[
+				"get",
+				"type"
+			],
+			"pt"
+		]
+	}
+]
