@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpowerfactory_model_service=self.webpackChunkpowerfactory_model_service||[]).push([["452"],{5146(e,r,s){s.r(r),s.d(r,{default:()=>o});var c=s(4848);s(6540);var a=s(2129),l=s(8978);let o=()=>(0,c.jsx)(a.A,{children:(0,c.jsx)(l.A,{})})}}]);
