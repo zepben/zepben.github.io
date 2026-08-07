@@ -1,0 +1,9 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve the system tags.
+  description: Used to retrieve all of the system tags that have been registered for ID translation.
+  operationId: systemTags
+  responses:
+    '200':
+      $ref: 'v1-response-system-tags.yaml'

@@ -1,0 +1,18 @@
+get:
+  tags:
+    - Network Graphics v1
+  summary: Retrieve the GeoJSON representing an asset.
+  description: >-
+    Used to retrieve the GeoJSON representing an asset.
+  operationId: assetGeoJsonById
+  parameters:
+    - $ref: '../v1-parameters.yaml#/assetIdParam'
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-asset-geo-json.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'

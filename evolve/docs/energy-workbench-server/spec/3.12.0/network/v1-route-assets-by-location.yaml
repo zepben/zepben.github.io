@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve data for assets by a specified location.
+  description: Used to request data for assets via the id of a Location.
+  operationId: assetById
+  parameters:
+    - $ref: 'v1-parameters.yaml#/locationIdParam'
+    - $ref: '../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-assets-by-location.yaml'
+    '400':
+      $ref: '../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-network-response-not-found.yaml'

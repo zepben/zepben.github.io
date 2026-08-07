@@ -1,0 +1,13 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve the cable types.
+  description: Used to retrieve a collection of all cable types.
+  operationId: cableTypes
+  parameters:
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-cable-types.yaml'
+    '400':
+      $ref: '../v1-network-response-bad-request.yaml'

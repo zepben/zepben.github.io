@@ -1,0 +1,35 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - name
+        - resultRatingKva
+        - resultVoltage
+        - systemTag
+        - base
+        - toAdd
+        - toRemove
+        - profiles
+      properties:
+        name:
+          type: string
+        resultRatingKva:
+          $ref: '../../v1-schemas.yaml#/double'
+        resultVoltage:
+          $ref: '../../v1-schemas.yaml#/double'
+        systemTag:
+          type: string
+        seeds:
+          $ref: 'v1-schemas.yaml#/seedAssetWithStatusArray'
+        base:
+          $ref: 'v1-schemas.yaml#/assetWithStatusArray'
+        toAdd:
+          $ref: 'v1-schemas.yaml#/addAssetWithStatusArray'
+        toRemove:
+          $ref: 'v1-schemas.yaml#/removeAssetWithStatusArray'
+        profiles:
+          $ref: 'v1-schemas.yaml#/combinedProfileArray'
+        cachedResultKey:
+          type: string

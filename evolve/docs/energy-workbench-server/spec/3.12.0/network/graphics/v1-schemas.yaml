@@ -1,0 +1,198 @@
+multiAssetRequest:
+  type: object
+  required:
+    - assets
+  properties:
+    assets:
+      $ref: '../../v1-network-schemas.yaml#/stringArray'
+multiAssetIdsRequest:
+  type: object
+  required:
+    - assetIds
+  properties:
+    assetIds:
+      $ref: '../../v1-network-schemas.yaml#/stringArray'
+assetGraphicsPairArray:
+  type: array
+  items:
+    $ref: '#/assetGraphicsPair'
+assetGraphicsPair:
+  type: object
+  required:
+    - asset
+    - nodeGraphics
+    - conductorGraphics
+  properties:
+    asset:
+      $ref: '#/assetId'
+    nodeGraphics:
+      $ref: '#/nodeGraphicsArray'
+    conductorGraphics:
+      $ref: '#/conductorGraphicsArray'
+assetId:
+  type: object
+  required:
+    - id
+    - name
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    systemTag:
+      type: string
+nodeGraphicsArray:
+  type: array
+  items:
+    $ref: '#/nodeGraphics'
+nodeGraphics:
+  type: object
+  required:
+    - type
+    - view
+    - symbol
+    - x
+    - y
+    - flipX
+    - flipY
+    - scaleX
+    - scaleY
+    - rotation
+    - state
+  properties:
+    type:
+      type: string
+    view:
+      type: integer
+    symbol:
+      $ref: '../v1-schemas.yaml#/symbol'
+    x:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    y:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    flipX:
+      type: boolean
+    flipY:
+      type: boolean
+    scaleX:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    scaleY:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    rotation:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    state:
+      $ref: '#/openState'
+openState:
+  type: string
+  enum: ["open", ""]
+conductorGraphicsArray:
+  type: array
+  items:
+    $ref: '#/conductorGraphics'
+conductorGraphics:
+  type: object
+  required:
+    - type
+    - view
+    - x1
+    - y1
+    - x2
+    - y2
+    - colour
+  properties:
+    type:
+      type: string
+    view:
+      type: integer
+    x1:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    y1:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    x2:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    y2:
+      $ref: '../../v1-network-schemas.yaml#/double'
+    colour:
+geoJsonNodeFeature:
+  allOf:
+    - $ref: '../v1-schemas.yaml#/geoJsonFeatureBase'
+    - type: object
+      required:
+        - geometry
+        - properties
+      properties:
+        geometry:
+          $ref: '#/geoJsonPointGeometry'
+        properties:
+          $ref: '#/geoJsonNodeProperties'
+geoJsonPointGeometry:
+  type: object
+  required:
+    - type
+    - coordinates
+  properties:
+    type:
+      type: string
+      enum:
+        - Point
+    coordinates:
+      $ref: '../v1-schemas.yaml#/geoJsonCoord'
+geoJsonNodeProperties:
+  type: object
+  required:
+    - id
+    - name
+    - open
+    - symbol
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    open:
+      type: boolean
+    symbol:
+      $ref: '../v1-schemas.yaml#/symbol'
+geoJsonConductorFeature:
+  allOf:
+    - $ref: '../v1-schemas.yaml#/geoJsonFeatureBase'
+    - type: object
+      required:
+        - geometry
+        - properties
+      properties:
+        geometry:
+          $ref: '#/geoJsonLineStringGeometry'
+        properties:
+          $ref: '#/geoJsonConductorProperties'
+geoJsonLineStringGeometry:
+  type: object
+  required:
+    - type
+    - coordinates
+  properties:
+    type:
+      type: string
+      enum:
+        - LineString
+    coordinates:
+      $ref: '../v1-schemas.yaml#/geoJsonCoordArray'
+geoJsonConductorProperties:
+  type: object
+  required:
+    - id
+    - name
+    - voltage
+  properties:
+    id:
+      type: string
+    name:
+      type: string
+    voltage:
+      type: integer
+assetGraphicsArray:
+  type: array
+  items:
+    oneOf:
+      - $ref: '#/nodeGraphics'
+      - $ref: '#/conductorGraphics'

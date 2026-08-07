@@ -1,0 +1,16 @@
+chargingBlockKwParam:
+  in: path
+  name: chargingBlockKw
+  required: true
+  description: The amount of power required to run each charging block (in kW).
+  schema:
+    $ref: '../../v1-schemas.yaml#/double'
+  example: "43"
+minKvaParam:
+  in: query
+  name: minKva
+  required: false
+  description: The minimum sized transformers to include in the results (in kVA).
+  schema:
+    $ref: '../../v1-schemas.yaml#/double'
+  example: "200"
