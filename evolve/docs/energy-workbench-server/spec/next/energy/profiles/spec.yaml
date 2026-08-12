@@ -17,6 +17,8 @@ paths:
     $ref: 'v1-route-max-demand-combine.yaml'
   /v1/min-demand/{fromAsset}:
     $ref: 'v1-route-min-demand-from.yaml'
+  /v1/min-demand/combine:
+    $ref: 'v1-route-min-demand-combine.yaml'
   /v1/range/{fromAsset}/from-date/{fromDate}/to-date/{toDate}:
     $ref: 'v1-route-range.yaml'
   /v1/range:
