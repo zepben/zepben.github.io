@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkload_processor=self.webpackChunkload_processor||[]).push([["452"],{5146(s,e,r){r.r(e),r.d(e,{default:()=>o});var a=r(4848);r(6540);var l=r(2129),c=r(8978);let o=()=>(0,a.jsx)(l.A,{children:(0,a.jsx)(c.A,{})})}}]);
