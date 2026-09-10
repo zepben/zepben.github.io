@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkednar_reporting_service=self.webpackChunkednar_reporting_service||[]).push([["452"],{5146(e,r,s){s.r(r),s.d(r,{default:()=>i});var a=s(4848);s(6540);var n=s(2129),c=s(8978);let i=()=>(0,a.jsx)(n.A,{children:(0,a.jsx)(c.A,{})})}}]);
