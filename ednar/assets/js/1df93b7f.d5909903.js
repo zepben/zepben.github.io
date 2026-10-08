@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkevolve=self.webpackChunkevolve||[]).push([["452"],{5146(e,l,s){s.r(l),s.d(l,{default:()=>u});var v=s(4848);s(6540);var a=s(2129),r=s(8978);let u=()=>(0,v.jsx)(a.A,{children:(0,v.jsx)(r.A,{})})}}]);
