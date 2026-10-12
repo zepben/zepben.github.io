@@ -1,0 +1,53 @@
+openapi: 3.0.0
+servers:
+  - url: "{Evolve App Server}/api/studies"
+    variables:
+      "Evolve App Server":
+        default: https://localhost:7654
+info:
+  title: EAS Studies API
+  version: next
+security:
+  - Auth0: []
+paths:
+  /{result_id}/{z}/{x}/{y}:
+    get:
+      summary: Retrieve the geographic entries for the specified Mapbox tile for a specific study result
+      description: >-
+        Used to retrieve the geographic entries for all assets in the specified Mapbox tile for a given
+        study. The z parameter controls the zoom level. The response is formatted as a Mapbox vector tile.
+      operationId: mvtMapTile
+      parameters:
+        - name: result_id
+          in: path
+          schema:
+            type: string
+            example: b8a9234b-7c12-4c22-9df5-e5163a7892b1
+        - name: z
+          in: path
+          schema:
+            type: integer
+            example: 12
+        - name: x
+          in: path
+          schema:
+            type: integer
+            example: 3680
+        - name: y
+          in: path
+          schema:
+            type: integer
+            example: 2500
+      responses:
+        '200':
+          description: A mapbox vector tile containing a layer called "study_result_layer" which contains
+            features on that study result
+          content:
+            'application/vnd.mapbox-vector-tile':
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    Auth0:
+      $ref: "../shared-components.yaml#components/securitySchemes/Auth0"
