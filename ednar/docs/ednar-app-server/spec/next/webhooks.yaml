@@ -6,6 +6,8 @@ info:
 tags:
   - name: "Webhook Configuration"
     description: "Registration and modification for notification webhooks from EDNAR"
+  - name: "Webhook Maintenance"
+    description: "Queue visibility and retry maintenance for webhook delivery"
   - name: "Webhook Outbound"
     description: "Callback requests for notification webhooks from EDNAR when triggered by NAR events"
 schemes:
@@ -113,6 +115,144 @@ paths:
           description: "Unauthorised. You aren't authorised to deregister webhooks."
         "404":
           description: "Not found. The requested webhook to deregister wasn't found in EDNAR."
+  /api/v0/webhook-maintenance/registrations:
+    get:
+      tags:
+        - "Webhook Maintenance"
+      summary: "Retrieve webhook registrations with optional queue stats."
+      operationId: "readWebhookRegistrations"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "includeQueueStats"
+          in: "query"
+          type: boolean
+          required: false
+          default: true
+          description: "When true, includes queue head and queue count for each webhook."
+      responses:
+        "200":
+          description: "Success. Contains webhook registrations and optional queue stats."
+          schema:
+            $ref: "#/definitions/WebhookRegistrations"
+        "401":
+          description: "Unauthorised. You aren't authorised to query webhook maintenance."
+  /api/v0/webhook-maintenance/queue/{id}:
+    delete:
+      tags:
+        - "Webhook Maintenance"
+      summary: "Delete one webhook queue item."
+      operationId: "deleteWebhookQueueItem"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: integer
+          required: true
+          description: "The queue item ID."
+      responses:
+        "200":
+          description: "Success. Returns true if the queue item was deleted."
+          schema:
+            type: boolean
+        "401":
+          description: "Unauthorised. You aren't authorised to delete queue items."
+        "404":
+          description: "Not found. The queue item does not exist."
+  /api/v0/webhook-maintenance/queue/{id}/list:
+    get:
+      tags:
+        - "Webhook Maintenance"
+      summary: "Retrieve a paged view of one webhook queue."
+      operationId: "readWebhookQueuePage"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: integer
+          required: true
+          description: "The webhook ID."
+        - name: "pageNumber"
+          in: "query"
+          type: integer
+          required: false
+          default: 0
+        - name: "pageSize"
+          in: "query"
+          type: integer
+          required: false
+          default: 10
+        - name: "status"
+          in: "query"
+          type: string
+          enum: [ALL, SUCCEEDED, WAITING, FAILED]
+          required: false
+          default: ALL
+      responses:
+        "200":
+          description: "Success. Contains one queue page and summary counts."
+          schema:
+            $ref: "#/definitions/WebhookQueuePage"
+        "400":
+          description: "Bad request. Invalid page parameters."
+        "401":
+          description: "Unauthorised. You aren't authorised to query webhook maintenance."
+  /api/v0/webhook-maintenance/queue/{id}/unblock:
+    post:
+      tags:
+        - "Webhook Maintenance"
+      summary: "Reset the queue head retry count to zero."
+      operationId: "unblockWebhookQueueHead"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: integer
+          required: true
+          description: "The queue item ID to unblock."
+      responses:
+        "200":
+          description: "Success. Returns the updated queue item."
+          schema:
+            $ref: "#/definitions/WebhookQueueItem"
+        "401":
+          description: "Unauthorised. You aren't authorised to unblock queue items."
+  /api/v0/webhook-maintenance/servers/{id}:
+    delete:
+      tags:
+        - "Webhook Maintenance"
+      summary: "Delete one webhook server registration."
+      operationId: "deleteWebhookServer"
+      consumes:
+        - "None"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          type: integer
+          required: true
+          description: "The server ID."
+      responses:
+        "200":
+          description: "Success. Returns true if the server was deleted."
+          schema:
+            type: boolean
+        "401":
+          description: "Unauthorised. You aren't authorised to delete webhook servers."
+        "404":
+          description: "Not found. The server does not exist."
   /your/registered/url:
     post:
       tags:
@@ -236,6 +376,72 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/Webhook"
+  WebhookRegistrations:
+    type: array
+    items:
+      $ref: "#/definitions/WebhookRegistration"
+  WebhookRegistration:
+    type: object
+    required:
+      - webhook
+    properties:
+      webhook:
+        $ref: "#/definitions/Webhook"
+      currentQueueHead:
+        $ref: "#/definitions/WebhookQueueItem"
+      currentQueueCount:
+        type: integer
+  WebhookQueuePage:
+    type: object
+    required:
+      - pageNumber
+      - pageSize
+      - totalResultCount
+      - results
+      - succeededCount
+      - waitingCount
+      - failedCount
+    properties:
+      pageNumber:
+        type: integer
+      pageSize:
+        type: integer
+      totalResultCount:
+        type: integer
+      results:
+        type: array
+        items:
+          type: object
+      succeededCount:
+        type: integer
+      waitingCount:
+        type: integer
+      failedCount:
+        type: integer
+  WebhookQueueItem:
+    type: object
+    required:
+      - id
+      - webhook
+      - createdOn
+      - payload
+      - retryCount
+      - totalRetries
+    properties:
+      id:
+        type: integer
+      webhook:
+        $ref: "#/definitions/Webhook"
+      createdOn:
+        type: string
+      payload:
+        $ref: "#/definitions/WebhookPayload"
+      retryCount:
+        type: integer
+      totalRetries:
+        type: integer
+      lastSendAttemptAt:
+        type: string
   WebhookPayload:
     type: object
     required:
