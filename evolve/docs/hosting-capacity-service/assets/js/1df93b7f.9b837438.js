@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhosting_capacity_service=self.webpackChunkhosting_capacity_service||[]).push([["7071"],{5146(e,s,c){c.r(s),c.d(s,{default:()=>r});var a=c(74848);c(96540);var i=c(32129),t=c(28978);let r=()=>(0,a.jsx)(i.A,{children:(0,a.jsx)(t.A,{})})}}]);
