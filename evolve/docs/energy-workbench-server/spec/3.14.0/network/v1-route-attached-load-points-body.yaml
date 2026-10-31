@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Network v1
+  summary: Retrieve a list of load points attached to a collections of assets.
+  description: >-
+    Used to retrieve a list of load points attached to the assets specified in the body. Currently only supply points are supported.
+
+
+    Only the values specified in the 'from' attributes in the body will be used.
+  operationId: attachedLoadPointsBody
+  parameters:
+    - $ref: '../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          tpye: object
+          required:
+            - assets
+          properties:
+            assets:
+              type: array
+              items:
+                $ref: 'v1-schemas.yaml#/fromToPair'
+  responses:
+    '200':
+      $ref: 'v1-response-attached-load-points.yaml'
+    '400':
+      $ref: '../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-network-response-not-found.yaml'
+    '501':
+      $ref: '../v1-network-response-not-implemented.yaml'

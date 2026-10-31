@@ -1,0 +1,5 @@
+description: Not implemented
+content:
+  'application/json':
+    schema:
+      $ref: 'v1-network-schemas.yaml#/errorResponse'

@@ -1,0 +1,112 @@
+post:
+  tags:
+    - Energy Profiles v1
+  summary: Combine different energy profiles
+  description: >
+    The combine API will produce a single energy profile by performing the
+    following steps:
+
+
+    1. Creating a set of required points from the 'base' list
+
+    2. Adding any points in the 'toAdd' list to the required points list
+    that do not already exist.
+
+    3. Removing all points in the 'toRemove' list from the required points
+    list.
+
+    4. Generate a max demand profile from the summation of profiles for all
+    points in the required points list.
+  operationId: combineProfiles
+  parameters:
+    - $ref: 'v1-parameters.yaml#/fromDateParam'
+    - $ref: 'v1-parameters.yaml#/toDateParam'
+    - $ref: '../v1-parameters.yaml#/fromTimeParam'
+    - $ref: '../v1-parameters.yaml#/toTimeParam'
+    - $ref: '../../v1-parameters.yaml#/limitParam'
+    - $ref: 'v1-parameters.yaml#/cacheResultsParam'
+    - $ref: 'v1-parameters.yaml#/systemTagParam'
+    - $ref: 'v1-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-energy-profile-combined.yaml'
+    '400':
+      $ref: '../../v1-response-bad-request.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - name
+            - resultRatingKva
+            - resultVoltage
+            - base
+            - toAdd
+            - toRemove
+          properties:
+            name:
+              type: string
+            resultRatingKva:
+              $ref: '../../v1-schemas.yaml#/double'
+            resultVoltage:
+              $ref: '../../v1-schemas.yaml#/double'
+            seeds:
+              $ref: 'v1-schemas.yaml#/requestAssetArray'
+            base:
+              $ref: 'v1-schemas.yaml#/requestAssetArrayNonEmpty'
+            toAdd:
+              $ref: 'v1-schemas.yaml#/requestAssetArray'
+            toRemove:
+              $ref: 'v1-schemas.yaml#/requestAssetArray'
+    description: >
+      Payload containing the parameters for the profile combination.
+
+
+      Field | Description
+
+      - | -
+
+      name | The name of the result set. This will be used as the series name in
+      the profile displays provided with the Energy Workbench.
+
+      resultRatingKva | The rating in kVA for the resulting profiles.
+
+      resultVoltage | The voltage of the resulting profiles.
+
+      seeds | A list of assets/traces to be used as a seed for finding the
+      maximum demand days.<br/><br/>When a seed is specified you cannot
+      guarantee the results are for the actual maximum demand day, as the day
+      with the coincident maximum demand may change with the addition/removal of
+      load.<br/><br/>This is a performance optimisation allowing you to quickly
+      rule out cases where a maximum demand is excessive (if a day that is not
+      the maximum exceeds limits then so will the maximum). A follow-up call
+      with no seeds should be performed to get the actual maximum demand days.
+
+      seeds.from | The asset which has the profile, or the start of the trace.
+
+      seeds.to | If a trace is performed this provides a stop asset. [optional]
+
+      base | A list of assets/traces to use as the base of the result (minimum
+      1).
+
+      base.from | The asset which has the profile, or the start of the trace.
+
+      base.to | If a trace is performed this provides a stop asset. [optional]
+
+      toAdd | A list of assets/traces to add to the result base. Duplicates will
+      be ignored.
+
+      toAdd.from | The asset which has the profile, or the start of the trace.
+
+      toAdd.to | If a trace is performed this provides a stop asset. [optional]
+
+      toRemove | A list of assets/traces to remove from the result. Assets that
+      are not part of the result base (after additions) will be ignored.
+
+      toRemove.from | The asset which has the profile, or the start of the
+      trace.
+
+      toRemove.to | If a trace is performed this provides a stop asset.
+      [optional]
+    required: true

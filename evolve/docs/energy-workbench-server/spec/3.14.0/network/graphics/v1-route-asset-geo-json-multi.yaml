@@ -1,0 +1,29 @@
+post:
+  tags:
+    - Network Graphics v1
+  summary: Retrieve the GeoJSON representing a collection of assets.
+  description: >-
+    Used to retrieve the GeoJSON representing the collection of assets provided
+    in the request body.
+  operationId: assetGeoJsonMulti
+  parameters:
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-asset-geo-json.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: 'v1-schemas.yaml#/multiAssetIdsRequest'
+    description: |-
+      Payload containing a list of asset ids to search for.
+      Field | Description
+      - | -
+      assetIds | A list of asset ID's.
+    required: true

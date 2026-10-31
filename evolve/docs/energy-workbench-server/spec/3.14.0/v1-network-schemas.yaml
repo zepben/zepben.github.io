@@ -1,0 +1,25 @@
+errorResponse:
+  type: object
+  required:
+    - errors
+  properties:
+    errors:
+      $ref: '#/stringArray'
+stringArray:
+  type: array
+  items:
+    type: string
+doubleArray:
+  type: array
+  items:
+    $ref: '#/double'
+double:
+  type: number
+  format: double
+binary:
+    type: string
+    format: binary
+float:
+  type: number
+  format: float
+

@@ -1,0 +1,22 @@
+fromTimeParam:
+  name: fromTime
+  in: query
+  description: >-
+    The earliest time of day to look for a value when searching for a profile (hh:mm).
+  required: false
+  schema:
+    type: string
+    pattern: '^(?:[01][0-9]|2[0-3]):[0-5][0-9]$'
+    default: '00:00'
+    example: '12:15'
+toTimeParam:
+  in: query
+  name: toTime
+  description: >-
+    The latest time of day to look for a value when searching for a profile (hh:mm).
+  required: false
+  schema:
+    type: string
+    pattern: '^(?:[01][0-9]|2[0-3]):[0-5][0-9]$'
+    default: '23:59'
+    example: '16:45'

@@ -1,0 +1,121 @@
+assetIdParam:
+  in: path
+  name: assetId
+  description: The ID of the asset.
+  required: true
+  schema:
+    type: string
+    example: "ID12345TRANS"
+feederIdParam:
+  in: path
+  name: feederId
+  description: The ID of the feeder.
+  required: true
+  schema:
+    type: string
+    example : "FDR001"
+zoneIdParam:
+  in: path
+  name: zoneId
+  description: The ID of the zone.
+  required: true
+  schema:
+    type: string
+    example : "ZONE1"
+regionIdParam:
+  in: path
+  name: regionId
+  description: The ID of the region.
+  required: true
+  schema:
+    type: string
+    example : "SOMETS"
+byNameParam:
+  in: query
+  name: byName
+  description: Flag used to treat the ID as a name.
+  required: false
+  schema:
+    type: boolean
+    default: false
+assetTypeParam:
+  in: query
+  name: assetType
+  description: >
+    Filters assets by the specified type. When not specified, no filter is
+    applied.
+  schema:
+    $ref: 'v1-schemas.yaml#/assetType'
+networkStateParam:
+  in: query
+  name: state
+  description: Used to specify current or normal network state.
+  required: false
+  schema:
+    $ref: 'v1-schemas.yaml#/networkState'
+searchStringParam:
+  in: path
+  name: searchString
+  description: >-
+    The string to search for. Multiple words can be specified using
+    space as a separator. Each word will be used as a exact/partial match
+    giving results that match all words.
+  required: true
+  schema:
+    type: string
+    example: "search string"
+viewParam:
+  name: view
+  in: query
+  description: |
+    Filter the graphics by the specified view.
+  required: false
+  schema:
+    type: integer
+    example: 752
+normalZoneParam:
+  in: query
+  name: normalZone
+  description: Used to specify if the normal (true) or current (false) network state should be used.
+  required: false
+  schema:
+    type: boolean
+    default: true
+includeLengthParam:
+  in: query
+  name: includeLength
+  description: >-
+    Indicates if the length of conductors should be included in the response.
+
+        0: excluded (default)
+        1: included
+  required: false
+  schema:
+    type: integer
+    enum:
+      - 0
+      - 1
+    default: 0
+includeCableTypeParam:
+  in: query
+  name: includeCableType
+  description: >-
+    Indicates if the cable type of conductors should be included in the response.
+
+        0: excluded (default)
+        1: included
+  required: false
+  schema:
+    type: integer
+    enum:
+      - 0
+      - 1
+    default: 0
+locationIdParam:
+  in: path
+  name: locationId
+  description: The ID of the location.
+  required: true
+  schema:
+    type: string
+    example: "8c3b2d8a-1668-4e8b-a077-8d9656304bfc"

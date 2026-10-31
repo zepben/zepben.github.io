@@ -1,0 +1,42 @@
+limitParam:
+  name: limit
+  in: query
+  description: |
+    Indicates the number of profiles that should be returned.
+  required: false
+  schema:
+    type: integer
+    default: unlimited
+    minimum: 1
+    example: 5
+systemTagParam:
+  name: systemTag
+  in: query
+  description: >
+    Allows the changing of the system used to define the ID's in the
+    request.
+  required: false
+  schema:
+    type: string
+    default: EWB
+    example: GIS
+filterParam:
+  name: filter
+  in: query
+  description: >
+    Apply the specified filter to the response. See the <a href="/docs/api/filtering">filtering overview</a> for details.
+  required: false
+  schema:
+    type: string
+    default: no filter
+    example: feeders(assets(id,name),feeder)
+includeClassParam:
+  name: includeClass
+  in: query
+  description: >
+    Allows the search results to only match against the specified class/classes of identified objects.
+  required: false
+  schema:
+    type: string
+    default: ConductingEquipment
+    example: Pole

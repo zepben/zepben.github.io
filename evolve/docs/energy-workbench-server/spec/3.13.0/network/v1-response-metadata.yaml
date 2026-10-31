@@ -1,0 +1,13 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - application
+        - dataSources
+      properties:
+        application:
+          $ref: 'v1-schemas.yaml#/applicationInfo'
+        dataSources:
+          $ref: 'v1-schemas.yaml#/dataSourceArray'

@@ -1,0 +1,10 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - feeders
+      properties:
+        feeders:
+          $ref: 'v1-schemas.yaml#/feederAssetsItemArray'

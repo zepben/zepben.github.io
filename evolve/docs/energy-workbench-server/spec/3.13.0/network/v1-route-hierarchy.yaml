@@ -1,0 +1,13 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve the network hierarchy.
+  description: >-
+    Used to retrieve the network hierarchy of feeders, zones, regions and
+    businesses.
+  operationId: hierarchy
+  parameters:
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-hierarchy.yaml'

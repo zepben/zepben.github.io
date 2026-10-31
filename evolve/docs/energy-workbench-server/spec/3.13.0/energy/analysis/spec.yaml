@@ -1,0 +1,15 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/energy/analysis/api
+info:
+  version: 1.7.1
+  title: EWB Energy Analysis API
+  license:
+    name: Zeppelin Bend
+tags:
+  - name: Energy Analysis v1
+paths:
+  /v1/summary:
+    $ref: 'v1-route-summary.yaml'
+  /v1/ev/{chargingBlockKw}:
+    $ref: 'v1-route-ev.yaml'
