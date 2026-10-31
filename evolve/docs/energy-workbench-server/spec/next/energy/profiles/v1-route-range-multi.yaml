@@ -17,7 +17,6 @@ post:
   parameters:
     - $ref: 'v1-parameters.yaml#/systemTagParam'
     - $ref: 'v1-parameters.yaml#/filterParam'
-    - $ref: 'v1-parameters.yaml#/includeReadingsParam'
     - $ref: 'v1-parameters.yaml#/fromDateRequiredParam'
     - $ref: 'v1-parameters.yaml#/toDateRequiredParam'
     - $ref: 'v1-parameters.yaml#/aggregateParam'

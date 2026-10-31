@@ -17,7 +17,6 @@ get:
     - $ref: 'v1-parameters.yaml#/toAssetParam'
     - $ref: 'v1-parameters.yaml#/systemTagParam'
     - $ref: 'v1-parameters.yaml#/filterParam'
-    - $ref: 'v1-parameters.yaml#/includeReadingsParam'
     - $ref: 'v1-parameters.yaml#/scadaParam'
   responses:
     '200':
