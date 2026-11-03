@@ -1,0 +1,7 @@
+description: PERMANENT_REDIRECT
+content:
+  headers:
+    location:
+      schema:
+        type: string
+      description: Path to the new end point.

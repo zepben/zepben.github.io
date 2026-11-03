@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Network Trace v1
+  summary: Retrieve the assets that will be isolated if the specified assets are opened.
+  description: >-
+    Used to retrieve a list of assets that will be isolated if the specified isolation points are opened. The
+    order of the isolation steps is not taken into account and only the final network state is used. Any
+    intermediate steps that cause outages that extend beyond the final isolation area will not be included.
+  operationId: isolationTrace
+  parameters:
+    - $ref: '../v1-parameters.yaml#/networkStateParam'
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: 'v1-schemas.yaml#/isolationTraceRequest'
+  responses:
+    '200':
+      $ref: 'v1-response-isolated-assets.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'

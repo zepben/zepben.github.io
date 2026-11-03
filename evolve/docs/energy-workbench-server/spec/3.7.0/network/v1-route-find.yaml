@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve assets that match criteria.
+  description: >-
+    Used to retrieve all assets that match the search string, optionally
+    requiring graphics in the specified view.
+  operationId: find
+  parameters:
+    - $ref: 'v1-parameters.yaml#/searchStringParam'
+    - $ref: 'v1-parameters.yaml#/viewParam'
+    - $ref: '../v1-network-parameters.yaml#/limitParam'
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+    - $ref: '../v1-network-parameters.yaml#/includeClassParam'
+  responses:
+    '200':
+      $ref: 'v1-response-find.yaml'

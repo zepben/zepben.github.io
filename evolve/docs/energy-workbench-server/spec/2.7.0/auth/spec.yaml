@@ -1,0 +1,33 @@
+## NOTE - If this spec is updated, remember to update the projects making using of the routes in the lib
+openapi: 3.0.0
+servers:
+  - url: /ewb/auth
+info:
+  version: 0.3.0
+  title: EWB Auth Config API
+  license:
+    name: Zeppelin Bend
+paths:
+  /config:
+    get:
+      tags:
+        - Auth Config
+      summary: Retrieve the auth config
+      description: >-
+        Used to retrieve auth related config for use by clients
+      operationId: authConfig
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  authType:
+                    type: string
+                  issuer:
+                    type: string
+                  audience:
+                    type: string
+

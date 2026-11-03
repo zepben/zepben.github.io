@@ -1,0 +1,30 @@
+post:
+  tags:
+    - Network Graphics v1
+  summary: Retrieve the graphics for assets.
+  description: >-
+    Used to retrieve the graphics for multiple assets. If the optional view
+    parameter is used only the graphics from that view will be returned
+  operationId: assetGraphicsMulti
+  parameters:
+    - $ref: '../../v1-network-parameters.yaml#/systemTagParam'
+    - $ref: '../../v1-network-parameters.yaml#/filterParam'
+    - $ref: '../v1-parameters.yaml#/viewParam'
+  responses:
+    '200':
+      $ref: 'v1-response-asset-graphics.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../../v1-network-response-not-found.yaml'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: 'v1-schemas.yaml#/multiAssetRequest'
+    description: |-
+      Payload containing a list of assets to search for.
+      Field | Description
+      - | -
+      assets | A list of asset ID's.
+    required: true
