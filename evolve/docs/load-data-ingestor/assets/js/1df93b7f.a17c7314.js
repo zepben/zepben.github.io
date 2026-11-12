@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkload_data_ingestor=self.webpackChunkload_data_ingestor||[]).push([["452"],{5146(a,e,s){s.r(e),s.d(e,{default:()=>r});var t=s(4848);s(6540);var d=s(2129),l=s(8978);let r=()=>(0,t.jsx)(d.A,{children:(0,t.jsx)(l.A,{})})}}]);
