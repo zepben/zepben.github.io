@@ -1,8 +1,0 @@
-components:
-  securitySchemes:
-    Auth0:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: "https://zepben.au.auth0.com/authorize"
-          tokenUrl: "https://zepben.au.auth0.com/token"
