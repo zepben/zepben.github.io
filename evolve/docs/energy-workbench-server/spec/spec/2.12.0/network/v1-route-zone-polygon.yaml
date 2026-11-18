@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Network v1
+  summary: Retrieve the polygon that surrounds the zone.
+  description: >-
+    Used to retrieve the smallest polygon that contains all of the assets under
+    the zone in its normal or current state.
+  operationId: zonePolygon
+  parameters:
+    - $ref: 'v1-parameters.yaml#/zoneIdParam'
+    - $ref: 'v1-parameters.yaml#/normalZoneParam'
+    - $ref: '../v1-network-parameters.yaml#/filterParam'
+  responses:
+    '200':
+      $ref: 'v1-response-zone-polygon.yaml'
+    '400':
+      $ref: '../v1-network-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-network-response-not-found.yaml'

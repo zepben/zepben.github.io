@@ -1,0 +1,23 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/weather/api
+info:
+  version: 1.7.1
+  title: EWB Weather API
+  license:
+    name: Zeppelin Bend
+tags:
+  - name:  Weather v1
+paths:
+  /v1/readings/{weatherStation}/from-date/{fromDate}/to-date/{toDate}:
+    $ref: 'v1-route-readings.yaml'
+  /v1/stats/{weatherStation}/from-date/{fromDate}/to-date/{toDate}:
+    $ref: 'v1-route-stats.yaml'
+  /v1/stations:
+    $ref: 'v1-route-stations.yaml'
+  /v1/stations/{id}:
+    $ref: 'v1-route-station.yaml'
+  /v1/find-nearest-station/lon/{lon}/lat{lat}:
+    $ref: 'v1-route-find-nearest-station.yaml'
+  /v1/find-nearest-station:
+    $ref: 'v1-route-find-nearest-station-body.yaml'

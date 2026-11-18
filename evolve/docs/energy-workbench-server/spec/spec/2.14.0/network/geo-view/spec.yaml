@@ -1,0 +1,13 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/prototype/diagram/geo-view/api
+info:
+  version: 1.7.1
+  title: EWB geo-view API
+  license:
+    name: Zeppelin Bend
+tags:
+  - name: Geo-view v1
+paths:
+  '/v1/lat-lon/{assetId}':
+    $ref: 'v1-route-lat-lon-by-id.yaml'

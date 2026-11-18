@@ -12,6 +12,7 @@ get:
     - $ref: '../v1-network-parameters.yaml#/limitParam'
     - $ref: '../v1-network-parameters.yaml#/filterParam'
     - $ref: '../v1-network-parameters.yaml#/includeClassParam'
+    - $ref: '../v1-network-parameters.yaml#/inEquipmentContainerClassParam'
   responses:
     '200':
       $ref: 'v1-response-find.yaml'

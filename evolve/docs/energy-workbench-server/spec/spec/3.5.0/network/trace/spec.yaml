@@ -1,0 +1,17 @@
+openapi: 3.0.0
+servers:
+  - url: /ewb/network/trace/api
+info:
+  version: 1.8.0
+  title: EWB Network Trace API
+  license:
+    name: Zeppelin Bend
+tags:
+  - name: Network Trace v1
+paths:
+  '/v1/downstream/tree/{assetId}':
+    $ref: 'v1-route-downstream-tree-trace.yaml'
+  '/v1/isolation':
+    $ref: 'v1-route-isolation-trace.yaml'
+  '/v1/upstream/asset/{assetId}':
+    $ref: 'v1-route-upstream-asset-trace.yaml'

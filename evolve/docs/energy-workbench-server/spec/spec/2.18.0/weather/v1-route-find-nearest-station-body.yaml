@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Weather v1
+  summary: Retrieve the nearest stations.
+  description: >-
+    Used to retrieve a list of stations that are nearest to the specified points. Each points
+    in the request will have a station in the response.
+  operationId: findNearestStationBody
+  parameters:
+    - $ref: '../v1-parameters.yaml#/limitParam'
+  requestBody:
+    description: >-
+      Co-ordinates is a list of Lat/Longs passed as an array
+      with the longitude first, the latitude second and an
+      optional elevation third.
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - coordinates
+          properties:
+            coordinates:
+              $ref: 'v1-schemas.yaml#/coordinatesArray'
+  responses:
+    '200':
+      $ref: 'v1-response-weather-stations.yaml'
+    '400':
+      $ref: '../v1-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-response-not-found.yaml'

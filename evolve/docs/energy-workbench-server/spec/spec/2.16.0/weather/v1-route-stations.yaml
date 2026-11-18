@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Weather v1
+  summary: Retrieve all of the weather stations.
+  description: >-
+    Used to retrieve the details of all weather stations.
+  operationId: weatherStations
+  responses:
+    '200':
+      $ref: 'v1-response-weather-stations.yaml'

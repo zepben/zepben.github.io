@@ -1,0 +1,18 @@
+get:
+  tags:
+    - Weather v1
+  summary: Retrieve the weather readings for a station.
+  description: >-
+    Used to retrieve the weather readings for a weather station between the specified dates.
+  operationId: weatherReadings
+  parameters:
+    - $ref: 'v1-parameters.yaml#/weatherStationParam'
+    - $ref: '../v1-parameters.yaml#/fromDatePathParam'
+    - $ref: '../v1-parameters.yaml#/toDatePathParam'
+  responses:
+    '200':
+      $ref: 'v1-response-weather-readings.yaml'
+    '400':
+      $ref: '../v1-response-bad-request.yaml'
+    '404':
+      $ref: '../v1-response-not-found.yaml'

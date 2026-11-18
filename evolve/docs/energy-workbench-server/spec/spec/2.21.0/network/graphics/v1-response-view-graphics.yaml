@@ -1,0 +1,10 @@
+description: OK
+content:
+  'application/json':
+    schema:
+      type: object
+      required:
+        - graphics
+      properties:
+        graphics:
+          $ref: 'v1-schemas.yaml#/assetGraphicsArray'

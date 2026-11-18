@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Network Graphics v1
+  summary: Retrieve the geographic entries for the specified Mapbox tile.
+  description: >-
+    Used to retrieve the geographic entries for all assets in the specified
+    Mapbox tile. The z parameter controls the zoom level.
+    
+    
+    The response is formatted as a Mapbox vector tile.
+  operationId: mvtGeoView
+  parameters:
+    - $ref: 'v1-parameters.yaml#/z'
+    - $ref: 'v1-parameters.yaml#/x'
+    - $ref: 'v1-parameters.yaml#/y'
+  responses:
+    '200':
+      $ref: 'v1-response-mvt.yaml'
+    '400':
+      $ref: '../../v1-network-response-bad-request.yaml'

@@ -40,3 +40,13 @@ includeClassParam:
     type: string
     default: ConductingEquipment
     example: Pole
+inEquipmentContainerClassParam:
+  name: inEquipmentContainerClass
+  in: query
+  description: >
+    Allows the search results to only match identified objects that belong to an equipment container of the specified class/classes.
+  required: false
+  schema:
+    type: string
+    default: no filter
+    example: Feeder
